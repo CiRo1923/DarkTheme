@@ -1,0 +1,170 @@
+<%
+  const TITLENAME = 'Dark Theme';
+  const TITLE = htmlWebpackPlugin.options.title !== 'Webpack App' ? htmlWebpackPlugin.options.title : TITLENAME;
+  const COPYRIGHT = 'Copyright © Company.com. All rights resvrved.';
+  const fileName = /(.*)(?=\.html$)/.exec(htmlWebpackPlugin.options.filename)[1];
+  const ACTIONS = htmlWebpackPlugin.options.action.split('-');
+  const navs = [{
+    name: 'Home',
+    icon: 'home',
+    href: 'index.html',
+    value: 'home'
+  }, {
+    name: 'Sports',
+    href: 'sports.html',
+    value: 'sports'
+  }, {
+    name: 'Virtual Sports',
+    href: 'virtualSports.html',
+    value: 'virtualSports'
+  }, {
+    name: 'Live Casion',
+    href: 'liveCasion.html',
+    value: 'liveCasion'
+  }, {
+    name: 'Games',
+    href: 'games.html',
+    value: 'games'
+  }, {
+    name: 'Promotions',
+    href: 'promotions.html',
+    value: 'promotions'
+  }];
+  const urlFuns = {
+    name: (channel, subChannel, lastChannel) => {
+      let NAME = null;
+
+      navs.forEach(nav => {
+        if (nav.value === channel) {
+          if (!subChannel) {
+            NAME = nav.name;
+          } else {
+            nav.subNavs.forEach(subNav => {
+              if (subNav.value === subChannel) {
+                if (!lastChannel) {
+                  NAME = subNav.name;
+                } else {
+                  subNav.lastNavs.forEach(lastNav => {
+                    if (lastNav.value === lastChannel) {
+                      NAME = lastNav.name;
+                    }
+                  });
+                }
+              }
+            });
+          }
+        }
+      });
+
+      return NAME;
+    },
+    page: (channel, subChannel, lastChannel) => {
+      let URL = null;
+
+      navs.forEach(nav => {
+        if (nav.value === channel) {
+          if (!subChannel) {
+            URL = nav.href;
+          } else {
+            nav.subNavs.forEach(subNav => {
+              if (subNav.value === subChannel) {
+                if (!lastChannel) {
+                  URL = subNav.href;
+                } else {
+                  subNav.lastNavs.forEach(lastNav => {
+                    if (lastNav.value === lastChannel) {
+                      URL = lastNav.href;
+                    }
+                  });
+                }
+              }
+            });
+          }
+        }
+      });
+
+      return URL;
+    }
+  };
+  const reqFile = require('../'+ fileName +'.ejs')({
+    htmlWebpackPlugin : htmlWebpackPlugin,
+    urlFuns: urlFuns
+  });
+-%>
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="timestamp">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+    <meta property="og:title" content="<%- TITLE %>">
+    <meta property="og:description" name="description" content="<%- htmlWebpackPlugin.options.description ? htmlWebpackPlugin.options.description : '' %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%- process.env.APP_ENV === 'bulid' ? '/' : 'https://f2e.sugarfun.com.tw/Transglobe/Consultant/' %>">
+    <meta property="og:image" content="<%- `${process.env.APP_ENV === 'bulid' ? '/' : 'https://f2e.sugarfun.com.tw/Transglobe/Consultant/'}static/img/fb.png` %>">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="<%- TITLE %>">
+    <title><%- TITLE %></title>
+    <link rel="shortcut icon" type="image/x-icon" href="<%- `${process.env.APP_ENV === 'bulid' ? '/' : ''}static/img/favicon.ico` %>">
+    <link rel="canonical" href="">
+  </head>
+  <body class="bg-x001e text-xf">
+    <div class="lWrap jWrap">
+      <header class="lHd">
+        <h1 class="sr-only"><%- TITLE %></h1>
+        <div class="mHd">
+          <% if( !/^mobile/.test(fileName) ) { -%>
+            <nav class="mNav relative">
+              <ul class="mNavMenu flex">
+                <% for(let i = 0; i < navs.length; i += 1) { -%>
+                  <% const { name, icon, href, value, gaLabel, subNavs } = navs[i]; -%>
+                  <li class="mNavItem<%- htmlWebpackPlugin.options.action === value ? ' pt:text-x07b6 m:text-x133a' : '' %> jNavItem">
+                    <a href="<%- href ? href : subNavs[0].href %>">
+                      <% if ( icon ) { -%>
+                        <%- require('component/svg.ejs')({
+                          svgName: icon
+                        }) %>
+                        <% } else { -%>
+                          <b><%- name %></b>    
+                        <% } -%>
+                    </a>
+                  </li>
+                <% } -%>
+              </ul>
+              <i class="mNavBar absolute jNavBar"></i>
+            </nav>
+            <div class="mHdTools">
+
+            </div>  
+          <% } -%>
+        </div>
+      </header>
+      <main class="lM">
+        <div class="lCnt">
+          <%- reqFile %>
+        </div>
+      </main>
+      <% if( !/^mobile/.test(fileName) ) { -%>
+        <footer class="lFt pt:pb-16 m:pb-14 text-center">
+          <small class="text-12 opacity-50 block"><%- COPYRIGHT %></small>
+        </footer>
+      <% } -%>
+    </div>
+    <% if( !/^mobile/.test(fileName) ) { -%>
+      <%- require('container/mNSup.ejs')({
+        cRight: COPYRIGHT,
+        ieVersion: process.env.IE_VERSION
+      }) %>
+    <% } -%>
+  </body>
+</html>
