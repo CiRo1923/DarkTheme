@@ -6,7 +6,7 @@ module.exports = {
   desktopMinWidth: 1440,
   mobileMaxWidth: 740,
   basicMobileWidth: 360,
-  copyStatic: false,
+  copyStatic: true,
   docker: false,
   https: true,
   rootDirectory: 'auto',
@@ -16,7 +16,7 @@ module.exports = {
   css: 'assets/css/',
   imgs: 'assets/img/',
   svgs: '_svg/',
-  fonts: 'static',
+  fonts: 'static/fonts/',
   plugins: () => {
     const def = [];
     let publish = def.concat(

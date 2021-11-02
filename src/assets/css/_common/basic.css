@@ -1,8 +1,9 @@
-/* :root {
-  --mobile-header-height: 60px;
+:root {
   --anim-time: 0.3s;
 }
 
-[v-cloak] {
-  display: none;
-} */
+.max-cnt {
+  width: 1280px;
+
+  @apply mx-auto;
+}

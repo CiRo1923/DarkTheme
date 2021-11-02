@@ -1,3 +1,3 @@
-import 'css/index.css';
+import 'css/home/index.css';
 
 import '_common.js';

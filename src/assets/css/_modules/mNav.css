@@ -1,6 +1,25 @@
-.mNavItem {
-  svg {
-    width: 24px;
+.m-nav-item {
+  transition: color var(--anim-time);
+
+  > a {
     height: 24px;
   }
+
+  &.active {
+    @apply text-xfb2e;
+
+    > a {
+      &::before {
+        content: "";
+        height: 4px;
+
+        @apply bottom-0 left-0 w-full bg-xfb2e absolute;
+      }
+    }
+  }
+}
+
+.m-nav-svg {
+  width: 24px;
+  height: 24px;
 }

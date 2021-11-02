@@ -1,0 +1,5 @@
+.m-btn {
+  transition: background-color var(--anim-time);
+
+  @apply px-8 py-6 block rounded-16;
+}

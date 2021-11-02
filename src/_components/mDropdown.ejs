@@ -1,0 +1,52 @@
+<div class="m-dropdown relative jDrop">
+  <div class="m-dropdown-hd">
+    <button type="button" class="m-dropdown-ctrl flex items-center jDropCtrl">
+      <% if ( typeof ctrlText !== 'undefined' ) { -%>
+        <b class="flex-grow"><%- ctrlText %></b>
+      <% } else if ( typeof ctrlImg !== 'undefined' ) { -%>
+        <%- require('component/img.ejs')({
+          style: {
+            main: 'm-dropdown-fig rounded-24 overflow-hidden'
+          },
+          path: ctrlImg.path,
+          alt: ctrlImg.alt
+        }) %>
+      <% } -%>
+    </button>
+  </div>
+  <div class="m-dropdown-bd right-0 overflow-hidden absolute jDropBd">
+    <div class="m-dropdown-cnt mt-10 bg-x3368 rounded-6 relative">
+      <% for( let i = 0; i < options.length; i += 1 ) { -%>
+        <ul class="py-8 relative">
+          <% for( let j = 0; j < options[i].length; j += 1 ) { -%>
+            <%
+              const { name, href, data } = options[i][j];
+              let dataAttr = null;
+  
+              if ( data ) {
+                Object.keys(data).forEach((value) => {
+                  if ( !dataAttr ) {
+                    dataAttr = `data-${data.value}=${value}`;
+                  } else {
+                    dataAttr = `${dataAttr} data-${data.value}=${value}`;
+                  }
+                });
+              }
+            -%>
+            <li class="m-dropdown-item">
+              <% if ( href ) { %>
+                <a href="<%- href %>"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 block hover:bg-x88a1">
+                  <em class="not-italic"><%- name %></em>
+                </a>
+              <% } else { -%>
+                <button type="button"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 w-full text-left block hover:bg-x88a1">
+                  <em class="not-italic"><%- name %></em>
+                </button>
+              <% } -%>
+            </li>
+          <% } -%>
+        </ul>
+      <% } -%>
+    </div>
+  </div>
+</div>

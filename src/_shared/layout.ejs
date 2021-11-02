@@ -3,32 +3,82 @@
   const TITLE = htmlWebpackPlugin.options.title !== 'Webpack App' ? htmlWebpackPlugin.options.title : TITLENAME;
   const COPYRIGHT = 'Copyright © Company.com. All rights resvrved.';
   const fileName = /(.*)(?=\.html$)/.exec(htmlWebpackPlugin.options.filename)[1];
-  const ACTIONS = htmlWebpackPlugin.options.action.split('-');
+  const isMobile = /^mobile/.test(fileName);
   const navs = [{
     name: 'Home',
     icon: 'home',
     href: 'index.html',
-    value: 'home'
+    value: 'home',
+    group: 'nav'
   }, {
     name: 'Sports',
     href: 'sports.html',
-    value: 'sports'
+    value: 'sports',
+    group: 'nav'
   }, {
     name: 'Virtual Sports',
     href: 'virtualSports.html',
-    value: 'virtualSports'
+    value: 'virtualSports',
+    group: 'nav'
   }, {
     name: 'Live Casion',
     href: 'liveCasion.html',
-    value: 'liveCasion'
+    value: 'liveCasion',
+    group: 'nav'
   }, {
     name: 'Games',
     href: 'games.html',
-    value: 'games'
+    value: 'games',
+    group: 'nav'
   }, {
     name: 'Promotions',
     href: 'promotions.html',
-    value: 'promotions'
+    value: 'promotions',
+    group: 'nav'
+  }, {
+    name: 'Login',
+    href: 'singIn.html',
+    value: 'login',
+    group: 'navTools'
+  }, {
+    name: 'Sign Up',
+    href: 'register.html',
+    value: 'register',
+    group: 'navTools'
+  }, {
+    name: 'Account',
+    value: 'account',
+    subNavs: [{
+      name: 'Profile',
+      href: 'profile.html',
+      value: 'profile',
+    }, {
+      name: 'My Bets',
+      href: 'bets.html',
+      value: 'bets',
+    }, {
+      name: 'Transaction History',
+      href: 'history.html',
+      value: 'history',
+    }, {
+      name: 'Statement',
+      href: 'statement.html',
+      value: 'statement',
+    }, {
+      name: 'My Promotion',
+      href: 'promotion.html',
+      value: 'promotion',
+    }, {
+      name: 'Referral',
+      href: 'referral.html',
+      value: 'referral',
+    }],
+    group: 'navTools'
+  }, {
+    name: 'Deposit',
+    href: 'deposit.html',
+    value: 'deposit',
+    group: 'navTools'
   }];
   const urlFuns = {
     name: (channel, subChannel, lastChannel) => {
@@ -119,48 +169,153 @@
     <link rel="canonical" href="">
   </head>
   <body class="bg-x001e text-xf">
-    <div class="lWrap jWrap">
-      <header class="lHd">
+    <div class="l-wrap text-14 jWrap">
+      <header class="l-hd">
         <h1 class="sr-only"><%- TITLE %></h1>
-        <div class="mHd">
-          <% if( !/^mobile/.test(fileName) ) { -%>
-            <nav class="mNav relative">
-              <ul class="mNavMenu flex">
+        <% if( !isMobile ) { -%>
+          <div class="m-hd flex items-center max-cnt">
+            <div class="m-hd-logo mr-32 flex-shrink-0"></div>
+            <nav class="m-nav flex-grow overflow-hidden relative jNav">
+              <ul class="m-nav-menu space-x-12 flex items-center">
                 <% for(let i = 0; i < navs.length; i += 1) { -%>
-                  <% const { name, icon, href, value, gaLabel, subNavs } = navs[i]; -%>
-                  <li class="mNavItem<%- htmlWebpackPlugin.options.action === value ? ' pt:text-x07b6 m:text-x133a' : '' %> jNavItem">
-                    <a href="<%- href ? href : subNavs[0].href %>">
-                      <% if ( icon ) { -%>
-                        <%- require('component/svg.ejs')({
-                          svgName: icon
-                        }) %>
+                  <% const { name, icon, href, value, group } = navs[i]; -%>
+                  <% if ( group === 'nav' ) { -%>
+                    <li class="m-nav-item<%- htmlWebpackPlugin.options.action === value ? ' active' : '' %> text-x88a1 hover:text-xfb2e jNavItem">
+                      <a href="<%- href ? href : subNavs[0].href %>" class="py-20 box-content flex flex-col justify-center relative">
+                        <% if ( icon ) { -%>
+                          <%- require('component/svg.ejs')({
+                            style: {
+                              main: 'm-nav-svg'
+                            },
+                            svgName: icon
+                          }) %>
                         <% } else { -%>
-                          <b><%- name %></b>    
+                          <strong><%- name %></strong>
                         <% } -%>
-                    </a>
-                  </li>
+                      </a>
+                    </li>
+                  <% } -%>
                 <% } -%>
               </ul>
-              <i class="mNavBar absolute jNavBar"></i>
             </nav>
-            <div class="mHdTools">
-
+            <div class="m-hd-tools flex-shrink-0">
+              <!-- 尚未登入 -->
+              <!-- <ul class="flex items-center space-x-16">
+                <li>
+                  <%- require('component/mDropdown.ejs')({
+                    ctrlImg: {
+                      path: require('common/lang-english.svg'),
+                      alt: 'English'
+                    },
+                    options: [[{
+                      name: 'English'
+                    }, {
+                      name: '简体中文'
+                    }, {
+                      name: 'Indonesia'
+                    }, {
+                      name: '한국어'
+                    }, {
+                      name: 'Bahasa Melayu'
+                    }, {
+                      name: '日本語'
+                    }]]
+                  }) %>
+                </li>
+                <li>
+                  <a href="<%- urlFuns.page('login') %>">
+                    <b><%- urlFuns.name('login') %></b>
+                  </a>
+                </li>
+                <li>
+                  <a href="<%- urlFuns.page('register') %>" class="m-btn bg-x3c6e">
+                    <b class="px-2 inline-block"><%- urlFuns.name('register') %></b>
+                  </a>
+                </li>
+              </ul> -->
+              <!-- 已登入 -->
+              <ul class="flex items-center space-x-16">
+                <li>
+                  <%- require('component/mDropdown.ejs')({
+                    ctrlImg: {
+                      path: require('common/lang-english.svg'),
+                      alt: 'English'
+                    },
+                    options: [[{
+                      name: 'English'
+                    }, {
+                      name: '简体中文'
+                    }, {
+                      name: 'Indonesia'
+                    }, {
+                      name: '한국어'
+                    }, {
+                      name: 'Bahasa Melayu'
+                    }, {
+                      name: '日本語'
+                    }]]
+                  }) %>
+                </li>
+                <li>
+                  <%- require('component/mDropdown.ejs')({
+                    ctrlText: 'evonne3301',
+                    options: [[{
+                      name: urlFuns.name('account', 'profile'),
+                      href: urlFuns.page('account', 'profile')
+                    }, {
+                      name: urlFuns.name('account', 'bets'),
+                      href: urlFuns.page('account', 'bets')
+                    }, {
+                      name: urlFuns.name('account', 'history'),
+                      href: urlFuns.page('account', 'history')
+                    }, {
+                      name: urlFuns.name('account', 'statement'),
+                      href: urlFuns.page('account', 'statement')
+                    }, {
+                      name: urlFuns.name('account', 'promotion'),
+                      href: urlFuns.page('account', 'promotion')
+                    }, {
+                      name: urlFuns.name('account', 'referral'),
+                      href: urlFuns.page('account', 'referral')
+                    }], [{
+                      name: 'Sign Out'
+                    }]]
+                  }) %>
+                </li>
+                <li class="flex items-center">
+                  <p class="mr-4"><b>TMP 1,099.78</b></p>
+                  <button type="button" class="text-x88a1">
+                    <%- require('component/svg.ejs')({
+                      style: {
+                        main: 'm-hd-svg'
+                      },
+                      svgName: 'refresh'
+                    }) %>
+                  </button>
+                </li>
+                <li>
+                  <a href="<%- urlFuns.page('deposit') %>" class="m-btn bg-x3c6e hover:bg-x1956">
+                    <b class="px-2 inline-block"><%- urlFuns.name('deposit') %></b>
+                  </a>
+                </li>
+              </ul>
             </div>  
-          <% } -%>
-        </div>
+          </div>
+          <div class="m-notice"></div>
+        <% } -%>
       </header>
-      <main class="lM">
-        <div class="lCnt">
+      <main class="l-main">
+        <div class="l-cnt">
           <%- reqFile %>
         </div>
       </main>
-      <% if( !/^mobile/.test(fileName) ) { -%>
-        <footer class="lFt pt:pb-16 m:pb-14 text-center">
+      <% if( !isMobile ) { -%>
+        <footer class="l-ft pt:pb-16 m:pb-14 text-center">
           <small class="text-12 opacity-50 block"><%- COPYRIGHT %></small>
         </footer>
       <% } -%>
     </div>
-    <% if( !/^mobile/.test(fileName) ) { -%>
+    <% if( !isMobile ) { -%>
       <%- require('container/mNSup.ejs')({
         cRight: COPYRIGHT,
         ieVersion: process.env.IE_VERSION

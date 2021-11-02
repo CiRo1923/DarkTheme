@@ -27,29 +27,32 @@ const defaultFontSize = {
   13: '13px' /* use not-support */
 };
 
-const bgOpacity = () => {
+const bgOpacity = (obj) => {
   let bgOpacityData = {};
 
   for (let i = 0; i < 95; i += 5) {
     const opacity = (i / 100);
 
-    Object.keys(colors).forEach(key => {
-      bgOpacityData[`${key}-${i}`] = `rgba(${colors[key]}, ${opacity})`;
+    Object.keys(obj).forEach(key => {
+      bgOpacityData[`${key}-${i}`] = `rgba(${obj[key]}, ${opacity})`;
     });
   }
 
   return bgOpacityData;
 };
 
+const basicColor = {
+  xf: '#fff', /* use default */
+  x0: '#000', /* use default */
+  x9: '#999', /* use not-support */
+  x45: '#454545', /* use not-support */
+  x76: '#767676' /* use not-support */
+};
+
 const defaultColors = {
-  ...{
-    xf: '#fff', /* use default */
-    x0: '#000', /* use default */
-    x9: '#999', /* use not-support */
-    x45: '#454545', /* use not-support */
-    x76: '#767676' /* use not-support */
-  },
-  ...bgOpacity()
+  ...basicColor,
+  ...bgOpacity(basicColor),
+  ...bgOpacity(colors)
 };
 
 const defaultOpacity = {

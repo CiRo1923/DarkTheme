@@ -1,9 +1,9 @@
 // 自定義 spacing、negative、borderRadius 的時候需開啟 setData
 // const { setData } = require('./tailwind.function.js');
 
-const fontFamily = null;
+const fontFamily = 'roboto, "微軟正黑體", "Microsoft JhengHei", "Heiti TC", "黑體", sans-serif';
 
-const lineHeight = null;
+const lineHeight = 1.14;
 
 const spacing = {};
 
@@ -21,6 +21,7 @@ const zIndex = {
 };
 
 const fontSize = {
+  36: '36px',
   24: '24px',
   20: '20px',
   16: '16px',
@@ -32,9 +33,13 @@ const colors = {
   x001e: '#05071e',
   x0030: '#0b0e30',
   x1241: '#1f2141',
-  x3c6e: '#31c46e',
+  x3368: '#393c68',
   x88a1: '#8486a1',
-  xfb2e: '#ffbd2e'
+  x65cb: '#6b52cb',
+  x1956: '#1f9956',
+  x3c6e: '#31c46e',
+  xfb2e: '#ffbd2e',
+  xf25c: '#ff265c'
 };
 
 module.exports = {

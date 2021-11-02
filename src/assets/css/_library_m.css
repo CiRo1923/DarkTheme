@@ -6,15 +6,13 @@
 /* common */
 @import "_common/font";
 @import "_common/framework";
-@import "_common/basic";
-@import "_common/layout";
+@import "_common/basic_m";
+@import "_common/layout_m";
 
 /* modules */
 
-@import "_modules/mHd";
-@import "_modules/mNav";
-@import "_modules/mBtn";
-@import "_modules/mDropdown";
+/* @import "_modules/mHd"; */
+
+/* @import "_modules/mNav"; */
 
 /* @import "_modules/mFt"; */
-@import "_modules/nSup";
