@@ -8,18 +8,19 @@
   }
 }
 
-.m-dropdown-fig {
-  width: 24px;
-  height: 24px;
-}
-
 .m-dropdown-bd {
   transition: max-height var(--anim-time);
   transform: translateX(15px);
 }
 
 .m-dropdown {
-  &:not(.active) {
+  /* &:not(.active) {
+    .m-dropdown-bd {
+      max-height: 0 !important;
+    }
+  } */
+
+  &:not(:hover) {
     .m-dropdown-bd {
       max-height: 0 !important;
     }
@@ -48,7 +49,7 @@
         height: 1px;
         transform: translateX(-50%);
 
-        @apply top-0 left-1/2 absolute bg-xf-15;
+        @apply top-0 left-1/2 bg-xf-15 absolute;
       }
     }
   }

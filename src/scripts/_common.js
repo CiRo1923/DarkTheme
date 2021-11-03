@@ -27,6 +27,7 @@ export const documentOff = (element, func) => {
         return path;
       }
 
+      // eslint-disable-next-line no-param-reassign
       el = el.parentElement;
     }
 
@@ -85,16 +86,34 @@ export const dropdown = () => {
     $dropBd.css('max-height', height);
   }
 
-  $dropCtrl.on('click', (e) => {
+  // $dropCtrl.on('click', (e) => {
+  //   const $this = j$(e.$this);
+  //   const $drop = $this.parents(dropClass.main);
+
+  //   // j$(dropClass.main).removeClass('active');
+  //   $drop.toggleClass('active');
+
+  //   documentOff(`${dropClass.main} > *`, () => {
+  //     j$(dropClass.main).removeClass('active');
+  //   });
+  // });
+};
+
+const langChange = () => {
+  const dropClass = {
+    main: '.jDropLang',
+    ctrl: '.jDropCtrl',
+    option: '.jDropOption'
+  };
+
+  const $dropOption = j$(`${dropClass.main} ${dropClass.option}`);
+
+  $dropOption.on('click', (e) => {
     const $this = j$(e.$this);
-    const $drop = $this.parents(dropClass.main);
+    const $dropImg = $this.parents(dropClass.main).find(`${dropClass.ctrl} img`);
 
+    $dropImg.attr('src', $this.data('flag'));
     j$(dropClass.main).removeClass('active');
-    $drop.toggleClass('active');
-
-    documentOff(`${dropClass.main} > *`, () => {
-      j$(dropClass.main).removeClass('active');
-    });
   });
 };
 
@@ -104,4 +123,5 @@ prjs.$d.on('ready', () => {
 
 prjs.$w.on('load', () => {
   dropdown();
+  langChange();
 });

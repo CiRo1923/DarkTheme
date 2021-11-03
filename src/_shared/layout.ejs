@@ -170,22 +170,30 @@
   </head>
   <body class="bg-x001e text-xf">
     <div class="l-wrap text-14 jWrap">
-      <header class="l-hd">
+      <header class="l-hd relative">
         <h1 class="sr-only"><%- TITLE %></h1>
         <% if( !isMobile ) { -%>
           <div class="m-hd flex items-center max-cnt">
-            <div class="m-hd-logo mr-32 flex-shrink-0"></div>
-            <nav class="m-nav flex-grow overflow-hidden relative jNav">
-              <ul class="m-nav-menu space-x-12 flex items-center">
+            <div class="m-hd-logo mr-32 flex-shrink-0">
+              <%- require('component/img.ejs')({
+                style: {
+                  main: 'm-hd-logo-fig w-full h-full'
+                },
+                path: require('common/logo.svg'),
+                alt: TITLE
+              }) %>
+            </div>
+            <nav class="m-nav flex-grow overflow-hidden jNav">
+              <ul class="m-nav-menu -mx-12 flex items-center">
                 <% for(let i = 0; i < navs.length; i += 1) { -%>
                   <% const { name, icon, href, value, group } = navs[i]; -%>
                   <% if ( group === 'nav' ) { -%>
-                    <li class="m-nav-item<%- htmlWebpackPlugin.options.action === value ? ' active' : '' %> text-x88a1 hover:text-xfb2e jNavItem">
-                      <a href="<%- href ? href : subNavs[0].href %>" class="py-20 box-content flex flex-col justify-center relative">
+                    <li class="m-nav-item<%- htmlWebpackPlugin.options.action === value ? ' active' : '' %> px-12 text-x88a1 hover:text-xfb2e jNavItem">
+                      <a href="<%- href ? href : subNavs[0].href %>" class="py-20 h-24 box-content flex flex-col justify-center relative">
                         <% if ( icon ) { -%>
                           <%- require('component/svg.ejs')({
                             style: {
-                              main: 'm-nav-svg'
+                              main: 'm-nav-svg w-24 h-24'
                             },
                             svgName: icon
                           }) %>
@@ -193,6 +201,36 @@
                           <strong><%- name %></strong>
                         <% } -%>
                       </a>
+                      <% if ( value !== 'home' ) { -%>
+                        <div class="m-nav-sub left-0 w-screen bg-x3368 overflow-hidden absolute z-1">
+                          <ul class="-mx-8 py-32 max-cnt flex items-center">
+                            <%
+                              const navSub = [{
+                                img: 'https://i.pinimg.com/originals/57/8b/b5/578bb58151c729e3195b738b0d121169.jpg'
+                              }, {
+                                img: 'https://www.sbobet88mobile.biz/wp-content/uploads/2018/05/agen-338a-terpercaya-img.jpg'
+                              }, {
+                                img: 'https://howto-sbobet.com/wp-content/uploads/2017/05/Cover-SicBo.jpg'
+                              }];
+                            -%>
+                            <% for( let j = 0; j < navSub.length; j += 1 ) { -%>
+                              <% const { img } = navSub[j]; -%>
+                              <li class="m-nav-sub-item px-8 w-2/12">
+                                <a href="javascript:;" class="block w-full h-full text-center rounded-8 overflow-hidden border-1 border-solid border-x88a1 hover:border-xfb2e" target="_balnk" rel="noopener">
+                                  <%- require('component/img.ejs')({
+                                    style: {
+                                      main: 'left-1/2 h-full relative',
+                                      img: 'w-auto h-full inline-block'
+                                    },
+                                    path: img,
+                                    alt: 'Game'
+                                  }) %>
+                                </a>
+                              </li>
+                            <% } -%>
+                          </ul>
+                        </div>
+                      <% } -%>
                     </li>
                   <% } -%>
                 <% } -%>
@@ -203,22 +241,43 @@
               <!-- <ul class="flex items-center space-x-16">
                 <li>
                   <%- require('component/mDropdown.ejs')({
+                    style: {
+                      main: 'jDropLang'
+                    },
                     ctrlImg: {
-                      path: require('common/lang-english.svg'),
+                      path: require('common/lang_english.svg'),
                       alt: 'English'
                     },
                     options: [[{
-                      name: 'English'
+                      name: 'English',
+                      data: {
+                        flag: require('common/lang_english.svg')
+                      }
                     }, {
-                      name: '简体中文'
+                      name: '简体中文',
+                      data: {
+                        flag: require('common/lang_english.svg')
+                      }
                     }, {
-                      name: 'Indonesia'
+                      name: 'Indonesia',
+                      data: {
+                        flag: require('common/lang_indonesia.svg')
+                      }
                     }, {
-                      name: '한국어'
+                      name: '한국어',
+                      data: {
+                        flag: require('common/lang_korea.svg')
+                      }
                     }, {
-                      name: 'Bahasa Melayu'
+                      name: 'Bahasa Melayu',
+                      data: {
+                        flag: require('common/lang_bahasaMelayu.svg')
+                      }
                     }, {
-                      name: '日本語'
+                      name: '日本語',
+                      data: {
+                        flag: require('common/lang_japan.svg')
+                      }
                     }]]
                   }) %>
                 </li>
@@ -237,22 +296,43 @@
               <ul class="flex items-center space-x-16">
                 <li>
                   <%- require('component/mDropdown.ejs')({
+                    style: {
+                      main: 'jDropLang'
+                    },
                     ctrlImg: {
-                      path: require('common/lang-english.svg'),
+                      path: require('common/lang_english.svg'),
                       alt: 'English'
                     },
                     options: [[{
-                      name: 'English'
+                      name: 'English',
+                      data: {
+                        flag: require('common/lang_english.svg')
+                      }
                     }, {
-                      name: '简体中文'
+                      name: '简体中文',
+                      data: {
+                        flag: require('common/lang_china.svg')
+                      }
                     }, {
-                      name: 'Indonesia'
+                      name: 'Indonesia',
+                      data: {
+                        flag: require('common/lang_indonesia.svg')
+                      }
                     }, {
-                      name: '한국어'
+                      name: '한국어',
+                      data: {
+                        flag: require('common/lang_korea.svg')
+                      }
                     }, {
-                      name: 'Bahasa Melayu'
+                      name: 'Bahasa Melayu',
+                      data: {
+                        flag: require('common/lang_bahasaMelayu.svg')
+                      }
                     }, {
-                      name: '日本語'
+                      name: '日本語',
+                      data: {
+                        flag: require('common/lang_japan.svg')
+                      }
                     }]]
                   }) %>
                 </li>
@@ -301,7 +381,10 @@
               </ul>
             </div>  
           </div>
-          <div class="m-notice"></div>
+          <div class="m-notice py-10 flex items-center max-cnt relative">
+            <div class="m-notice-cnt text-xf-70 flex-grow">Dear Valued Customers, 120% Welcome bonus is Not able to Claim with ATM Deposit anymore, we apologise for any inconvenience caused.</div>
+            <time class="m-notice-time ml-16 pl-16 text-12 text-x88a1 flex-shrink-0 relative">2021/08/10 15:46:54PM GMT+8</time>
+          </div>
         <% } -%>
       </header>
       <main class="l-main">
@@ -310,8 +393,147 @@
         </div>
       </main>
       <% if( !isMobile ) { -%>
-        <footer class="l-ft pt:pb-16 m:pb-14 text-center">
-          <small class="text-12 opacity-50 block"><%- COPYRIGHT %></small>
+        <footer class="l-ft pb-32 bg-x0030">
+          <div class="m-ft max-cnt">
+            <div class="m-ft-sitemap py-32">
+              <ul class="flex items-center">
+                <%
+                  const sitemap = [{
+                    title: 'Products',
+                    items: [{
+                      name: urlFuns.name('sports'),
+                      href: urlFuns.page('sports')
+                    }, {
+                      name: urlFuns.name('virtualSports'),
+                      href: urlFuns.page('virtualSports')
+                    }, {
+                      name: urlFuns.name('liveCasino'),
+                      href: urlFuns.page('liveCasino')
+                    }, {
+                      name: urlFuns.name('games'),
+                      href: urlFuns.page('games')
+                    }]
+                  }, {
+                    title: 'About Us',
+                    items: [{
+                      name: 'Corporate'
+                    }, {
+                      name: 'News'
+                    }, {
+                      name: urlFuns.name('promotioms'),
+                      href: urlFuns.page('promotioms')
+                    }, {
+                      name: 'Affiliates'
+                    }, {
+                      name: 'Why Choose Company'
+                    }]
+                  }, {
+                    title: 'Policies',
+                    items: [{
+                      name: 'Responsible Gambling'
+                    }, {
+                      name: 'Terms & Conditons'
+                    }, {
+                      name: 'Privacy Policy'
+                    }]
+                  }, {
+                    title: 'Help & Support',
+                    items: [{
+                      name: 'Contact us'
+                    }, {
+                      name: 'FAQ'
+                    }, {
+                      name: 'Betting Rules & Regulations'
+                    }, {
+                      name: 'Payment Options'
+                    }]
+                  }]
+                -%>
+                <% for( let i = 0; i < sitemap.length; i += 1 ) { -%>
+                  <% const { title, items } = sitemap[i]; -%>
+                  <li class="px-8 flex-1">
+                    <p class="mb-16 text-xf"><b><%- title %></b></p>
+                    <ul class="space-y-12">
+                      <% for( let j = 0; j < items.length; j += 1 ) { -%>
+                        <% const { name, href } = items[j]; -%>
+                        <li>
+                          <a href="<%- href ? href : 'javascript:;' %>" class="text-x88a1">
+                            <em class="not-italic"><%- name %></em>
+                          </a>
+                        </li>
+                      <% } -%>
+                    </ul>
+                  </li>
+                <% } -%>
+              </ul>
+            </div>
+            <div class="m-ft-sponsor py-32 text-center border-t-1 border-solid border-x1241 overflow-hidden">
+              <ul class="-mx-8 inline-flex items-center">
+                <%
+                  const sponsor =[{
+                    name: 'BCA',
+                    img: 'static/img/fake/logo_bca.svg'
+                  }, {
+                    name: 'mandiri',
+                    img: 'static/img/fake/logo_mandiri.svg'
+                  }, {
+                    name: 'BNI',
+                    img: 'static/img/fake/logo_BNI.svg'
+                  }, {
+                    name: 'BANK BRI',
+                    img: 'static/img/fake/logo_BANKBRI.svg'
+                  }, {
+                    name: 'CIMB BANK',
+                    img: 'static/img/fake/logo_CIMBBank.svg'
+                  }]
+                -%>
+                <% for( let i = 0; i < sponsor.length; i += 1 ) { -%>
+                  <% const { name, img } = sponsor[i]; -%>
+                  <li class="px-8">
+                    <%- require('component/img.ejs')({
+                      style: {
+                        main: 'm-ft-sponsor-fig h-20',
+                        img: 'h-full'
+                      },
+                      path: img,
+                      alt: name
+                    }) %>
+                  </li>
+                <% } -%>
+              </ul>
+            </div>
+            <div class="m-ft-social pt-32 text-center border-t-1 border-solid border-x1241">
+              <ul class="-mx-8 inline-flex items-center">
+                <%
+                  const social = [{
+                    name: 'facebook',
+                    img: require('common/facebook.svg')
+                  }, {
+                    name: 'twitter',
+                    img: require('common/twitter.svg')
+                  }, {
+                    name: 'instagram',
+                    img: require('common/instagram.svg')
+                  }]
+                -%>
+                <% for(let i = 0; i < social.length; i += 1 ) { -%>
+                  <% const { name, img } = social[i]; %>
+                  <li class="px-8">
+                    <a href="javascript:;" target="_blank" rel="noopener">
+                      <%- require('component/img.ejs')({
+                        style: {
+                          main: 'm-ft-social-fig w-24 h-24'
+                        },
+                        path: img,
+                        alt: name
+                      }) %>
+                    </a>
+                  </li>
+                <% } -%>
+              </ul>
+            </div>
+            <small class="mt-16 block text-center text-x88a1"><%- COPYRIGHT %></small>
+          </div>
         </footer>
       <% } -%>
     </div>

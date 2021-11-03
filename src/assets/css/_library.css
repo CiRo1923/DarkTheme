@@ -10,11 +10,10 @@
 @import "_common/layout";
 
 /* modules */
-
 @import "_modules/mHd";
 @import "_modules/mNav";
 @import "_modules/mBtn";
 @import "_modules/mDropdown";
-
-/* @import "_modules/mFt"; */
+@import "_modules/mNotice";
+@import "_modules/mFt";
 @import "_modules/nSup";

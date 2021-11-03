@@ -1,4 +1,9 @@
-<div class="m-dropdown relative jDrop">
+<%
+  const styles = {
+    main: typeof style !== 'undefined' && typeof style.main !== 'undefined' ? ` ${style.main}` : ''
+  }
+-%>
+<div class="m-dropdown relative z-1<%- styles.main  %> jDrop">
   <div class="m-dropdown-hd">
     <button type="button" class="m-dropdown-ctrl flex items-center jDropCtrl">
       <% if ( typeof ctrlText !== 'undefined' ) { -%>
@@ -6,7 +11,7 @@
       <% } else if ( typeof ctrlImg !== 'undefined' ) { -%>
         <%- require('component/img.ejs')({
           style: {
-            main: 'm-dropdown-fig rounded-24 overflow-hidden'
+            main: 'm-dropdown-fig bg-xf rounded-24 overflow-hidden w-24 h-24'
           },
           path: ctrlImg.path,
           alt: ctrlImg.alt
@@ -26,20 +31,20 @@
               if ( data ) {
                 Object.keys(data).forEach((value) => {
                   if ( !dataAttr ) {
-                    dataAttr = `data-${data.value}=${value}`;
+                    dataAttr = `data-${value}=${data[value]}`;
                   } else {
-                    dataAttr = `${dataAttr} data-${data.value}=${value}`;
+                    dataAttr = `${dataAttr} data-${data}=${data[value]}`;
                   }
                 });
               }
             -%>
             <li class="m-dropdown-item">
               <% if ( href ) { %>
-                <a href="<%- href %>"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 block hover:bg-x88a1">
+                <a href="<%- href %>"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 block hover:bg-x88a1 jDropOption">
                   <em class="not-italic"><%- name %></em>
                 </a>
               <% } else { -%>
-                <button type="button"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 w-full text-left block hover:bg-x88a1">
+                <button type="button"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 w-full text-left block hover:bg-x88a1 jDropOption">
                   <em class="not-italic"><%- name %></em>
                 </button>
               <% } -%>

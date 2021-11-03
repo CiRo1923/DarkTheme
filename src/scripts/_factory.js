@@ -361,6 +361,16 @@ j$.Fn.prototype = {
     }
     return this[0][0].getAttribute(attributeName);
   },
+  data: function (attributeName, attributeValue) {
+    if (typeof attributeValue !== 'undefined') {
+      this[0].forEach(el => {
+        el.dataset[attributeName] = attributeValue;
+      });
+
+      return this;
+    }
+    return this[0][0].dataset[attributeName];
+  },
   removeAttr: function (attributeName) {
     this[0].forEach(el => {
       el.removeAttribute(attributeName);

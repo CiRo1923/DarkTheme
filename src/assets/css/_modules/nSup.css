@@ -1,43 +1,43 @@
 
-.lNSup {
+.l-nSup {
   @apply w-full h-full hidden relative;
 }
 
-.mNSup {
+.m-nSup {
   @apply w-full table-cell align-middle text-center relative;
 }
 
-.mNSupHd {
+.m-nSup-hd {
   @apply mb-48;
 }
 
-.mNSupTit {
-  @apply text-24;
+.m-nSup-title {
+  @apply text-24 text-x0;
 }
 
-.mNSupMsg {
+.m-nSup-msg {
   @apply mb-28 px-20 pt-10 pb-20 inline-block border-1 border-x9 rounded-10;
 }
 
-.mNSupMsgTit {
+.m-nSup-msg-title {
   width: 100px;
 
   @apply mx-auto -mt-28 -mb-10 px-5 text-20 text-xf block rounded-20 bg-x76 relative;
 }
 
-.mNSupItm {
+.m-nSup-item {
   @apply mt-20 text-left;
 }
 
-.mNSupItmTit {
+.m-nSup-item-title {
   @apply mb-5 pl-5 text-x45 border-l-1 border-x45 leading-none;
 }
 
-.mNSupItmCnt {
-  @apply pl-8 text-15;
+.m-nSup-item-cnt {
+  @apply pl-8 text-15 text-x76;
 }
 
-.mNSupFigList {
+.m-nSup-fig-list {
   > ul {
     @apply inline-block overflow-hidden;
 
@@ -49,7 +49,7 @@
   }
 }
 
-.mNSupFig {
+.m-nSup-fig {
   @apply text-x0 block;
 
   &::before {
@@ -78,15 +78,15 @@
   }
 }
 
-.mNSupFt {
+.m-nSup-ft {
   @apply mt-48 text-x0;
 }
 
-.mNSupDesc {
-  @apply mt-14 text-15;
+.m-nSup-desc {
+  @apply mt-14 text-15 text-x76;
 }
 
-.mNSupCor {
+.m-nSup-copyright {
   font-size: 0;
 
   @apply my-10;
@@ -101,17 +101,23 @@
   }
 }
 
+.m-nSup-browser {
+  @apply mt-5;
+}
+
 @screen notsupport {
   html,
   body {
+    background-color: #ddd !important;
+
     @apply h-full;
   }
 
-  .lWrap {
+  .l-wrap {
     @apply hidden;
   }
 
-  .lNSup {
+  .l-nSup {
     word-wrap: break-word;
 
     @apply table table-auto break-all;

@@ -8,6 +8,7 @@ const postcssFuns = !CONFIG.tailwindcss ? require('postcss-functions') : () => {
 const postcssConditionals = !CONFIG.tailwindcss ? require('postcss-conditionals') : () => {};
 const postcssApply = !CONFIG.tailwindcss ? require('postcss-apply-class') : () => {};
 const tailwindcss = !CONFIG.tailwindcss ? () => {} : require('tailwindcss');
+const postcssVar = process.env.NODE_ENV === 'production' ? require('postcss-css-variables') : () => {};
 const purgecss = (process.env.NODE_ENV === 'production' && !CONFIG.tailwindcss) ? require('@fullhuman/postcss-purgecss') : () => {};
 const cssnano = process.env.NODE_ENV === 'production' ? require('cssnano') : () => {};
 const sort = (process.env.NODE_ENV === 'production' && !CONFIG.tailwindcss) ? require('postcss-sort-media-queries') : () => {};
@@ -20,7 +21,7 @@ module.exports = {
     require('postcss-each'),
     postcssFor,
     postcssMixins,
-    require('postcss-css-variables'),
+    postcssVar,
     postcssMapGet,
     require('postcss-calc'),
     postcssFuns({

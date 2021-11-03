@@ -1,21 +1,20 @@
-<div class="lNSup">
-  <div class="mNSup">
-    <div class="mNSupHd">
-      <p class="mNSupTit"><b>很抱歉，您目前使用的瀏覽器無法支援瀏覽。</b></p>
-      <p class="mNSupDesc">建議您提升瀏覽器使用版本為 <%= ieVersion %> (含) 以上，或使用其他瀏覽器軟體 Google Chrome、Firefox 以獲得最佳瀏覽體驗，謝謝您的配合。
+<div class="l-nSup">
+  <div class="m-nSup">
+    <div class="m-nSup-hd">
+      <p class="m-nSup-title"><b>很抱歉，您目前使用的瀏覽器無法支援瀏覽。</b></p>
+      <p class="m-nSup-desc">建議您提升瀏覽器使用版本為 <%= ieVersion %> (含) 以上，或使用其他瀏覽器軟體 Google Chrome、Firefox 以獲得最佳瀏覽體驗，謝謝您的配合。
       </p>
     </div>
-    <div class="mNSupBd">
-      <div class="mNSupMsg">
-        <p class="mNSupMsgTit"><b>相關說明</b></p>
-        <div class="mNSupItm">
-          <p class="mNSupItmTit"><b>我如果不升級對於瀏覽上會有什麼影響？</b></p>
-          <p class="mNSupItmCnt">使用 <%= ieVersion %> 版本下的瀏覽器瀏覽本網站，可能部分網頁的呈現會有破圖或版面跑版的情況，某些網頁互動功能無法正確顯示與使用。
-          </p>
+    <div class="m-nSup-bd">
+      <div class="m-nSup-msg">
+        <p class="m-nSup-msg-title"><b>相關說明</b></p>
+        <div class="m-nSup-item">
+          <p class="m-nSup-item-title"><b>我如果不升級對於瀏覽上會有什麼影響？</b></p>
+          <p class="m-nSup-item-cnt">使用 <%= ieVersion %> 版本下的瀏覽器瀏覽本網站，可能部分網頁的呈現會有破圖或版面跑版的情況，某些網頁互動功能無法正確顯示與使用。</p>
         </div>
-        <div class="mNSupItm">
-          <p class="mNSupItmTit"><b>我要如何升級我的瀏覽器？</b></p>
-          <p class="mNSupItmCnt">請您點擊以下連結，下載並升級您的 IE 瀏覽器，或下載 Google Chrome、Firefox 瀏覽器。</p>
+        <div class="m-nSup-item">
+          <p class="m-nSup-item-title"><b>我要如何升級我的瀏覽器？</b></p>
+          <p class="m-nSup-item-cnt">請您點擊以下連結，下載並升級您的 IE 瀏覽器，或下載 Google Chrome、Firefox 瀏覽器。</p>
         </div>
       </div>
       <%
@@ -33,13 +32,13 @@
           href: 'https://www.mozilla.org/zh-TW/firefox/new/'
         }];
       -%>
-        <div class="mNSupFigList">
+        <div class="m-nSup-fig-list">
           <ul>
             <% for(let i = 0; i < _browsers.length; i += 1) { -%>
               <% const { href, text, name } = _browsers[i]; -%>
               <li>
-                <a href="<%= href %>" class="mNSupFig <%= name %>">
-                  <p class="mNSupDesc">
+                <a href="<%= href %>" class="m-nSup-fig <%= name %>">
+                  <p class="m-nSup-desc">
                     <%= text %>
                   </p>
                 </a>
@@ -48,10 +47,10 @@
           </ul>
         </div>
     </div>
-    <div class="mNSupFt">
-      <div class="mNSupCor">
-        <p class="mNSupInf"><%= cRight %></p>
-        <p class="mNSupBrs"><%= ieVersion %>+, Chrome, Safari, Firefox</p>
+    <div class="m-nSup-ft">
+      <div class="m-nSup-copyright">
+        <p class="m-nSup-info"><%= cRight %></p>
+        <p class="m-nSup-browser"><%= ieVersion %>+, Chrome, Firefox</p>
       </div>
     </div>
   </div>

@@ -1,9 +1,9 @@
+.m-nav-sub {
+  transition: max-height var(--anim-time);
+}
+
 .m-nav-item {
   transition: color var(--anim-time);
-
-  > a {
-    height: 24px;
-  }
 
   &.active {
     @apply text-xfb2e;
@@ -17,9 +17,29 @@
       }
     }
   }
+
+  &:hover {
+    > .m-nav-sub {
+      max-height: 200%;
+    }
+  }
+
+  &:not(:hover) {
+    > .m-nav-sub {
+      max-height: 0;
+    }
+  }
 }
 
-.m-nav-svg {
-  width: 24px;
-  height: 24px;
+.m-nav-sub-item {
+  height: 110px;
+
+  > * {
+    transition: border-color var(--anim-time);
+
+    figure {
+      width: 200%;
+      transform: translateX(-50%);
+    }
+  }
 }

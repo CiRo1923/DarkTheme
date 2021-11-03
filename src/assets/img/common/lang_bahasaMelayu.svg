@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 72 72" style="enable-background:new 0 0 72 72;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF4B55;}
+	.st1{fill:#41479B;}
+	.st2{filter:url(#Adobe_OpacityMaskFilter);}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st4{mask:url(#mask-2_00000023278624212010911400000011363013450941185700_);}
+	.st5{fill:#FFE15A;}
+</style>
+<g>
+	<rect id="Rectangle_00000034809909755429949950000014585586687065609353_" class="st0" width="72" height="3.9"/>
+	<rect id="Rectangle_00000130643062859435045860000005843460268519609487_" y="68.1" class="st0" width="72" height="3.9"/>
+	<rect id="Rectangle_00000085241467246387103470000001588056693103180963_" y="56.8" class="st0" width="72" height="3.9"/>
+	<rect id="Rectangle_00000063633583419567879290000000154201973243810715_" y="45.4" class="st0" width="72" height="3.9"/>
+	<rect id="Rectangle_00000135689691679963358330000002794802957092924290_" y="34.1" class="st0" width="72" height="3.9"/>
+	<rect id="Rectangle_00000061452667676034374300000006796840519929021339_" y="22.7" class="st0" width="72" height="3.9"/>
+	<rect id="Rectangle_00000128457411592679557640000017699188610788489613_" y="11.4" class="st0" width="72" height="3.9"/>
+	<rect class="st1" width="60" height="45.4"/>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="10.6" y="8.7" width="38.8" height="28">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	
+		<mask maskUnits="userSpaceOnUse" x="10.6" y="8.7" width="38.8" height="28" id="mask-2_00000023278624212010911400000011363013450941185700_">
+		<g class="st2">
+			<circle id="path-1_00000078044172477538690060000010724829916792696205_" class="st3" cx="43.4" cy="41.1" r="45.4"/>
+		</g>
+	</mask>
+	<g id="Group" class="st4">
+		<g id="Path_00000062882731400583208930000006240931792166336927_" transform="translate(3.326841, 3.430302)">
+			<path class="st5" d="M12,19.3C12,12.5,17.6,7,24.5,7c1.7,0,3.4,0.3,4.9,1c0.2,0.1,0.3-0.2,0.2-0.3c-2.5-1.7-5.5-2.6-8.8-2.4
+				c-7.2,0.4-13,6-13.5,13.1c-0.5,8.2,6.1,15,14.3,15c3,0,5.7-0.9,8-2.4c0.2-0.1,0-0.4-0.2-0.3c-1.5,0.6-3.1,1-4.9,1
+				C17.6,31.6,12,26.1,12,19.3"/>
+			<path class="st5" d="M40.6,19.3l5.3-2c0.3-0.1,0.2-0.5-0.1-0.5l-5.6,0.4l3.9-4.1c0.2-0.2-0.1-0.5-0.3-0.4l-4.9,2.8l1.7-5.3
+				c0.1-0.3-0.3-0.4-0.4-0.2l-3.2,4.6l-0.8-5.5c0-0.3-0.4-0.3-0.5,0l-0.5,3.5l-0.2,1.5l-0.1,0.5l-3.2-4.6c-0.2-0.2-0.5-0.1-0.4,0.2
+				l1.7,5.3L28,12.8c-0.2-0.1-0.5,0.2-0.3,0.4l3.9,4.1l-5.6-0.4c-0.3,0-0.4,0.4-0.1,0.5l5.3,2l-5.3,2c-0.3,0.1-0.2,0.5,0.1,0.5
+				l5.6-0.4l-3.9,4.1c-0.2,0.2,0.1,0.5,0.3,0.4l4.9-2.8l-1.7,5.3c-0.1,0.3,0.3,0.4,0.4,0.2l3.2-4.6l0.1,0.6l0.2,1.5l0.5,3.5
+				c0,0.3,0.4,0.3,0.5,0l0.8-5.5l3.2,4.6c0.2,0.2,0.5,0.1,0.4-0.2l-1.7-5.3l4.9,2.8c0.2,0.1,0.5-0.2,0.3-0.4l-3.9-4.1l5.6,0.4
+				c0.3,0,0.4-0.4,0.1-0.5L40.6,19.3z"/>
+		</g>
+	</g>
+</g>
+</svg>
