@@ -1,0 +1,28 @@
+<div class="m-banner">
+  <ul class="m-banner-list whitespace-no-wrap overflow-hidden inline-space jTns" :set="{'autoplay': true, 'autoplayTimeout': 8000}">
+    <%
+      const banner = [{
+        img: 'https://api2-mj3.tr8ngames.com/images/id_cbd_dc228c70-ba22-49fb-9606-568eaeb20217_1618915724997.jpg'
+      }, {
+        img: 'https://api2-mj3.tr8ngames.com/images/id_cbd_5308cccf-8870-4ffc-8791-53d8593a537d_1618919012320.jpg'
+      }, {
+        img: 'https://api2-mj3.tr8ngames.com/images/id_cbd_07e22c9e-935f-4692-b336-8ab43fc04888_1621928172590.jpg'
+      }];
+    -%>
+    <% for( let i = 0; i < banner.length; i += 1 ) { -%>
+      <% const { img } = banner[i]; -%>
+      <li class="m-banner-item w-full inline-block overflow-hidden jTnsItem">
+        <a href="javascript:;" class="w-full h-full block">
+          <%- require('component/img.ejs')({
+            style: {
+              main: 'm-banner-fig left-1/2 h-full text-center relative',
+              img: 'w-auto h-full inline-block'
+            },
+            path: img,
+            alt: 'banner'
+          }) %>
+        </a>
+      </li>
+    <% } -%>
+  </ul>
+</div>

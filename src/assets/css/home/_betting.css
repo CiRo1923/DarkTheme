@@ -1,0 +1,8 @@
+.betting-item {
+  height: 208px;
+}
+
+.betting-fig {
+  width: width('home/SBO_Sports.png');
+  height: height('home/SBO_Sports.png');
+}

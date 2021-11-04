@@ -202,7 +202,8 @@
                         <% } -%>
                       </a>
                       <% if ( value !== 'home' ) { -%>
-                        <div class="m-nav-sub left-0 w-screen bg-x3368 overflow-hidden absolute z-1">
+                        <!-- 以下結構為有子選單時才出現 -->
+                        <div class="m-nav-sub left-0 w-full bg-x3368 overflow-hidden absolute z-1">
                           <ul class="-mx-8 py-32 max-cnt flex items-center">
                             <%
                               const navSub = [{
@@ -374,16 +375,18 @@
                   </button>
                 </li>
                 <li>
-                  <a href="<%- urlFuns.page('deposit') %>" class="m-btn bg-x3c6e hover:bg-x1956">
+                  <a href="<%- urlFuns.page('deposit') %>" class="m-btn --green">
                     <b class="px-2 inline-block"><%- urlFuns.name('deposit') %></b>
                   </a>
                 </li>
               </ul>
             </div>  
           </div>
-          <div class="m-notice py-10 flex items-center max-cnt relative">
-            <div class="m-notice-cnt text-xf-70 flex-grow">Dear Valued Customers, 120% Welcome bonus is Not able to Claim with ATM Deposit anymore, we apologise for any inconvenience caused.</div>
-            <time class="m-notice-time ml-16 pl-16 text-12 text-x88a1 flex-shrink-0 relative">2021/08/10 15:46:54PM GMT+8</time>
+          <div class="m-notice bg-x1241">
+            <div class="m-notice-bd py-10 flex items-center max-cnt relative">
+              <div class="m-notice-info text-xf-70 flex-grow">Dear Valued Customers, 120% Welcome bonus is Not able to Claim with ATM Deposit anymore, we apologise for any inconvenience caused.</div>
+              <time class="m-notice-time ml-16 pl-16 text-12 text-x88a1 flex-shrink-0 relative">2021/08/10 15:46:54PM GMT+8</time>
+            </div>
           </div>
         <% } -%>
       </header>
@@ -393,7 +396,7 @@
         </div>
       </main>
       <% if( !isMobile ) { -%>
-        <footer class="l-ft pb-32 bg-x0030">
+        <footer class="l-ft mt-100 pb-32 bg-x0030">
           <div class="m-ft max-cnt">
             <div class="m-ft-sitemap py-32">
               <ul class="flex items-center">

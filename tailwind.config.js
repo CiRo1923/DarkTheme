@@ -1,4 +1,4 @@
-const { setData, setOpacity } = require('./tailwind.function.js');
+const { setData, setOpacity, setWidth } = require('./tailwind.function.js');
 const CONFIG = require('./config.js');
 const {
   fontFamily, lineHeight, spacing, negative, colors, borderRadius, zIndex, fontSize
@@ -25,6 +25,10 @@ const defaultFontSize = {
   20: '20px', /* use not-support */
   15: '15px', /* use not-support */
   13: '13px' /* use not-support */
+};
+
+const defaultWidth = {
+  ...setWidth(1, 11)
 };
 
 const bgOpacity = (obj) => {
@@ -144,6 +148,9 @@ module.exports = {
         ...defaultSpacing,
         ...spacing
       },
+      width: {
+        ...defaultWidth
+      },
       spacing: {
         ...defaultSpacing
       },
@@ -215,6 +222,19 @@ module.exports = {
         },
         variants('space')
       );
+    },
+    ({ addUtilities }) => {
+      const newUtilities = {
+        '.inline-space': {
+          'letter-spacing': '-0.34em',
+          'text-rendering': 'optimizeSpeed'
+        },
+        '.inline-space > *': {
+          'letter-spacing': 'normal'
+        }
+      };
+
+      addUtilities(newUtilities);
     }
   ]
 };

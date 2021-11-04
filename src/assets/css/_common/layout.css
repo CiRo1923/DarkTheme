@@ -1,5 +1,5 @@
 .l-wrap {
-  @apply min-h-screen flex flex-col flex-grow overflow-hidden;
+  @apply min-h-screen flex flex-col flex-grow;
 }
 
 .l-main {

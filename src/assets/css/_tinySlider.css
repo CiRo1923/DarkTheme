@@ -1,0 +1,26 @@
+.tns-outer {
+  @apply relative;
+}
+
+.tns-nav {
+  bottom: 20px;
+
+  @apply left-0 w-full flex items-center justify-center box-border absolute;
+
+  > * {
+    transition: background-color var(--anim-time);
+
+    @apply mx-4 w-40 h-4 bg-xf-60 block rounded-4 origin-center;
+
+    &.tns-nav-active {
+      @apply bg-xfb2e;
+    }
+  }
+}
+
+.tns-controls {
+  & + button[data-action="stop"],
+  & + button[data-action="start"] {
+    @apply hidden;
+  }
+}

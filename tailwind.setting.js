@@ -22,6 +22,7 @@ const zIndex = {
 
 const fontSize = {
   36: '36px',
+  28: '28px',
   24: '24px',
   20: '20px',
   16: '16px',
@@ -39,6 +40,7 @@ const colors = {
   x1956: '#1f9956',
   x3c6e: '#31c46e',
   xfb2e: '#ffbd2e',
+  xe364: '#e63964',
   xf25c: '#ff265c'
 };
 

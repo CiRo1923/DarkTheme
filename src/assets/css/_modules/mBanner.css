@@ -1,0 +1,42 @@
+.m-banner {
+  .tns-controls {
+    > button {
+      text-indent: -99999px;
+      transform: translateY(-50%);
+
+      @apply top-1/2 w-48 h-48 bg-x0-50 rounded-48 absolute z-1;
+
+      &::before {
+        content: "";
+        background-image: url(common/chevron-arrow.svg);
+
+        @apply top-1/2 left-1/2 w-32 h-32 bg-center bg-no-repeat bg-cover absolute;
+      }
+
+      &:first-child {
+        left: 32px;
+
+        &::before {
+          @apply translate-1/2;
+        }
+      }
+
+      &:last-child {
+        right: 32px;
+
+        &::before {
+          transform: translate(-50%, -50%) scaleX(-1);
+        }
+      }
+    }
+  }
+}
+
+.m-banner-item {
+  height: 480px;
+}
+
+.m-banner-fig {
+  width: 200%;
+  transform: translateX(-50%);
+}

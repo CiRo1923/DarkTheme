@@ -1,0 +1,51 @@
+.product-item {
+  height: 200px;
+}
+
+.product-ctrl {
+  transition: opacity var(--anim-time);
+}
+
+.product-block {
+  &::before {
+    top: 1px;
+    left: 1px;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    @apply px-6 py-4 text-12 text-xf absolute z-1;
+  }
+
+  &.\-\-new {
+    &::before {
+      content: "NEW";
+
+      @apply bg-x3c6e;
+    }
+  }
+
+  &.\-\-hot {
+    &::before {
+      content: "HOT";
+
+      @apply bg-xe364;
+    }
+  }
+
+  &:hover {
+    .product-ctrl {
+      @apply opacity-100;
+    }
+  }
+
+  &:not(:hover) {
+    .product-ctrl {
+      @apply opacity-0;
+    }
+  }
+}
+
+.product-fig {
+  width: 200%;
+}

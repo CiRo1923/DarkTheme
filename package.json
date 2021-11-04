@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "webpack.config.js",
   "dependencies": {
+    "tiny-slider": "^2.9.4",
     "vanilla-lazyload": "^17.5.0"
   },
   "devDependencies": {
