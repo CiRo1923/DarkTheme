@@ -1,7 +1,7 @@
 const { setData, setOpacity, setWidth } = require('./tailwind.function.js');
 const CONFIG = require('./config.js');
 const {
-  fontFamily, lineHeight, spacing, negative, colors, borderRadius, zIndex, fontSize
+  fontFamily, lineHeight, spacing, size, negative, colors, borderRadius, zIndex, fontSize, leading
 } = require('./tailwind.setting.js');
 
 const defaultSpacing = {
@@ -149,7 +149,11 @@ module.exports = {
         ...spacing
       },
       width: {
-        ...defaultWidth
+        ...defaultWidth,
+        ...size
+      },
+      height: {
+        ...size
       },
       spacing: {
         ...defaultSpacing
@@ -165,7 +169,8 @@ module.exports = {
         ...fontSize
       },
       lineHeight: {
-        default: lineHeight || 1.5
+        default: lineHeight || 1.5,
+        ...leading
       },
       borderWidth: {
         ...defaultSpacing,
@@ -222,19 +227,6 @@ module.exports = {
         },
         variants('space')
       );
-    },
-    ({ addUtilities }) => {
-      const newUtilities = {
-        '.inline-space': {
-          'letter-spacing': '-0.34em',
-          'text-rendering': 'optimizeSpeed'
-        },
-        '.inline-space > *': {
-          'letter-spacing': 'normal'
-        }
-      };
-
-      addUtilities(newUtilities);
     }
   ]
 };

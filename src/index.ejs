@@ -6,7 +6,7 @@
       <h2 class="text-24 text-white flex-grow">
         <strong>Sports Betting</strong>
       </h2>
-      <div class="betting-more flex-shrink-0">
+      <div class="flex-shrink-0">
         <a href="<%- urlFuns.page('sports') %>" class="flex items-center text-xfb2e">
           <b class="text-16">See All</b>
           <%- require('component/svg.ejs')({
@@ -19,7 +19,7 @@
       </div>
     </header>
     <div class="betting-bd">
-      <ul class="-mx-8 flex items-center">
+      <ul class="-mx-8 flex items-center flex-wrap">
         <%
           const betting = [{
             name: 'SBO Sports',
@@ -34,8 +34,8 @@
         -%>
         <% for( let i = 0; i < betting.length; i += 1 ) { -%>
           <% const { name, img } = betting[i]; -%>
-          <li class="betting-item px-8 w-4/12">
-            <div class="p-24 h-full flex flex-col justify-center rounded-8 bg-x1241 relative">
+          <li class="px-8 w-4/12">
+            <div class="p-24 h-208 flex flex-col justify-center rounded-8 bg-x1241 relative">
               <div class="space-y-16 w-5/11">
                 <h3 class="text-28"><b><%- name %></b></h3>
                 <a href="javascript:;" class="m-btn --green" target="_blank" rel="noopener">
@@ -62,7 +62,7 @@
       <h2 class="text-24 text-white flex-grow">
         <strong>Promotions</strong>
       </h2>
-      <div class="promotions-more flex-shrink-0">
+      <div class="flex-shrink-0">
         <a href="<%- urlFuns.page('promotions') %>" class="flex items-center text-xfb2e">
           <b class="text-16">See All</b>
           <%- require('component/svg.ejs')({
@@ -75,7 +75,7 @@
       </div>
     </header>
     <div class="promotions-bd">
-      <ul class="-mx-8 flex items-center">
+      <ul class="-mx-8 flex items-center flex-wrap">
         <%
           const promotions = [{
             img: 'https://myalcom.com.my/images/1597117406639rvcopy_1597117396.jpg'
@@ -87,9 +87,9 @@
         -%>
         <% for( let i = 0; i < promotions.length; i += 1 ) { -%>
           <% const { img } = promotions[i]; -%>
-          <li class="promotions-item px-8 w-4/12">
-            <div class="h-full rounded-8 bg-x1241 overflow-hidden relative">
-              <a href="javascript:;" class="promotions-block w-full h-full block" target="_blank" rel="noopener">
+          <li class="px-8 w-4/12">
+            <div class="rounded-8 bg-x1241 overflow-hidden relative">
+              <a href="javascript:;" class="promotions-block w-full h-140 block" target="_blank" rel="noopener">
                 <%- require('component/img.ejs')({
                   style: {
                     main: 'promotions-fig top-1/2 left-1/2 translate-1/2 relative'
@@ -97,7 +97,7 @@
                   path: img,
                   alt: `PromotionsName-${i}`
                 }) %>
-                <div class="promotions-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center absolute z-1">
+                <div class="promotions-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
                   <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
                     <b class="px-10 text-xf block">PLAY NOW</b>
                   </span>
@@ -111,12 +111,12 @@
   </div>
 
   <!-- Popular Games -->
-  <div class="product">
-    <header class="product-hd flex items-center mb-20">
+  <div class="m-product">
+    <header class="m-product-hd flex items-center mb-20">
       <h2 class="text-24 text-white flex-grow">
         <strong>Popular Games</strong>
       </h2>
-      <div class="product-more flex-shrink-0">
+      <div class="flex-shrink-0">
         <a href="<%- urlFuns.page('games') %>" class="flex items-center text-xfb2e">
           <b class="text-16">See All</b>
           <%- require('component/svg.ejs')({
@@ -128,8 +128,8 @@
         </a>
       </div>
     </header>
-    <div class="product-bd">
-      <ul class="-mx-8 flex items-center">
+    <div class="m-product-bd">
+      <ul class="-mx-8 flex items-center flex-wrap">
         <%
           const popular = [{
             img: 'https://www.yggdrasilgaming.com/w/files/2016/10/Thumbnail-Nirvana.jpg',
@@ -149,18 +149,18 @@
         -%>
         <% for( let i = 0; i < popular.length; i += 1 ) { -%>
           <% const { img, status } = popular[i]; -%>
-          <li class="product-item px-8 w-2/12">
-            <div class="product-block<%- status ? ` ${status}` : '' %> h-full relative">
-              <a href="javascript:;" class="w-full h-full block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
+          <li class="m-product-item px-8 w-2/12">
+            <div class="m-product-block<%- status ? ` ${status}` : '' %> h-full relative">
+              <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
                 <%- require('component/img.ejs')({
                   style: {
-                    main: 'product-fig top-1/2 left-1/2 h-full translate-1/2 text-center relative',
+                    main: 'w-2full left-1/2 h-200 translate-x-1/2 text-center relative',
                     img: 'w-auto h-full inline-block'
                   },
                   path: img,
                   alt: `gameName-${i}`
                 }) %>
-                <div class="product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center absolute z-1">
+                <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
                   <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
                     <b class="px-10 text-xf block">PLAY NOW</b>
                   </span>
@@ -174,12 +174,12 @@
   </div>
 
   <!-- New Games -->
-  <div class="product">
-    <header class="product-hd flex items-center mb-20">
+  <div class="m-product">
+    <header class="m-product-hd flex items-center mb-20">
       <h2 class="text-24 text-white flex-grow">
         <strong>New Games</strong>
       </h2>
-      <div class="product-more flex-shrink-0">
+      <div class="flex-shrink-0">
         <a href="<%- urlFuns.page('games') %>" class="flex items-center text-xfb2e">
           <b class="text-16">See All</b>
           <%- require('component/svg.ejs')({
@@ -191,8 +191,8 @@
         </a>
       </div>
     </header>
-    <div class="product-bd">
-      <ul class="-mx-8 flex items-center">
+    <div class="m-product-bd">
+      <ul class="-mx-8 flex items-center flex-wrap">
         <%
           const newGames = [{
             img: 'https://i.ytimg.com/vi/r3-pkP6Tif0/maxresdefault.jpg'
@@ -213,18 +213,18 @@
         -%>
         <% for( let i = 0; i < newGames.length; i += 1 ) { -%>
           <% const { img, status } = newGames[i]; -%>
-          <li class="product-item px-8 w-2/12">
-            <div class="product-block<%- status ? ` ${status}` : '' %> h-full relative">
-              <a href="javascript:;" class="w-full h-full block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
+          <li class="m-product-item px-8 w-2/12">
+            <div class="m-product-block<%- status ? ` ${status}` : '' %> h-full relative">
+              <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
                 <%- require('component/img.ejs')({
                   style: {
-                    main: 'product-fig top-1/2 left-1/2 h-full translate-1/2 text-center relative',
+                    main: 'w-2full left-1/2 h-200 translate-x-1/2 text-center relative',
                     img: 'w-auto h-full inline-block'
                   },
                   path: img,
                   alt: `gameName-${i}`
                 }) %>
-                <div class="product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center absolute z-1">
+                <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
                   <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
                     <b class="px-10 text-xf block">PLAY NOW</b>
                   </span>
@@ -243,7 +243,7 @@
       <h2 class="text-24 text-white flex-grow">
         <strong>Game Providers</strong>
       </h2>
-      <div class="providers-more flex-shrink-0">
+      <div class="flex-shrink-0">
         <a href="<%- urlFuns.page('games') %>" class="flex items-center text-xfb2e">
           <b class="text-16">See All</b>
           <%- require('component/svg.ejs')({
@@ -256,14 +256,14 @@
       </div>
     </header>
     <div class="providers-bd">
-      <ul class="-mx-8 flex items-center">
+      <ul class="-mx-8 flex items-center flex-wrap">
          <% for( let i = 0; i < 6; i += 1 ) { -%>
           <li class="providers-item px-8 w-2/12">
             <div class="providers-block">
-              <a href="javascript:;" class="py-32 block rounded-8 bg-x1241 overflow-hidden text-center" target="_blank" rel="noopener">
+              <a href="javascript:;" class="py-32 h-100 block rounded-8 bg-x1241 overflow-hidden text-center" target="_blank" rel="noopener">
                 <%- require('component/img.ejs')({
                   style: {
-                    main: 'providers-fig inline-block',
+                    main: 'h-full inline-block',
                     img: 'w-auto h-full'
                   },
                   path: 'static/img/fake/logo_yggdrasil.svg',

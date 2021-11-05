@@ -1,11 +1,3 @@
-.promotions-item {
-  height: 140px;
-}
-
-.promotions-ctrl {
-  transition: opacity var(--anim-time);
-}
-
 .promotions-block {
   &:hover {
     .promotions-ctrl {

@@ -9,7 +9,6 @@
 }
 
 .m-dropdown-bd {
-  transition: max-height var(--anim-time);
   transform: translateX(15px);
 }
 
@@ -52,11 +51,5 @@
         @apply top-0 left-1/2 bg-xf-15 absolute;
       }
     }
-  }
-}
-
-.m-dropdown-item {
-  > * {
-    transition: background-color var(--anim-time);
   }
 }

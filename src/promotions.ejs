@@ -1,0 +1,61 @@
+<%- require('component/mBanner.ejs')() %>
+<div class="mt-48 max-cnt overflow-hidden">
+  <ul class="-mx-8 -my-12 flex items-center flex-wrap">
+    <%
+      const promotions = [{
+        title: 'Feb Deposit Bonus $100 (Feb Depbon 100) Give $100 for first deposit',
+        info: 'Get $100 for first deposit made!<br>To withdraw, rollover x10',
+        time: 'From Feb 1 - 28',
+        img: 'http://file.32828a.com/images/DELUXEWIN/52707f72e1fe1460eb3e9f05c2422fac_4352182.jpg'
+      }, {
+        title: 'Feb Deposit Bonus $100 (Feb Depbon 100) Give $100 for first deposit',
+        info: 'Get $100 for first deposit made!<br>To withdraw, rollover x10',
+        time: 'From Feb 1 - 28',
+        img: 'https://api2-mj3.tr8ngames.com/images/id_cbd_5308cccf-8870-4ffc-8791-53d8593a537d_1618919012320.jpg'
+      }, {
+        title: 'Feb Deposit Bonus $100 (Feb Depbon 100) Give $100 for first deposit',
+        info: 'Get $100 for first deposit made!<br>To withdraw, rollover x10',
+        time: 'From Feb 1 - 28',
+        img: 'https://api2-mj3.tr8ngames.com/images/id_cbd_07e22c9e-935f-4692-b336-8ab43fc04888_1621928172590.jpg'
+      }]
+    -%>
+    <% for( let i = 0; i < promotions.length; i += 1 ) { -%>
+      <% const { title, info, time, img } = promotions[i]; -%>
+      <li class="px-8 py-12 w-4/12">
+        <div class="rounded-8 flex flex-col-reverse bg-x1241 overflow-hidden">
+          <section class="space-y-12 p-16">
+            <header>
+              <h2 class="text-xf text-20 leading-1.2"><strong><%- title %></strong></h2>
+            </header>
+            <div class="space-y-20 text-x88a1 text-16">
+              <p><%- info %></p>
+              <p><%- time %></p>
+            </div>
+            <footer>
+              <ul class="-mx-8 flex">
+                <li class="px-8 w-6/12">
+                  <a href="javascript:;" class="m-btn --line w-full">
+                    <b>MORE</b>
+                  </a>
+                </li>
+                <li class="px-8 w-6/12">
+                  <a href="javascript:;" class="m-btn --green w-full">
+                    <b>APPLY</b>
+                  </a>
+                </li>
+              </ul>
+            </footer>
+          </section>
+          <%- require('component/img.ejs')({
+            style: {
+              main: 'left-1/2 w-2full h-140 text-center translate-x-1/2 relative',
+              img: 'w-auto h-full inline-block'
+            },
+            path: img,
+            alt: title
+          }) %>
+        </div>
+      </li>
+    <% } -%>
+  </ul>
+</div>

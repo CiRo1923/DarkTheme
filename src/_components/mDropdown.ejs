@@ -19,7 +19,7 @@
       <% } -%>
     </button>
   </div>
-  <div class="m-dropdown-bd right-0 overflow-hidden absolute jDropBd">
+  <div class="m-dropdown-bd right-0 overflow-hidden transition-max-h absolute jDropBd">
     <div class="m-dropdown-cnt mt-10 bg-x3368 rounded-6 relative">
       <% for( let i = 0; i < options.length; i += 1 ) { -%>
         <ul class="py-8 relative">
@@ -40,11 +40,11 @@
             -%>
             <li class="m-dropdown-item">
               <% if ( href ) { %>
-                <a href="<%- href %>"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 block hover:bg-x88a1 jDropOption">
+                <a href="<%- href %>"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 block hover:bg-x88a1 transition-bg jDropOption">
                   <em class="not-italic"><%- name %></em>
                 </a>
               <% } else { -%>
-                <button type="button"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 w-full text-left block hover:bg-x88a1 jDropOption">
+                <button type="button"<%- dataAttr ? ` ${dataAttr}`: '' %> class="px-16 py-8 w-full text-left block hover:bg-x88a1 transition-bg jDropOption">
                   <em class="not-italic"><%- name %></em>
                 </button>
               <% } -%>

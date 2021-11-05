@@ -8,6 +8,47 @@
   @apply mx-auto;
 }
 
+.inline-space {
+  letter-spacing: -0.34em;
+  text-rendering: optimizeSpeed;
+
+  > * {
+    letter-spacing: normal;
+  }
+}
+
 .translate-1\/2 {
   transform: translate(-50%, -50%);
+}
+
+.translate-x-1\/2 {
+  transform: translateX(-50%);
+}
+
+.translate-y-1\/2 {
+  transform: translateY(-50%);
+}
+
+.transition-color {
+  transition: color var(--anim-time);
+}
+
+.transition-bg {
+  transition: background-color var(--anim-time);
+}
+
+.transition-bg-color {
+  transition: background-color var(--anim-time) color var(--anim-time);
+}
+
+.transition-opacity {
+  transition: opacity var(--anim-time);
+}
+
+.transition-max-h {
+  transition: max-height var(--anim-time);
+}
+
+.transition-border-color {
+  transition: border-color var(--anim-time);
 }

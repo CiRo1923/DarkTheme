@@ -8,9 +8,9 @@
 
 /* modules */
 @import '../_modules/mBanner';
+@import '../_modules/mProduct';
 
 /* page */
 @import '_betting';
 @import '_promotions';
-@import '_product';
 @import '_providers';

@@ -1,0 +1,13 @@
+.m-list {
+  &:hover {
+    .m-list-ctrl {
+      @apply opacity-100;
+    }
+  }
+
+  &:not(:hover) {
+    .m-list-ctrl {
+      @apply opacity-0;
+    }
+  }
+}

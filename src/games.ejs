@@ -1,0 +1,57 @@
+<%- require('component/mBanner.ejs')() %>
+<div class="max-cnt">
+  <div></div>
+  <div class="m-product">
+    <div class="m-product-bd">
+      <ul class="-mx-8 flex items-center flex-wrap">
+        <%
+          const newGames = [{
+            img: 'https://i.ytimg.com/vi/r3-pkP6Tif0/maxresdefault.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Elemental.jpg'
+          }, {
+            img: 'https://slotcatalog.com/userfiles/image/games/Yggdrasil/18906/Frost-Queen-Jackpots-2_s.jpg'
+          }, {
+            img: 'https://cf.geekdo-images.com/klyW3atcrS1IODI5bv-6nQ__imagepage/img/KKiEY9mhkiwARAdqINsG8YFmUok=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4707313.jpg'
+          }, {
+            img: 'https://cdn.coingaming.io/casino-yggdrasil/golden-chip-roulette-thumbnail.jpg'
+          }, {
+            img: 'https://slotgods.co.uk/storage/app/media/online-slots/Robbin-Robin-Online-Slot-by-Iron-Dog-Studio-Logo.png'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Elemental.jpg'
+          }, {
+            img: 'https://slotcatalog.com/userfiles/image/games/Yggdrasil/18906/Frost-Queen-Jackpots-2_s.jpg'
+          }, {
+            img: 'https://cf.geekdo-images.com/klyW3atcrS1IODI5bv-6nQ__imagepage/img/KKiEY9mhkiwARAdqINsG8YFmUok=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4707313.jpg'
+          }, {
+            img: 'https://cdn.coingaming.io/casino-yggdrasil/golden-chip-roulette-thumbnail.jpg'
+          }, {
+            img: 'https://slotgods.co.uk/storage/app/media/online-slots/Robbin-Robin-Online-Slot-by-Iron-Dog-Studio-Logo.png'
+          }];
+        -%>
+        <% for( let i = 0; i < newGames.length; i += 1 ) { -%>
+          <% const { img, status } = newGames[i]; -%>
+          <li class="m-product-item px-8 w-2/12">
+            <div class="m-product-block h-full relative">
+              <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
+                <%- require('component/img.ejs')({
+                  style: {
+                    main: 'w-2full left-1/2 h-200 translate-x-1/2 text-center relative',
+                    img: 'w-auto h-full inline-block'
+                  },
+                  path: img,
+                  alt: `gameName-${i}`
+                }) %>
+                <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
+                  <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
+                    <b class="px-10 text-xf block">PLAY NOW</b>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+  </div>
+</div>

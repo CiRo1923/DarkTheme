@@ -1,12 +1,10 @@
 .m-notice-bd {
   &::before {
     content: "";
-    width: 16px;
-    height: 16px;
     background: url(common/notice.svg) no-repeat center center;
     background-size: auto 100%;
 
-    @apply px-16 box-content block flex-shrink-0;
+    @apply px-16 w-16 h-16 box-content block flex-shrink-0;
   }
 }
 

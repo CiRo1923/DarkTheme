@@ -31,12 +31,3 @@
     }
   }
 }
-
-.m-banner-item {
-  height: 480px;
-}
-
-.m-banner-fig {
-  width: 200%;
-  transform: translateX(-50%);
-}

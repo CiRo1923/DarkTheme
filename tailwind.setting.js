@@ -7,9 +7,26 @@ const lineHeight = 1.14;
 
 const spacing = {};
 
+const size = {
+  '2full': '200%',
+  480: '480px',
+  226: '226px',
+  208: '208px',
+  200: '200px',
+  188: '188px',
+  140: '140px',
+  120: '120px',
+  110: '110px',
+  100: '100px'
+};
+
 const negative = {};
 
 const borderRadius = {};
+
+const leading = {
+  1.2: '1.2'
+};
 
 const zIndex = {
   '-1': -1,
@@ -45,5 +62,5 @@ const colors = {
 };
 
 module.exports = {
-  fontFamily, lineHeight, spacing, negative, colors, borderRadius, zIndex, fontSize
+  fontFamily, lineHeight, spacing, size, negative, colors, borderRadius, zIndex, fontSize, leading
 };

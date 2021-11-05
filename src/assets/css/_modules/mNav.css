@@ -1,20 +1,16 @@
 .m-nav-sub {
-  transition: max-height var(--anim-time);
   box-shadow: 0 2px 8px 0 rgba(#000, 0.3), 0 2px 8px 0 rgba(#000, 0.3) inset;
 }
 
 .m-nav-item {
-  transition: color var(--anim-time);
-
   &.active {
     @apply text-xfb2e;
 
     > a {
       &::before {
         content: "";
-        height: 4px;
 
-        @apply bottom-0 left-0 w-full bg-xfb2e absolute;
+        @apply bottom-0 left-0 w-full h-4 bg-xfb2e absolute;
       }
     }
   }
@@ -28,19 +24,6 @@
   &:not(:hover) {
     > .m-nav-sub {
       max-height: 0;
-    }
-  }
-}
-
-.m-nav-sub-item {
-  height: 110px;
-
-  > * {
-    transition: border-color var(--anim-time);
-
-    figure {
-      width: 200%;
-      transform: translateX(-50%);
     }
   }
 }
