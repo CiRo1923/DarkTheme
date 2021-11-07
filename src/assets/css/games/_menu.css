@@ -1,0 +1,7 @@
+.menu-item {
+  &.active {
+    > * {
+      @apply text-xfb2e;
+    }
+  }
+}

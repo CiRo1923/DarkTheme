@@ -1,0 +1,46 @@
+.m-form-type {
+  line-height: 16px;
+  background-position: calc(100% - 8px) center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+
+  &::placeholder {
+    @apply text-x88a1 opacity-100;
+  }
+
+  @apply p-8;
+}
+
+.m-form-item {
+  @apply rounded-5 flex items-center;
+
+  &.\-\-bg {
+    @apply bg-x1241 text-xf;
+
+    .m-form-type {
+      @apply bg-transparent;
+    }
+  }
+
+  > *:not(.m-form-type) {
+    @apply p-8;
+  }
+}
+
+input {
+  &:not([type="checked"]):not([type="radio"]) {
+    &.m-form-type {
+      @apply flex-grow w-full;
+    }
+  }
+}
+
+select.m-form-type {
+  background-image: url(common/arrow.svg);
+
+  @apply pr-32;
+
+  option {
+    @apply text-x0;
+  }
+}

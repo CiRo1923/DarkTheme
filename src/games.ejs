@@ -1,9 +1,85 @@
 <%- require('component/mBanner.ejs')() %>
-<div class="max-cnt">
-  <div></div>
-  <div class="m-product">
-    <div class="m-product-bd">
-      <ul class="-mx-8 flex items-center flex-wrap">
+<div class="mt-20 max-cnt">
+  <div class="pb-20 flex items-center border-b-1 border-solid border-x3368">
+    <div class="menu flex-grow">
+      <ul class="menu-bd -mx-10 inline-space jMenu">
+        <%
+          const links = [{
+            name: 'Top Games',
+            img: require('games/top.svg')
+          }, {
+            name: 'New Games',
+            img: require('games/fire.svg')
+          }, {
+            name: 'Slots',
+            img: require('games/slots.svg')
+          }, {
+            name: 'Table Games',
+            img: require('games/poker.svg')
+          }, {
+            name: 'Fishing and Arcade',
+            img: require('games/airplane.svg')
+          }, {
+            name: 'Lobby',
+            img: require('games/lobby.svg')
+          }, {
+            name: 'LobHi-Lo & Numberby',
+            img: require('games/lob.svg')
+          }, {
+            name: 'Other Games',
+            img: require('games/other.svg')
+          }]
+        -%>
+        <% for( let i = 0; i < links.length; i += 1 ) { -%>
+          <% const { name, img } = links[i]; -%>
+          <li class="menu-item<%- i === 0 ? ' active' : '' %> px-10 inline-block">
+            <a href="<%- urlFuns.page('games') %>" class="flex flex-row-reverse items-center text-x88a1">
+              <b class="block"><%- name %></b>
+              <%- require('component/img.ejs')({
+                style: {
+                  main: 'mr-4 w-20 h-20',
+                },
+                path: img,
+                alt: name
+              }) %>
+            </a>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+    <form method="POST" class="flex-shrink-0 overflow-hidden">
+      <ul class="-mx-10 flex">
+        <li class="px-10 w-160">
+          <div class="m-form">
+            <div class="m-form-item --bg">
+              <input type="search" class="m-form-type" placeholder="Search...">
+              <button type="submit" class="flex-shrink-0">
+                <%- require('component/svg.ejs')({
+                  style: {
+                    main: 'w-16 h-16',
+                  },
+                  svgName: 'search'
+                }) %>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="px-10">
+          <div class="m-form">
+            <div class="m-form-item --bg">
+              <select class="m-form-type">
+                <option value="">Select</option>
+                <option value="1">Providers</option>
+              </select>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <div class="mt-20 m-product">
+    <div class="m-product-bd overflow-hidden">
+      <ul class="-mx-8 -my-12 flex items-center flex-wrap">
         <%
           const newGames = [{
             img: 'https://i.ytimg.com/vi/r3-pkP6Tif0/maxresdefault.jpg'
@@ -31,7 +107,7 @@
         -%>
         <% for( let i = 0; i < newGames.length; i += 1 ) { -%>
           <% const { img, status } = newGames[i]; -%>
-          <li class="m-product-item px-8 w-2/12">
+          <li class="m-product-item px-8 py-12 w-2/12">
             <div class="m-product-block h-full relative">
               <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
                 <%- require('component/img.ejs')({
