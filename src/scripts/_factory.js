@@ -51,12 +51,14 @@ j$ = arg => {
   return new j$.Fn(htmlEls);
 };
 
+// eslint-disable-next-line func-names
 j$.Fn = function (elements) {
   this[0] = elements;
   return this;
 };
 
 j$.Fn.prototype = {
+  // eslint-disable-next-line func-names
   html: function (string) {
     if (typeof string !== 'undefined') {
       this[0].forEach(el => {
@@ -67,6 +69,7 @@ j$.Fn.prototype = {
     }
     return this[0][0].innerHTML;
   },
+  // eslint-disable-next-line func-names
   text: function (string) {
     let text = '';
 
@@ -84,6 +87,7 @@ j$.Fn.prototype = {
 
     return text;
   },
+  // eslint-disable-next-line func-names
   parents: function (className) {
     let target = this[0][0];
     let $parents = null;
@@ -104,6 +108,7 @@ j$.Fn.prototype = {
     }
     return $parents;
   },
+  // eslint-disable-next-line func-names
   parent: function () {
     var parents = [];
     var currentParent = null;
@@ -118,6 +123,7 @@ j$.Fn.prototype = {
 
     return new j$.Fn(parents);
   },
+  // eslint-disable-next-line func-names
   prev: function () {
     let prev = null;
 
@@ -127,6 +133,7 @@ j$.Fn.prototype = {
 
     return new j$.Fn([prev]);
   },
+  // eslint-disable-next-line func-names
   next: function () {
     let next = null;
 
@@ -136,6 +143,7 @@ j$.Fn.prototype = {
 
     return new j$.Fn([next]);
   },
+  // eslint-disable-next-line func-names
   find: function (selector) {
     let matchingElements = [];
     let currentMatchesQuery = null;
@@ -157,6 +165,7 @@ j$.Fn.prototype = {
 
     return new j$.Fn(matchingElements);
   },
+  // eslint-disable-next-line func-names
   children: function (tagName) {
     let children = [];
 
@@ -178,6 +187,7 @@ j$.Fn.prototype = {
 
     return new j$.Fn(children);
   },
+  // eslint-disable-next-line func-names
   siblings: function () {
     let sibling = this[0][0].parentNode.firstChild;
     let siblings = [];
@@ -192,6 +202,7 @@ j$.Fn.prototype = {
 
     return new j$.Fn(siblings);
   },
+  // eslint-disable-next-line func-names
   closest: function (selector) {
     if (!Element.prototype.matches) {
       Element.prototype.matches = Element.prototype.msMatchesSelector
@@ -199,6 +210,7 @@ j$.Fn.prototype = {
     }
 
     if (!Element.prototype.closest) {
+      // eslint-disable-next-line func-names
       Element.prototype.closest = function (s) {
         var el = this;
         if (!document.documentElement.contains(el)) return null;
@@ -217,6 +229,7 @@ j$.Fn.prototype = {
 
     return new j$.Fn([closest]);
   },
+  // eslint-disable-next-line func-names
   click: function () {
     this[0].forEach(el => {
       el.click();
@@ -224,6 +237,7 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   trigger: function (eventName) {
     this[0].forEach(el => {
       let event = document.createEvent('Event');
@@ -233,6 +247,7 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   hover: function (mouseoverhandle, mouseouthandle) {
     this[0].forEach(el => {
       el.addEventListener('mouseenter', mouseoverhandle, { passive: false });
@@ -241,6 +256,7 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   on: function (eventName, elementSelector, handle) {
     this[0].forEach(el => {
       if (elementSelector && typeof elementSelector === 'string') {
@@ -285,9 +301,12 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   off: function (eventName, elementSelector, handle) {
+    // eslint-disable-next-line func-names
     this[0].forEach(function (el) {
       if (elementSelector && typeof elementSelector === 'string') {
+        // eslint-disable-next-line func-names
         el.removeEventListener(eventName, function (e) {
           for (let target = e.target; target && target !== this; target = target.parentNode) {
             if (target.matches) {
@@ -316,6 +335,7 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   addClass: function (className) {
     this[0].forEach(el => {
       el.classList.add(className);
@@ -323,6 +343,7 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   removeClass: function (className) {
     this[0].forEach(el => {
       el.classList.remove(className);
@@ -330,6 +351,7 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   toggleClass: function (className) {
     this[0].forEach(el => {
       el.classList.toggle(className);
@@ -337,6 +359,7 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   hasClass: function (className) {
     let hasClass = false;
 
@@ -351,6 +374,7 @@ j$.Fn.prototype = {
 
     return hasClass;
   },
+  // eslint-disable-next-line func-names
   attr: function (attributeName, attributeValue) {
     if (typeof attributeValue !== 'undefined') {
       this[0].forEach(el => {
@@ -361,6 +385,7 @@ j$.Fn.prototype = {
     }
     return this[0][0].getAttribute(attributeName);
   },
+  // eslint-disable-next-line func-names
   data: function (attributeName, attributeValue) {
     if (typeof attributeValue !== 'undefined') {
       this[0].forEach(el => {
@@ -371,6 +396,7 @@ j$.Fn.prototype = {
     }
     return this[0][0].dataset[attributeName];
   },
+  // eslint-disable-next-line func-names
   removeAttr: function (attributeName) {
     this[0].forEach(el => {
       el.removeAttribute(attributeName);
@@ -378,6 +404,7 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   width: function () {
     let width = '';
 
@@ -387,6 +414,7 @@ j$.Fn.prototype = {
 
     return width;
   },
+  // eslint-disable-next-line func-names
   height: function () {
     let height = '';
 
@@ -396,6 +424,7 @@ j$.Fn.prototype = {
 
     return height;
   },
+  // eslint-disable-next-line func-names
   css: function (style, value) {
     if (typeof style !== 'undefined' && typeof value !== 'undefined') {
       this[0].forEach(el => {
@@ -406,6 +435,7 @@ j$.Fn.prototype = {
     }
     return getComputedStyle(this[0][0])[style];
   },
+  // eslint-disable-next-line func-names
   empty: function () {
     while (this[0][0].firstChild) {
       this[0][0].removeChild(this[0][0].firstChild);
@@ -413,8 +443,9 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   remove: function () {
-    this[0].forEach(function (el) {
+    this[0].forEach((el) => {
       if (!('remove' in Element.prototype)) {
         el.parentNode.removeChild(el);
       } else {
@@ -422,8 +453,10 @@ j$.Fn.prototype = {
       }
     });
   },
+  // eslint-disable-next-line func-names
   append: function (arg) {
     if (arg instanceof j$.Fn) {
+      // eslint-disable-next-line func-names
       arg[0].forEach(function (el) {
         const elem = el.length ? el.cloneNode(true) : el;
         this[0][0].appendChild(elem);
@@ -439,8 +472,10 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   before: function (arg) {
     if (arg instanceof j$.Fn) {
+      // eslint-disable-next-line func-names
       arg[0].forEach(function (el) {
         this[0][0].parentNode.insertBefore(el, this[0][0]);
       }.bind(this));
@@ -448,8 +483,10 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   after: function (arg) {
     if (arg instanceof j$.Fn) {
+      // eslint-disable-next-line func-names
       arg[0].forEach(function (el) {
         if (this[0][0].parentNode.lastChild === this[0][0]) {
           this[0][0].parentNode.appendChild(el, this[0][0]);
@@ -461,6 +498,7 @@ j$.Fn.prototype = {
 
     return this;
   },
+  // eslint-disable-next-line func-names
   val: function (value) {
     if (typeof value !== 'undefined') {
       this[0].forEach(el => {
@@ -471,6 +509,7 @@ j$.Fn.prototype = {
     }
     return this[0][0].value;
   },
+  // eslint-disable-next-line func-names
   offset: function () {
     const wScroll = {
       y: /(iPhone||iPad)\W+.*\sOS\s12_/.test(navigator.userAgent) ? window.scrollY : 0
@@ -488,6 +527,7 @@ j$.Fn.prototype = {
 
     return { top: (top + wScroll.y), left: left };
   },
+  // eslint-disable-next-line func-names
   position: function () {
     let $el = this[0][0];
     let top = 0;
@@ -504,6 +544,7 @@ j$.Fn.prototype = {
 
     return { top: (top - parentTop), left: (left - parentLeft) };
   },
+  // eslint-disable-next-line func-names
   prop: function (type, value) {
     let prop = null;
 
@@ -521,9 +562,11 @@ j$.Fn.prototype = {
 
     return prop;
   },
+  // eslint-disable-next-line func-names
   eq: function (index) {
     return new j$.Fn([typeof this[0][0][0] !== 'undefined' ? this[0][0][0][index] : this[0][index]]);
   },
+  // eslint-disable-next-line func-names
   index: function () {
     const children = this[0][0].parentNode.children;
 
@@ -562,27 +605,74 @@ export const device = () => {
   return 'P';
 };
 
-export const validate = {
-  req: value => {
-    return !!value;
-  },
-  reqZero: value => {
-    return !!((value || value === 0));
-  },
-  digit: value => {
-    return /^\d+$/.test(value);
-  },
-  decimal: value => {
-    return /^\d+\.?(\d+)?$/.test(value);
-  },
-  phone: value => {
-    return /^09\d{8}$/.test(value);
-  },
-  password: (value, length) => {
-    return new RegExp(`^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{${length},}$`).test(value);
-  },
-  same: (value, checkValue) => {
-    return (value === checkValue);
+export const validate = (elem, callback) => {
+  const value = elem.val();
+  const vali = JSON.parse(elem.attr(':validate').replace(/'/g, '"'));
+  let errorMsg = null;
+
+  elem.parent().removeClass('--error').removeClass('--success');
+
+  if (vali?.req && !value) {
+    errorMsg = vali.req;
+  } else if (value) {
+    if (vali?.min && value < vali.min.val) {
+      errorMsg = vali.min.msg.replace(/\$min/g, vali.min.val);
+    } else if (vali?.max && value > vali.max.val) {
+      errorMsg = vali.max.msg.replace(/\$max/g, vali.max.val);
+    } else if (vali?.email && !/^([a-zA-Z0-9_.\-+])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)) {
+      errorMsg = vali.email;
+    } else if (vali?.digital && !/^[0-9]+$/.test(value)) {
+      errorMsg = vali.digital;
+    } else if (vali?.name) {
+      const min = vali.name.min;
+      const max = vali.name.max;
+      const length = max ? `{${min},${max}}` : `{${min},}`;
+
+      if (min && !new RegExp(`^.${length}$`).test(value)) {
+        errorMsg = vali.name.msg.replace(/\$min/g, min);
+
+        if (max) {
+          errorMsg = errorMsg.replace(/\$max/g, max);
+        }
+      }
+    } else if (vali?.password) {
+      const min = vali.password.min;
+      const max = vali.password.max;
+      const length = max ? `{${min},${max}}` : `{${min},}`;
+
+      if (min && !new RegExp(`^(?=.*\\d)(?=.*[a-zA-Z]).${length}$`).test(value)) {
+        errorMsg = vali.password.msg.replace(/\$min/g, min);
+
+        if (max) {
+          errorMsg = errorMsg.replace(/\$max/g, max);
+        }
+      }
+    } else if (vali?.phone && !/^09\d{8}$/.test(value)) {
+      errorMsg = vali.phone;
+    }
+
+    if (!errorMsg && vali?.same) {
+      if (value !== j$(vali.same.elem).val()) {
+        errorMsg = vali.same.msg;
+      }
+    } else if (!errorMsg && vali?.different) {
+      if (value === j$(vali.different.elem).val()) {
+        errorMsg = vali.different.msg;
+      }
+    }
+
+    if (!errorMsg) {
+      elem.parent().addClass('--success');
+    }
+  }
+
+  if (errorMsg) {
+    elem.parent().addClass('--error');
+    elem.parents('.jForm').find('.jFormError').empty().text(errorMsg);
+  }
+
+  if (callback) {
+    callback(!!errorMsg);
   }
 };
 

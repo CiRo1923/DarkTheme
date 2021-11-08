@@ -1,0 +1,114 @@
+<div class="m-tab mt-64 data-cnt">
+  <%- require('component/mTabHd.ejs')({
+    active: 1,
+    style: {
+      item: 'w-1/5'
+    },
+    tabs: [{
+      name: urlFuns.name('account', 'statement'),
+      link: urlFuns.page('account', 'statement')
+    }]
+  }) %>
+  <div class="m-tab-bd px-20 py-40 bg-x1241">
+    <div class="tab overflow-hidden">
+      <ul class="tab-hd -mx-8 flex items-center">
+        <%
+          const tabs = [{
+            name: '08/01 ~ 08/31',
+            href: urlFuns.page('account', 'statement')
+          }, {
+            name: '09/01 ~ 09/30',
+            href: urlFuns.page('account', 'statement')
+          }, {
+            name: '10/01 ~ 10/08',
+            href: urlFuns.page('account', 'statement')
+          }]
+        -%>
+        <% for( let i = 0; i < tabs.length; i += 1 ) { -%>
+          <% const { name, href } = tabs[i]; -%>
+          <li class="tab-item<%- i === 0 ? ' active' : '' %> px-8">
+            <a href="<%- href %>" class="tab-button w-240 py-8 block rounded-4 bg-x3368 text-center overflow-hidden relative">
+              <b class="text-16 text-xf relative z-1"><%- name %></b>
+            </a>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+    <div class="mt-32">
+      <table class="m-table w-full">
+        <thead>
+          <tr>
+            <th class="text-center">
+              <b>Date</b>
+            </th>
+            <th class="text-center">
+              <b>Remark</b>
+            </th>
+            <th class="text-center">
+              <b>Winlose</b>
+            </th>
+            <th class="text-center">
+              <b>Commission</b>
+            </th>
+            <th class="text-center">
+              <b>Running Total</b>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">
+              <p>09/01/2021 Wednesday</p>
+            </td>
+            <td class="text-center">
+              <p>Open Balance</p>
+            </td>
+            <td class="text-center">
+              <p>1,178.49</p>
+            </td>
+            <td class="text-center">
+              <p>0.00</p>
+            </td>
+            <td class="text-center">
+              <p>1,178.49</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <p>09/18/2021 Wednesday</p>
+            </td>
+            <td class="text-center">
+              <p>Betting</p>
+            </td>
+            <td class="text-center">
+              <p>2.65</p>
+            </td>
+            <td class="text-center">
+              <p>0.00</p>
+            </td>
+            <td class="text-center">
+              <p>1,181.14</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <p>09/18/2021 Wednesday</p>
+            </td>
+            <td class="text-center">
+              <p>Betting</p>
+            </td>
+            <td class="text-center">
+              <p class="text-xf25c">-24.40</p>
+            </td>
+            <td class="text-center">
+              <p>0.00</p>
+            </td>
+            <td class="text-center">
+              <p>1,156.74</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

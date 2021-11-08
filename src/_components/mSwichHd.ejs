@@ -1,0 +1,12 @@
+<div class="m-swich-hd">
+  <ul class="flex items-center">
+    <% for( let i = 0; i < tabs.length; i += 1 ) { -%>
+      <% const { name } = tabs[i]; -%>
+      <li class="m-swich-item<%- active === (i + 1) ? ' active' : '' %> flex-1">
+        <button type="button" class="m-swich-button py-8 w-full block text-center bg-x3368 relative jSwichBtn">
+          <b class="text-16 text-xf"><%- name %></b>
+        </button>
+      </li>
+    <% } -%>
+  </ul>
+</div>

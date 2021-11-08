@@ -1,13 +1,29 @@
 .m-btn {
   transition: background-color var(--anim-time), color var(--anim-time), border-color var(--anim-time);
 
-  @apply px-8 py-6 text-center inline-block rounded-16;
+  &:not(.\-\-rectangle) {
+    @apply py-6 rounded-16;
+  }
+
+  &.\-\-rectangle {
+    @apply py-8 rounded-5;
+  }
+
+  @apply px-8 text-center inline-block;
 
   &.\-\-green {
     @apply bg-x3c6e border-1 border-solid border-x3c6e;
 
     &:hover {
       @apply bg-x1956 border-x1956;
+    }
+  }
+
+  &.\-\-blue {
+    @apply bg-x3368 border-1 border-solid border-x3368;
+
+    &:hover {
+      @apply bg-x1241 border-x1241;
     }
   }
 

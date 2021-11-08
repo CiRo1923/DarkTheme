@@ -1,0 +1,12 @@
+<div class="m-tab-hd">
+  <ul class="-mx-2 flex items-center">
+    <% for( let i = 0; i < tabs.length; i += 1 ) { -%>
+      <% const { name, link } = tabs[i]; -%>
+      <li class="m-tab-item<%- active === (i + 1) ? ' active' : '' %> px-2<%- typeof style !== 'undefined' && typeof style.item !== 'undefined' ? ` ${style.item}` : '' %>">
+        <a href="<%- link %>" class="p-20 text-xf text-center block">
+          <b class="text-20"><%- name %></b>
+        </a>
+      </li>
+    <% } -%>
+  </ul>
+</div>

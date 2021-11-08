@@ -1,0 +1,110 @@
+<div class="m-tab mt-64 data-cnt">
+  <%- require('component/mTabHd.ejs')({
+    active: 2,
+    style: {
+      item: 'w-4/12'
+    },
+    tabs: [{
+      name: urlFuns.name('deposit', 'deposit'),
+      link: urlFuns.page('deposit', 'deposit')
+    }, {
+      name: urlFuns.name('deposit', 'withdrawal'),
+      link: urlFuns.page('deposit', 'withdrawal')
+    }, {
+      name: urlFuns.name('account', 'history'),
+      link: urlFuns.page('account', 'history')
+    }]
+  }) %>
+  <form method="POST" class="m-tab-bd px-20 py-40 bg-x1241">
+    <ul class="mx-auto space-y-40 w-8/11">
+      <li>
+        <div class="mb-24 pb-16 border-b-1 border-solid border-xf-15">
+          <p class="text-x3c6e text-16"><b>Choose Your Deposit Method</b></p>
+        </div>
+        <ul class="space-y-20">
+          <li>
+            <div class="m-form">
+              <div class="m-form-item">
+                <label class="m-form-elem">
+                  <input type="radio" name="transfer" class="m-form-type" value="bank" checked>
+                  <p class="text-x001e">Bank Transfer</p>
+                </label>
+                <!-- <label class="m-form-elem">
+                  <input type="radio" name="transfer" class="m-form-type" value="bank">
+                  <p class="text-x001e">Bank Transfer</p>
+                </label> -->
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div class="mb-24 pb-16 border-b-1 border-solid border-xf-15">
+          <p class="text-x3c6e text-16"><b>Withdrawal Information</b></p>
+        </div>
+        <ul class="space-y-20 w-8/11">
+          <%
+            const form = [{
+              title: 'Bank',
+              formType: 'select',
+              required: true,
+              options: [{
+                name: 'DemoBankTMP',
+                value: 'DemoBankTMP'
+              }],
+              validate : `{'req': 'This field is required.'}`
+            }, {
+              title: 'Bank Account Name',
+              formType: 'text',
+              required: true,
+              validate : `{'req': 'This field is required.'}`
+            }, {
+              title: 'Bank Account Number',
+              formType: 'tel',
+              required: true,
+              validate : `{'req': 'This field is required.', 'digital': 'Please enter a valid bank account number.'}`
+            }, {
+              title: 'Balance',
+              formType: 'tel',
+              validate : `{'digital': 'Please enter a valid bank account number.'}`
+            }, {
+              title: 'Amount',
+              formType: 'tel',
+              required: true,
+              validate : `{'req': 'This field is required.', 'digital': 'Please enter a valid bank account number.'}`
+            }]
+          -%>
+          <% for( let i = 0; i < form.length; i += 1 ) { -%>
+            <% const { title, formType, required, options, validate, classCtrl } = form[i]; -%>
+            <li class="flex">
+              <b class="w-1/3 leading-32 text-right text-xf"><%- title %> <sup class="text-xf25c text-12<%- required ? '' : ' opacity-0 pointer-events-none' %>">*</sup></b>
+              <div class="m-form ml-32 flex-grow jForm">
+                <div class="m-form-item">
+                  <div class="m-form-elem">
+                    <% if ( formType !== 'checkbox' && formType !== 'radio' && formType !== 'select' && formType !== 'textarea' ) { %>
+                      <input type="<%- formType %>" class="m-form-type<%- classCtrl ? ` ${classCtrl}` : '' %>"<%- validate ? ` :validate="${validate}"` : '' %>>
+                    <% } else if ( formType === 'select' ) { -%>
+                      <select class="m-form-type w-full<%- classCtrl ? ` ${classCtrl}` : '' %>"<%- validate ? ` :validate="${validate}"` : '' %>>
+                        <option value="">Select</option>
+                        <% for( let j = 0; j < options.length; j += 1 ) { -%>
+                          <% const { name, value } = options[j]; -%>
+                          <option value="<%- value %>"><%- name %></option>
+                        <% } -%>
+                      </select>
+                    <% } -%>
+                  </div>
+                </div>
+                <span class="m-form-error jFormError"></span>
+              </div>
+            </li>
+          <% } -%>
+        </ul>
+      </li>
+      <li class="text-center">
+        <button type="submit" class="m-btn --green jSubmit">
+          <b class="px-68 block">Submit</b>
+        </button>
+      </li>
+    </ul>
+  </form>
+</div>

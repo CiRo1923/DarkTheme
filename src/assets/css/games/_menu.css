@@ -1,7 +1,37 @@
+.menu {
+  .tns-controls {
+    > button {
+      @apply -mt-8 w-20 h-20;
+
+      &::before {
+        @apply w-full h-full;
+      }
+
+      &:first-child {
+        @apply left-0;
+      }
+
+      &:last-child {
+        @apply right-0;
+      }
+    }
+  }
+}
+
 .menu-item {
   &.active {
+    &::after {
+      content: "";
+
+      @apply bottom-0 left-0 w-full h-2 rounded-1 bg-xfb2e absolute;
+    }
+
     > * {
       @apply text-xfb2e;
+    }
+
+    img {
+      top: -100%;
     }
   }
 }

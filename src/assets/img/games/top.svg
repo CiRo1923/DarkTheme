@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 72 72" style="enable-background:new 0 0 72 72;" xml:space="preserve">
+	 viewBox="0 0 72 144" style="enable-background:new 0 0 72 144;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#8486A1;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBD2E;}
 </style>
 <path class="st0" d="M40,9.44c3.34-2.93,4.39-1.67,4.39-1.67c6.69,2.17,2.14,13.06,0.05,17.33l-0.32,0.65
 	c-0.35,0.68-0.57,1.07-0.57,1.07c5.29,0.21,10.6,0.21,15.89,0c11.5-0.42,9.41,12.56,9.41,12.56s1.25,3.77-5.44,15.28
 	c-1.43,2.42-3.04,4.73-4.81,6.91c-1.67,1.88-3.76,2.93-6.27,2.93H30.18c-7.95,0-7.53-8.16-7.53-8.16V28.08
-	C22.23,24.93,36.65,12.37,40,9.44z M16.59,27.65v34.55H3V27.65L16.59,27.65L16.59,27.65z"/>
+	C22.23,24.93,36.65,12.37,40,9.44z M16.59,27.65V62.2H3V27.65H16.59L16.59,27.65z"/>
+<path class="st1" d="M40,81.44c3.34-2.93,4.39-1.67,4.39-1.67c6.69,2.17,2.14,13.06,0.05,17.33l-0.32,0.65
+	c-0.35,0.68-0.57,1.07-0.57,1.07c5.29,0.21,10.6,0.21,15.89,0c11.5-0.42,9.41,12.56,9.41,12.56s1.25,3.77-5.44,15.28
+	c-1.43,2.42-3.04,4.73-4.81,6.91c-1.67,1.88-3.76,2.93-6.27,2.93H30.18c-7.95,0-7.53-8.16-7.53-8.16v-28.26
+	C22.23,96.93,36.65,84.37,40,81.44z M16.59,99.65v34.55H3V99.65H16.59L16.59,99.65z"/>
 </svg>

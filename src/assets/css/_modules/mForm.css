@@ -3,16 +3,67 @@
   background-position: calc(100% - 8px) center;
   background-repeat: no-repeat;
   background-size: 16px 16px;
+  transition: border-color var(--anim-time);
 
   &::placeholder {
     @apply text-x88a1 opacity-100;
   }
 
-  @apply p-8;
+  &:not([type="textarea"]):not([type="checked"]):not([type="radio"]) {
+    @apply h-32;
+  }
+
+  &:not([type="checked"]):not([type="radio"]):not(select) {
+    @apply p-6 border-2 border-solid border-transparent;
+  }
+
+  &[type="checked"],
+  &[type="radio"] {
+    @apply sr-only;
+
+    & + * {
+      transition: border-color var(--anim-time);
+
+      @apply px-20 py-10 h-40 rounded-3 block border-2 border-solid border-transparent overflow-hidden relative;
+
+      &::before {
+        content: "";
+        border-radius: 50%;
+        background: #31c46e url(common/checked.svg) no-repeat 6px 20px;
+        background-size: 10px 10px;
+        transform: translate(50%, -50%);
+        transition: opacity var(--anim-time);
+
+        @apply top-0 right-0 w-36 h-36 opacity-0 absolute;
+      }
+    }
+
+    &:checked {
+      & + * {
+        @apply border-x3c6e;
+
+        &::before {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
 }
 
 .m-form-item {
-  @apply rounded-5 flex items-center;
+  @apply -m-8;
+}
+
+.m-form-elem {
+  @apply m-8 rounded-5 items-center overflow-hidden;
+
+  &:not(label) {
+    @apply flex;
+
+    > *:not(.m-form-type) {
+      @apply p-8;
+    }
+  }
 
   &.\-\-bg {
     @apply bg-x1241 text-xf;
@@ -20,27 +71,57 @@
     .m-form-type {
       @apply bg-transparent;
     }
+
+    select.m-form-type {
+      background-image: url(common/arrow-white.svg);
+    }
   }
 
-  > *:not(.m-form-type) {
-    @apply p-8;
+  &:not(.\-\-bg) {
+    @apply bg-xf text-x88a1;
+
+    select.m-form-type {
+      background-image: url(common/arrow-black.svg);
+    }
+  }
+
+  &.\-\-error {
+    .m-form-type {
+      border-color: #ff265c !important;
+    }
+  }
+
+  &.\-\-success {
+    .m-form-type {
+      border-color: #31c46e !important;
+    }
   }
 }
 
 input {
   &:not([type="checked"]):not([type="radio"]) {
     &.m-form-type {
-      @apply flex-grow w-full;
+      @apply rounded-3 flex-grow w-full;
+
+      &:focus {
+        @apply border-xa9ff;
+      }
     }
   }
 }
 
-select.m-form-type {
-  background-image: url(common/arrow.svg);
+label.m-form-elem {
+  @apply inline-block cursor-pointer;
+}
 
-  @apply pr-32;
+select.m-form-type {
+  @apply py-6 pl-6 pr-32 rounded-3;
 
   option {
     @apply text-x0;
   }
+}
+
+.m-form-error {
+  @apply pt-5 text-12 block text-xf25c;
 }

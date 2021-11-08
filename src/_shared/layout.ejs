@@ -4,6 +4,7 @@
   const COPYRIGHT = 'Copyright © Company.com. All rights resvrved.';
   const fileName = /(.*)(?=\.html$)/.exec(htmlWebpackPlugin.options.filename)[1];
   const isMobile = /^mobile/.test(fileName);
+  const isBlank = htmlWebpackPlugin.options.blank;
   const navs = [{
     name: 'Home',
     icon: 'home',
@@ -52,32 +53,53 @@
       name: 'Profile',
       href: 'profile.html',
       value: 'profile',
+      lastNavs: [{
+        name: 'Change Password',
+        href: 'changePassword.html',
+        value: 'changePassword'
+      }]
     }, {
       name: 'My Bets',
-      href: 'bets.html',
       value: 'bets',
+      lastNavs: [{
+        name: 'My Bets',
+        href: 'betsRunning.html',
+        value: 'running'
+      }, {
+        name: 'My Bets',
+        href: 'betsSettled.html',
+        value: 'settled'
+      }]
     }, {
       name: 'Transaction History',
       href: 'history.html',
-      value: 'history',
+      value: 'history'
     }, {
       name: 'Statement',
       href: 'statement.html',
-      value: 'statement',
+      value: 'statement'
     }, {
       name: 'My Promotion',
-      href: 'promotion.html',
-      value: 'promotion',
+      href: 'myPromotion.html',
+      value: 'myPromotion'
     }, {
       name: 'Referral',
       href: 'referral.html',
-      value: 'referral',
+      value: 'referral'
     }],
     group: 'navTools'
   }, {
     name: 'Deposit',
-    href: 'deposit.html',
     value: 'deposit',
+    subNavs: [{
+      name: 'Deposit',
+      href: 'deposit.html',
+      value: 'deposit'
+    }, {
+      name: 'Withdrawal',
+      href: 'withdrawal.html',
+      value: 'withdrawal'
+    }],
     group: 'navTools'
   }];
   const urlFuns = {
@@ -170,374 +192,378 @@
   </head>
   <body class="bg-x001e text-xf">
     <div class="l-wrap text-14 jWrap">
-      <header class="l-hd relative">
-        <h1 class="sr-only"><%- TITLE %></h1>
-        <% if( !isMobile ) { -%>
-          <div class="m-hd flex items-center max-cnt">
-            <div class="m-hd-logo mr-32 w-120 h-32 flex-shrink-0">
-              <%- require('component/img.ejs')({
-                style: {
-                  main: 'm-hd-logo-fig w-full h-full'
-                },
-                path: require('common/logo.svg'),
-                alt: TITLE
-              }) %>
-            </div>
-            <nav class="m-nav flex-grow overflow-hidden jNav">
-              <ul class="m-nav-menu -mx-12 flex items-center">
-                <% for(let i = 0; i < navs.length; i += 1) { -%>
-                  <% const { name, icon, href, value, group } = navs[i]; -%>
-                  <% if ( group === 'nav' ) { -%>
-                    <li class="m-nav-item<%- htmlWebpackPlugin.options.action === value ? ' active' : '' %> px-12 text-x88a1 hover:text-xfb2e transition-color jNavItem">
-                      <a href="<%- href ? href : subNavs[0].href %>" class="py-20 h-24 box-content flex flex-col justify-center relative">
-                        <% if ( icon ) { -%>
-                          <%- require('component/svg.ejs')({
-                            style: {
-                              main: 'm-nav-svg w-24 h-24'
-                            },
-                            svgName: icon
-                          }) %>
-                        <% } else { -%>
-                          <strong><%- name %></strong>
+      <% if ( !isBlank ) { -%>
+        <header class="l-hd relative">
+          <h1 class="sr-only"><%- TITLE %></h1>
+          <% if( !isMobile ) { -%>
+            <div class="m-hd flex items-center max-cnt">
+              <div class="m-hd-logo mr-32 w-120 h-32 flex-shrink-0">
+                <%- require('component/img.ejs')({
+                  style: {
+                    main: 'm-hd-logo-fig w-full h-full'
+                  },
+                  path: require('common/logo.svg'),
+                  alt: TITLE
+                }) %>
+              </div>
+              <nav class="m-nav flex-grow overflow-hidden jNav">
+                <ul class="m-nav-menu -mx-12 flex items-center">
+                  <% for(let i = 0; i < navs.length; i += 1) { -%>
+                    <% const { name, icon, href, value, group } = navs[i]; -%>
+                    <% if ( group === 'nav' ) { -%>
+                      <li class="m-nav-item<%- htmlWebpackPlugin.options.action === value ? ' active' : '' %> px-12 text-x88a1 hover:text-xfb2e transition-color jNavItem">
+                        <a href="<%- href ? href : subNavs[0].href %>" class="py-20 h-24 box-content flex flex-col justify-center relative">
+                          <% if ( icon ) { -%>
+                            <%- require('component/svg.ejs')({
+                              style: {
+                                main: 'm-nav-svg w-24 h-24'
+                              },
+                              svgName: icon
+                            }) %>
+                          <% } else { -%>
+                            <strong><%- name %></strong>
+                          <% } -%>
+                        </a>
+                        <% if ( value !== 'home' ) { -%>
+                          <!-- 以下結構為有子選單時才出現 -->
+                          <div class="m-nav-sub left-0 w-full bg-x3368 overflow-hidden transition-max-h absolute z-1">
+                            <ul class="-mx-8 py-32 max-cnt flex items-center">
+                              <%
+                                const navSub = [{
+                                  img: 'https://i.pinimg.com/originals/57/8b/b5/578bb58151c729e3195b738b0d121169.jpg'
+                                }, {
+                                  img: 'https://api2-mj3.tr8ngames.com/images/id_cbd_07e22c9e-935f-4692-b336-8ab43fc04888_1621928172590.jpg'
+                                }, {
+                                  img: 'https://howto-sbobet.com/wp-content/uploads/2017/05/Cover-SicBo.jpg'
+                                }];
+                              -%>
+                              <% for( let j = 0; j < navSub.length; j += 1 ) { -%>
+                                <% const { img } = navSub[j]; -%>
+                                <li class="m-nav-sub-item px-8 w-2/12 h-110">
+                                  <a href="javascript:;" class="block w-full h-full text-center rounded-8 overflow-hidden border-1 border-solid border-x88a1 hover:border-xfb2e transition-border-color" target="_balnk" rel="noopener">
+                                    <%- require('component/img.ejs')({
+                                      style: {
+                                        main: 'left-1/2 w-2full h-full translate-x-1/2 relative',
+                                        img: 'w-auto h-full inline-block'
+                                      },
+                                      path: img,
+                                      alt: 'Game'
+                                    }) %>
+                                  </a>
+                                </li>
+                              <% } -%>
+                            </ul>
+                          </div>
                         <% } -%>
-                      </a>
-                      <% if ( value !== 'home' ) { -%>
-                        <!-- 以下結構為有子選單時才出現 -->
-                        <div class="m-nav-sub left-0 w-full bg-x3368 overflow-hidden transition-max-h absolute z-1">
-                          <ul class="-mx-8 py-32 max-cnt flex items-center">
-                            <%
-                              const navSub = [{
-                                img: 'https://i.pinimg.com/originals/57/8b/b5/578bb58151c729e3195b738b0d121169.jpg'
-                              }, {
-                                img: 'https://api2-mj3.tr8ngames.com/images/id_cbd_07e22c9e-935f-4692-b336-8ab43fc04888_1621928172590.jpg'
-                              }, {
-                                img: 'https://howto-sbobet.com/wp-content/uploads/2017/05/Cover-SicBo.jpg'
-                              }];
-                            -%>
-                            <% for( let j = 0; j < navSub.length; j += 1 ) { -%>
-                              <% const { img } = navSub[j]; -%>
-                              <li class="m-nav-sub-item px-8 w-2/12 h-110">
-                                <a href="javascript:;" class="block w-full h-full text-center rounded-8 overflow-hidden border-1 border-solid border-x88a1 hover:border-xfb2e transition-border-color" target="_balnk" rel="noopener">
-                                  <%- require('component/img.ejs')({
-                                    style: {
-                                      main: 'left-1/2 w-2full h-full translate-x-1/2 relative',
-                                      img: 'w-auto h-full inline-block'
-                                    },
-                                    path: img,
-                                    alt: 'Game'
-                                  }) %>
-                                </a>
-                              </li>
-                            <% } -%>
-                          </ul>
-                        </div>
-                      <% } -%>
-                    </li>
+                      </li>
+                    <% } -%>
                   <% } -%>
-                <% } -%>
-              </ul>
-            </nav>
-            <div class="m-hd-tools flex-shrink-0">
-              <!-- 尚未登入 -->
-              <!-- <ul class="flex items-center space-x-16">
-                <li>
-                  <%- require('component/mDropdown.ejs')({
-                    style: {
-                      main: 'jDropLang'
-                    },
-                    ctrlImg: {
-                      path: require('common/lang_english.svg'),
-                      alt: 'English'
-                    },
-                    options: [[{
-                      name: 'English',
-                      data: {
-                        flag: require('common/lang_english.svg')
-                      }
-                    }, {
-                      name: '简体中文',
-                      data: {
-                        flag: require('common/lang_english.svg')
-                      }
-                    }, {
-                      name: 'Indonesia',
-                      data: {
-                        flag: require('common/lang_indonesia.svg')
-                      }
-                    }, {
-                      name: '한국어',
-                      data: {
-                        flag: require('common/lang_korea.svg')
-                      }
-                    }, {
-                      name: 'Bahasa Melayu',
-                      data: {
-                        flag: require('common/lang_bahasaMelayu.svg')
-                      }
-                    }, {
-                      name: '日本語',
-                      data: {
-                        flag: require('common/lang_japan.svg')
-                      }
-                    }]]
-                  }) %>
-                </li>
-                <li>
-                  <a href="<%- urlFuns.page('login') %>">
-                    <b><%- urlFuns.name('login') %></b>
-                  </a>
-                </li>
-                <li>
-                  <a href="<%- urlFuns.page('register') %>" class="m-btn bg-x3c6e">
-                    <b class="px-2 inline-block"><%- urlFuns.name('register') %></b>
-                  </a>
-                </li>
-              </ul> -->
-              <!-- 已登入 -->
-              <ul class="flex items-center space-x-16">
-                <li>
-                  <%- require('component/mDropdown.ejs')({
-                    style: {
-                      main: 'jDropLang'
-                    },
-                    ctrlImg: {
-                      path: require('common/lang_english.svg'),
-                      alt: 'English'
-                    },
-                    options: [[{
-                      name: 'English',
-                      data: {
-                        flag: require('common/lang_english.svg')
-                      }
-                    }, {
-                      name: '简体中文',
-                      data: {
-                        flag: require('common/lang_china.svg')
-                      }
-                    }, {
-                      name: 'Indonesia',
-                      data: {
-                        flag: require('common/lang_indonesia.svg')
-                      }
-                    }, {
-                      name: '한국어',
-                      data: {
-                        flag: require('common/lang_korea.svg')
-                      }
-                    }, {
-                      name: 'Bahasa Melayu',
-                      data: {
-                        flag: require('common/lang_bahasaMelayu.svg')
-                      }
-                    }, {
-                      name: '日本語',
-                      data: {
-                        flag: require('common/lang_japan.svg')
-                      }
-                    }]]
-                  }) %>
-                </li>
-                <li>
-                  <%- require('component/mDropdown.ejs')({
-                    ctrlText: 'evonne3301',
-                    options: [[{
-                      name: urlFuns.name('account', 'profile'),
-                      href: urlFuns.page('account', 'profile')
-                    }, {
-                      name: urlFuns.name('account', 'bets'),
-                      href: urlFuns.page('account', 'bets')
-                    }, {
-                      name: urlFuns.name('account', 'history'),
-                      href: urlFuns.page('account', 'history')
-                    }, {
-                      name: urlFuns.name('account', 'statement'),
-                      href: urlFuns.page('account', 'statement')
-                    }, {
-                      name: urlFuns.name('account', 'promotion'),
-                      href: urlFuns.page('account', 'promotion')
-                    }, {
-                      name: urlFuns.name('account', 'referral'),
-                      href: urlFuns.page('account', 'referral')
-                    }], [{
-                      name: 'Sign Out'
-                    }]]
-                  }) %>
-                </li>
-                <li class="flex items-center">
-                  <p class="mr-4"><b>TMP 1,099.78</b></p>
-                  <button type="button" class="text-x88a1">
-                    <%- require('component/svg.ejs')({
+                </ul>
+              </nav>
+              <div class="m-hd-tools flex-shrink-0">
+                <!-- 尚未登入 -->
+                <!-- <ul class="flex items-center space-x-16">
+                  <li>
+                    <%- require('component/mDropdown.ejs')({
                       style: {
-                        main: 'm-hd-svg w-12 h-12'
+                        main: 'jDropLang'
                       },
-                      svgName: 'refresh'
+                      ctrlImg: {
+                        path: require('common/lang_english.svg'),
+                        alt: 'English'
+                      },
+                      options: [[{
+                        name: 'English',
+                        data: {
+                          flag: require('common/lang_english.svg')
+                        }
+                      }, {
+                        name: '简体中文',
+                        data: {
+                          flag: require('common/lang_english.svg')
+                        }
+                      }, {
+                        name: 'Indonesia',
+                        data: {
+                          flag: require('common/lang_indonesia.svg')
+                        }
+                      }, {
+                        name: '한국어',
+                        data: {
+                          flag: require('common/lang_korea.svg')
+                        }
+                      }, {
+                        name: 'Bahasa Melayu',
+                        data: {
+                          flag: require('common/lang_bahasaMelayu.svg')
+                        }
+                      }, {
+                        name: '日本語',
+                        data: {
+                          flag: require('common/lang_japan.svg')
+                        }
+                      }]]
                     }) %>
-                  </button>
-                </li>
-                <li>
-                  <a href="<%- urlFuns.page('deposit') %>" class="m-btn --green">
-                    <b class="px-2 inline-block"><%- urlFuns.name('deposit') %></b>
-                  </a>
-                </li>
-              </ul>
-            </div>  
-          </div>
-          <div class="m-notice bg-x1241">
-            <div class="m-notice-bd py-10 flex items-center max-cnt relative">
-              <div class="m-notice-info text-xf-70 flex-grow">Dear Valued Customers, 120% Welcome bonus is Not able to Claim with ATM Deposit anymore, we apologise for any inconvenience caused.</div>
-              <time class="m-notice-time ml-16 pl-16 text-12 text-x88a1 flex-shrink-0 relative">2021/08/10 15:46:54PM GMT+8</time>
+                  </li>
+                  <li>
+                    <a href="<%- urlFuns.page('login') %>">
+                      <b><%- urlFuns.name('login') %></b>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<%- urlFuns.page('register') %>" class="m-btn bg-x3c6e">
+                      <b class="px-2 inline-block"><%- urlFuns.name('register') %></b>
+                    </a>
+                  </li>
+                </ul> -->
+                <!-- 已登入 -->
+                <ul class="flex items-center space-x-16">
+                  <li>
+                    <%- require('component/mDropdown.ejs')({
+                      style: {
+                        main: 'jDropLang'
+                      },
+                      ctrlImg: {
+                        path: require('common/lang_english.svg'),
+                        alt: 'English'
+                      },
+                      options: [[{
+                        name: 'English',
+                        data: {
+                          flag: require('common/lang_english.svg')
+                        }
+                      }, {
+                        name: '简体中文',
+                        data: {
+                          flag: require('common/lang_china.svg')
+                        }
+                      }, {
+                        name: 'Indonesia',
+                        data: {
+                          flag: require('common/lang_indonesia.svg')
+                        }
+                      }, {
+                        name: '한국어',
+                        data: {
+                          flag: require('common/lang_korea.svg')
+                        }
+                      }, {
+                        name: 'Bahasa Melayu',
+                        data: {
+                          flag: require('common/lang_bahasaMelayu.svg')
+                        }
+                      }, {
+                        name: '日本語',
+                        data: {
+                          flag: require('common/lang_japan.svg')
+                        }
+                      }]]
+                    }) %>
+                  </li>
+                  <li>
+                    <%- require('component/mDropdown.ejs')({
+                      ctrlText: 'evonne3301',
+                      options: [[{
+                        name: urlFuns.name('account', 'profile'),
+                        href: urlFuns.page('account', 'profile')
+                      }, {
+                        name: urlFuns.name('account', 'bets', 'running'),
+                        href: urlFuns.page('account', 'bets', 'running')
+                      }, {
+                        name: urlFuns.name('account', 'history'),
+                        href: urlFuns.page('account', 'history')
+                      }, {
+                        name: urlFuns.name('account', 'statement'),
+                        href: urlFuns.page('account', 'statement')
+                      }, {
+                        name: urlFuns.name('account', 'myPromotion'),
+                        href: urlFuns.page('account', 'myPromotion')
+                      }, {
+                        name: urlFuns.name('account', 'referral'),
+                        href: urlFuns.page('account', 'referral')
+                      }], [{
+                        name: 'Sign Out'
+                      }]]
+                    }) %>
+                  </li>
+                  <li class="flex items-center">
+                    <p class="mr-4"><b>TMP 1,099.78</b></p>
+                    <button type="button" class="text-x88a1">
+                      <%- require('component/svg.ejs')({
+                        style: {
+                          main: 'm-hd-svg w-12 h-12'
+                        },
+                        svgName: 'refresh'
+                      }) %>
+                    </button>
+                  </li>
+                  <li>
+                    <a href="<%- urlFuns.page('deposit', 'deposit') %>" class="m-btn --green">
+                      <b class="px-2 inline-block"><%- urlFuns.name('deposit', 'deposit') %></b>
+                    </a>
+                  </li>
+                </ul>
+              </div>  
             </div>
-          </div>
-        <% } -%>
-      </header>
+            <div class="m-notice bg-x1241">
+              <div class="m-notice-bd py-10 flex items-center max-cnt relative">
+                <div class="m-notice-info text-xf-70 flex-grow">Dear Valued Customers, 120% Welcome bonus is Not able to Claim with ATM Deposit anymore, we apologise for any inconvenience caused.</div>
+                <time class="m-notice-time ml-16 pl-16 text-12 text-x88a1 flex-shrink-0 relative">2021/08/10 15:46:54PM GMT+8</time>
+              </div>
+            </div>
+          <% } -%>
+        </header>
+      <% } -%>
       <main class="l-main">
         <div class="l-cnt">
           <%- reqFile %>
         </div>
       </main>
-      <% if( !isMobile ) { -%>
-        <footer class="l-ft mt-100 pb-32 bg-x0030">
-          <div class="m-ft max-cnt">
-            <div class="m-ft-sitemap py-32">
-              <ul class="flex items-center">
-                <%
-                  const sitemap = [{
-                    title: 'Products',
-                    items: [{
-                      name: urlFuns.name('sports'),
-                      href: urlFuns.page('sports')
+      <% if ( !isBlank ) { -%>
+        <% if( !isMobile ) { -%>
+          <footer class="l-ft mt-100 pb-32 bg-x0030">
+            <div class="m-ft max-cnt">
+              <div class="m-ft-sitemap py-32">
+                <ul class="flex items-center">
+                  <%
+                    const sitemap = [{
+                      title: 'Products',
+                      items: [{
+                        name: urlFuns.name('sports'),
+                        href: urlFuns.page('sports')
+                      }, {
+                        name: urlFuns.name('virtualSports'),
+                        href: urlFuns.page('virtualSports')
+                      }, {
+                        name: urlFuns.name('liveCasino'),
+                        href: urlFuns.page('liveCasino')
+                      }, {
+                        name: urlFuns.name('games'),
+                        href: urlFuns.page('games')
+                      }]
                     }, {
-                      name: urlFuns.name('virtualSports'),
-                      href: urlFuns.page('virtualSports')
+                      title: 'About Us',
+                      items: [{
+                        name: 'Corporate'
+                      }, {
+                        name: 'News'
+                      }, {
+                        name: urlFuns.name('promotioms'),
+                        href: urlFuns.page('promotioms')
+                      }, {
+                        name: 'Affiliates'
+                      }, {
+                        name: 'Why Choose Company'
+                      }]
                     }, {
-                      name: urlFuns.name('liveCasino'),
-                      href: urlFuns.page('liveCasino')
+                      title: 'Policies',
+                      items: [{
+                        name: 'Responsible Gambling'
+                      }, {
+                        name: 'Terms & Conditons'
+                      }, {
+                        name: 'Privacy Policy'
+                      }]
                     }, {
-                      name: urlFuns.name('games'),
-                      href: urlFuns.page('games')
+                      title: 'Help & Support',
+                      items: [{
+                        name: 'Contact us'
+                      }, {
+                        name: 'FAQ'
+                      }, {
+                        name: 'Betting Rules & Regulations'
+                      }, {
+                        name: 'Payment Options'
+                      }]
                     }]
-                  }, {
-                    title: 'About Us',
-                    items: [{
-                      name: 'Corporate'
+                  -%>
+                  <% for( let i = 0; i < sitemap.length; i += 1 ) { -%>
+                    <% const { title, items } = sitemap[i]; -%>
+                    <li class="px-8 flex-1">
+                      <p class="mb-16 text-xf"><b><%- title %></b></p>
+                      <ul class="space-y-12">
+                        <% for( let j = 0; j < items.length; j += 1 ) { -%>
+                          <% const { name, href } = items[j]; -%>
+                          <li>
+                            <a href="<%- href ? href : 'javascript:;' %>" class="text-x88a1">
+                              <em class="not-italic"><%- name %></em>
+                            </a>
+                          </li>
+                        <% } -%>
+                      </ul>
+                    </li>
+                  <% } -%>
+                </ul>
+              </div>
+              <div class="m-ft-sponsor py-32 text-center border-t-1 border-solid border-x1241 overflow-hidden">
+                <ul class="-mx-8 inline-flex items-center">
+                  <%
+                    const sponsor =[{
+                      name: 'BCA',
+                      img: 'static/img/fake/logo_bca.svg'
                     }, {
-                      name: 'News'
+                      name: 'mandiri',
+                      img: 'static/img/fake/logo_mandiri.svg'
                     }, {
-                      name: urlFuns.name('promotioms'),
-                      href: urlFuns.page('promotioms')
+                      name: 'BNI',
+                      img: 'static/img/fake/logo_BNI.svg'
                     }, {
-                      name: 'Affiliates'
+                      name: 'BANK BRI',
+                      img: 'static/img/fake/logo_BANKBRI.svg'
                     }, {
-                      name: 'Why Choose Company'
+                      name: 'CIMB BANK',
+                      img: 'static/img/fake/logo_CIMBBank.svg'
                     }]
-                  }, {
-                    title: 'Policies',
-                    items: [{
-                      name: 'Responsible Gambling'
-                    }, {
-                      name: 'Terms & Conditons'
-                    }, {
-                      name: 'Privacy Policy'
-                    }]
-                  }, {
-                    title: 'Help & Support',
-                    items: [{
-                      name: 'Contact us'
-                    }, {
-                      name: 'FAQ'
-                    }, {
-                      name: 'Betting Rules & Regulations'
-                    }, {
-                      name: 'Payment Options'
-                    }]
-                  }]
-                -%>
-                <% for( let i = 0; i < sitemap.length; i += 1 ) { -%>
-                  <% const { title, items } = sitemap[i]; -%>
-                  <li class="px-8 flex-1">
-                    <p class="mb-16 text-xf"><b><%- title %></b></p>
-                    <ul class="space-y-12">
-                      <% for( let j = 0; j < items.length; j += 1 ) { -%>
-                        <% const { name, href } = items[j]; -%>
-                        <li>
-                          <a href="<%- href ? href : 'javascript:;' %>" class="text-x88a1">
-                            <em class="not-italic"><%- name %></em>
-                          </a>
-                        </li>
-                      <% } -%>
-                    </ul>
-                  </li>
-                <% } -%>
-              </ul>
-            </div>
-            <div class="m-ft-sponsor py-32 text-center border-t-1 border-solid border-x1241 overflow-hidden">
-              <ul class="-mx-8 inline-flex items-center">
-                <%
-                  const sponsor =[{
-                    name: 'BCA',
-                    img: 'static/img/fake/logo_bca.svg'
-                  }, {
-                    name: 'mandiri',
-                    img: 'static/img/fake/logo_mandiri.svg'
-                  }, {
-                    name: 'BNI',
-                    img: 'static/img/fake/logo_BNI.svg'
-                  }, {
-                    name: 'BANK BRI',
-                    img: 'static/img/fake/logo_BANKBRI.svg'
-                  }, {
-                    name: 'CIMB BANK',
-                    img: 'static/img/fake/logo_CIMBBank.svg'
-                  }]
-                -%>
-                <% for( let i = 0; i < sponsor.length; i += 1 ) { -%>
-                  <% const { name, img } = sponsor[i]; -%>
-                  <li class="px-8">
-                    <%- require('component/img.ejs')({
-                      style: {
-                        main: 'm-ft-sponsor-fig h-20',
-                        img: 'h-full'
-                      },
-                      path: img,
-                      alt: name
-                    }) %>
-                  </li>
-                <% } -%>
-              </ul>
-            </div>
-            <div class="m-ft-social pt-32 text-center border-t-1 border-solid border-x1241">
-              <ul class="-mx-8 inline-flex items-center">
-                <%
-                  const social = [{
-                    name: 'facebook',
-                    img: require('common/facebook.svg')
-                  }, {
-                    name: 'twitter',
-                    img: require('common/twitter.svg')
-                  }, {
-                    name: 'instagram',
-                    img: require('common/instagram.svg')
-                  }]
-                -%>
-                <% for(let i = 0; i < social.length; i += 1 ) { -%>
-                  <% const { name, img } = social[i]; %>
-                  <li class="px-8">
-                    <a href="javascript:;" target="_blank" rel="noopener">
+                  -%>
+                  <% for( let i = 0; i < sponsor.length; i += 1 ) { -%>
+                    <% const { name, img } = sponsor[i]; -%>
+                    <li class="px-8">
                       <%- require('component/img.ejs')({
                         style: {
-                          main: 'm-ft-social-fig w-24 h-24'
+                          main: 'm-ft-sponsor-fig h-20',
+                          img: 'h-full'
                         },
                         path: img,
                         alt: name
                       }) %>
-                    </a>
-                  </li>
-                <% } -%>
-              </ul>
+                    </li>
+                  <% } -%>
+                </ul>
+              </div>
+              <div class="m-ft-social pt-32 text-center border-t-1 border-solid border-x1241">
+                <ul class="-mx-8 inline-flex items-center">
+                  <%
+                    const social = [{
+                      name: 'facebook',
+                      img: require('common/facebook.svg')
+                    }, {
+                      name: 'twitter',
+                      img: require('common/twitter.svg')
+                    }, {
+                      name: 'instagram',
+                      img: require('common/instagram.svg')
+                    }]
+                  -%>
+                  <% for(let i = 0; i < social.length; i += 1 ) { -%>
+                    <% const { name, img } = social[i]; %>
+                    <li class="px-8">
+                      <a href="javascript:;" target="_blank" rel="noopener">
+                        <%- require('component/img.ejs')({
+                          style: {
+                            main: 'm-ft-social-fig w-24 h-24'
+                          },
+                          path: img,
+                          alt: name
+                        }) %>
+                      </a>
+                    </li>
+                  <% } -%>
+                </ul>
+              </div>
+              <small class="mt-16 block text-center text-x88a1"><%- COPYRIGHT %></small>
             </div>
-            <small class="mt-16 block text-center text-x88a1"><%- COPYRIGHT %></small>
-          </div>
-        </footer>
+          </footer>
+        <% } -%>
       <% } -%>
     </div>
     <% if( !isMobile ) { -%>

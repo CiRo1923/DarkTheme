@@ -1,0 +1,80 @@
+<div class="mt-64 data-cnt">
+  <header class="py-16 text-center bg-x0030">
+    <h2 class="text-xf">
+      <strong class="text-24">Sign Up</strong>
+    </h2>
+  </header>
+  <form method="POST" action="<%- urlFuns.page('account', 'profile') %>" class="py-48 bg-x1241">
+    <ul class="mx-auto space-y-32 w-6/12">
+      <%
+        const form = [{
+          title: 'Username',
+          formType: 'text',
+          required: true,
+          validate : `{'req': 'This field is required.', 'name': {'min': 6, 'max': 20, 'msg': 'Must be $min - $max character include letter.'}}`
+        }, {
+          title: 'Password',
+          formType: 'password',
+          classCtrl: 'jPas',
+          required: true,
+          validate : `{'req': 'This field is required.', 'password': {'min': 6, 'max': 20, 'msg': 'Password must contain $min - $max more characters with a mix of letters number.'}}`
+        }, {
+          title: 'Confirm Password',
+          formType: 'password',
+          required: true,
+          validate : `{'req': 'This field is required.', 'same': {'elem': '.jPas', 'msg': 'Confirm password must be the same as new password.'}}`
+        }, {
+          title: 'Currency',
+          formType: 'select',
+          options: [{
+            name: 'TMP',
+            value: 'TMP'
+          }],
+          required: true,
+          validate : `{'req': 'This field is required.'}`
+        }, {
+          title: 'Email ',
+          formType: 'email',
+          validate : `{'email': 'Please enter a valid email address.'}`
+        }, {
+          title: 'Phone ',
+          formType: 'tel',
+          required: true,
+          validate : `{'req': 'This field is required.', 'digital': 'Please enter a valid phone number.'}`
+        }, {
+          title: 'Referral',
+          formType: 'text'
+        }]
+      -%>
+      <% for( let i = 0; i < form.length; i += 1 ) { -%>
+        <% const { title, formType, required, validate, classCtrl, options } = form[i]; -%>
+        <li class="flex">
+          <b class="w-1/4 leading-32 text-right text-xf"><%- title %> <sup class="text-xf25c text-12<%- required ? '' : ' opacity-0 pointer-events-none' %>">*</sup></b>
+          <div class="m-form ml-32 flex-grow jForm">
+            <div class="m-form-item">
+              <div class="m-form-elem">
+                <% if ( formType !== 'checkbox' && formType !== 'radio' && formType !== 'select' && formType !== 'textarea' ) { %>
+                  <input type="<%- formType %>" class="m-form-type<%- classCtrl ? ` ${classCtrl}` : '' %>"<%- validate ? ` :validate="${validate}"` : '' %>>
+                <% } else if ( formType === 'select' ) { -%>
+                  <select class="m-form-type w-full<%- classCtrl ? ` ${classCtrl}` : '' %>"<%- validate ? ` :validate="${validate}"` : '' %>>
+                    <option value="">Select</option>
+                    <% for( let j = 0; j < options.length; j += 1 ) { -%>
+                      <% const { name, value } = options[j]; -%>
+                      <option value="<%- value %>"><%- name %></option>
+                    <% } -%>
+                  </select>
+                <% } -%>
+              </div>
+            </div>
+            <span class="m-form-error jFormError"></span>
+          </div>
+        </li>
+      <% } -%>
+      <li class="text-center">
+        <button type="submit" class="m-btn --green jSubmit">
+          <b class="px-68 block">Submit</b>
+        </button>
+      </li>
+    </ul>
+  </form>
+</div>

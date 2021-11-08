@@ -1,0 +1,35 @@
+.m-swich-button {
+  &::before {
+    content: "";
+    background: linear-gradient(to right, #3f1ec5, #a73fd4) no-repeat center center;
+    transition: opacity var(--anim-time);
+
+    @apply top-0 left-0 w-full h-full opacity-0 absolute z-0;
+  }
+
+  > * {
+    @apply relative z-1;
+  }
+}
+
+.m-swich-item {
+  &.active {
+    .m-swich-button {
+      &::before {
+        @apply opacity-100;
+      }
+    }
+  }
+}
+
+.m-swich-bd {
+  > ul {
+    transition: transform var(--anim-time);
+
+    @apply whitespace-no-wrap inline-space;
+
+    > li {
+      @apply w-full inline-block align-top;
+    }
+  }
+}

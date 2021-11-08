@@ -1,0 +1,104 @@
+<div class="mt-64 data-cnt">
+  <header class="py-16 text-center bg-x0030">
+    <h2 class="text-xf">
+      <strong class="text-24">Profile</strong>
+    </h2>
+  </header>
+  <div class="py-40 bg-x1241">
+    <ul class="mx-auto space-y-40 w-8/11">
+      <li>
+        <div class="mb-24 pb-16 border-b-1 border-solid border-xf-15">
+          <h3 class="text-x3c6e text-16"><b>Account Information</b></h3>
+        </div>
+        <ul class="space-y-20">
+          <%
+            const account = [{
+              title: 'Name',
+              value: 'WJ14587'
+            }, {
+              title: 'Login Name',
+              value: 'WJ14587'
+            }, {
+              title: 'Mobile',
+              value: '-'
+            }, {
+              title: 'Country',
+              value: 'TW'
+            }, {
+              title: 'Player Transfer Bank',
+              value: 'DemoBankTMP 234566 123456'
+            }, {
+              title: 'Player Payment Bank',
+              value: '-'
+            }, {
+              title: 'Email',
+              value: 'wj14587@gmail.com'
+            }, {
+              title: 'Phone',
+              value: 'Bank'
+            }, {
+              title: 'Password',
+              link: {
+                text: 'Change Password',
+                href: urlFuns.page('account', 'profile', 'changePassword')
+              }
+            }]
+          -%>
+          <% for( let i = 0; i < account.length; i += 1 ) { -%>
+            <% const { title, value, link } = account[i]; -%>
+            <li class="flex items-center">
+              <b class="w-1/5 text-right text-xf"><%- title %></b>
+              <div class="ml-32 flex-grow">
+                <% if ( value ) { -%>
+                  <p class="text-x88a1"><%- value %></p>
+                <% } else if ( link ) { -%>
+                  <div>
+                    <a href="<%- link.href %>" class="m-btn --green">
+                      <b class="px-10 block"><%- link.text %></b>
+                    </a>
+                  </div>
+                <% } -%>
+              </div>
+            </li>
+          <% } -%>
+        </ul>
+      </li>
+      <li>
+        <div class="mb-24 pb-16 border-b-1 border-solid border-xf-15">
+          <h3 class="text-x3c6e text-16"><b>Credit Information</b></h3>
+        </div>
+        <ul class="space-y-20">
+          <%
+            const credit = [{
+              title: 'Bet Balance',
+              value: '1,099.00'
+            }, {
+              title: 'Outstanding TXN',
+              value: '0.00'
+            }, {
+              title: 'Actual Cash Balance',
+              value: '1,099.00'
+            }]
+          -%>
+          <% for( let i = 0; i < credit.length; i += 1 ) { -%>
+            <% const { title, value, link } = credit[i]; -%>
+            <li class="flex items-center">
+              <b class="w-1/5 text-right text-xf"><%- title %></b>
+              <div class="ml-32 flex-grow">
+                <% if ( value ) { -%>
+                  <p class="text-x88a1"><%- value %></p>
+                <% } else if ( link ) { -%>
+                  <div>
+                    <a href="<%- link.href %>" class="m-btn --green">
+                      <b class="px-10 block"><%- link.text %></b>
+                    </a>
+                  </div>
+                <% } -%>
+              </div>
+            </li>
+          <% } -%>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

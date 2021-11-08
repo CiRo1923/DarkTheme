@@ -1,0 +1,18 @@
+.tab-button {
+  &::before {
+    content: "";
+    background: linear-gradient(to right, #3f1ec5, #a73fd4) no-repeat center center;
+
+    @apply top-0 left-0 w-full h-full opacity-0 absolute z-0;
+  }
+}
+
+.tab-item {
+  &.active {
+    .tab-button {
+      &::before {
+        @apply opacity-100;
+      }
+    }
+  }
+}

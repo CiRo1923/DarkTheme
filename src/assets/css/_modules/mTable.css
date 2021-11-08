@@ -1,0 +1,11 @@
+.m-table {
+  thead,
+  tfoot {
+    @apply bg-x0030;
+  }
+
+  th,
+  td {
+    @apply px-12 py-16 border-1 border-solid border-x3368;
+  }
+}

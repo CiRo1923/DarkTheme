@@ -1,0 +1,99 @@
+<div class="m-tab mt-64 data-cnt">
+  <%- require('component/mTabHd.ejs')({
+    active: 1,
+    style: {
+      item: 'w-1/5'
+    },
+    tabs: [{
+      name: 'Promotion',
+      link: urlFuns.page('account', 'statement')
+    }]
+  }) %>
+  <div class="m-tab-bd px-20 py-40 bg-x1241">
+    <table class="m-table w-full">
+      <thead>
+        <tr>
+          <th class="text-center">
+            <b>#</b>
+          </th>
+          <th class="text-center">
+            <b>Title<br>Promotion code</b>
+          </th>
+          <th class="w-1/6 text-center">
+            <b>Requested On</b>
+          </th>
+          <th class="text-center">
+            <b>Start Date<br>End Date</b>
+          </th>
+          <th class="text-center">
+            <b>ApprovedM<br>Amount</b>
+          </th>
+          <th class="text-center">
+            <b>Turnover</b>
+          </th>
+          <th class="text-center">
+            <b>Status</b>
+          </th>
+          <th class="w-1/6 text-center">
+            <b>Turnover Progress</b>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">
+            <p>01</p>
+          </td>
+          <td class="text-center">
+            <p>Feb Deposit Bonus $100<br>Feb Depbon 100</p>
+          </td>
+          <td class="text-center">
+            <p>2021-02-22 2:11:37 AM</p>
+          </td>
+          <td class="text-center">
+            <p>2021-02-01<br>2021-12-28</p>
+          </td>
+          <td class="text-center">
+            <p>100.00</p>
+          </td>
+          <td class="text-center">
+            <p>3,446.00</p>
+          </td>
+          <td class="text-center">
+            <p>Approved</p>
+          </td>
+          <td class="text-center">
+            <span class="bar h-16 block rounded-8 bg-x3368 overflow-hidden relative">
+              <small class="top-1/2 left-1/2 text-xf not-italic absolute z-1 translate-1/2">13%</small>
+              <i class="bar-speed top-0 left-0 h-full rounded-8 absolute" style="width: 13%;"></i>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-center">
+            <p>01</p>
+          </td>
+          <td class="text-center">
+            <p>Feb Deposit Bonus $100<br>Feb Depbon 100</p>
+          </td>
+          <td class="text-center">
+            <p>2021-02-22 2:11:37 AM</p>
+          </td>
+          <td class="text-center">
+            <p>2021-02-01<br>2021-12-28</p>
+          </td>
+          <td class="text-center">
+            <p>100.00</p>
+          </td>
+          <td class="text-center">
+            <p>0.00</p>
+          </td>
+          <td class="text-center">
+            <p class="text-xf25c">Reject</p>
+          </td>
+          <td class="text-center"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

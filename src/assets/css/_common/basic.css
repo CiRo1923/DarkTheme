@@ -8,6 +8,12 @@
   @apply mx-auto;
 }
 
+.data-cnt {
+  width: 1140px;
+
+  @apply mx-auto;
+}
+
 .inline-space {
   letter-spacing: -0.34em;
   text-rendering: optimizeSpeed;

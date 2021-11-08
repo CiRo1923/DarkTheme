@@ -1,6 +1,154 @@
 .tns-outer {
-  @apply relative;
+  [hidden] {
+    @apply hidden;
+  }
+
+  [aria-controls],
+  [data-action] {
+    @apply cursor-pointer;
+  }
 }
+
+.tns-slider {
+  transition: all 0s;
+
+  > .tns-item {
+    @apply box-border;
+  }
+}
+
+.tns-horizontal {
+  &.tns-subpixel {
+    @apply whitespace-no-wrap;
+
+    > .tns-item {
+      @apply inline-block whitespace-normal;
+    }
+  }
+
+  &.tns-no-subpixel {
+    &::after {
+      content: "";
+
+      @apply clear-both table;
+    }
+
+    > .tns-item {
+      @apply float-left;
+    }
+  }
+
+  &.tns-carousel {
+    &.tns-no-subpixel {
+      > .tns-item {
+        margin-right: -100%;
+      }
+    }
+  }
+}
+
+.tns-no-calc {
+  @apply left-0 relative;
+}
+
+/* .tns-gallery {
+  position: relative;
+  left: 0;
+  min-height: 1px;
+
+  > .tns-item {
+    position: absolute;
+    left: -100%;
+    transition: transform 0s, opacity 0s;
+  }
+
+  > .tns-slide-active {
+    position: relative;
+    left: auto;
+  }
+
+  > .tns-moving {
+    transition: all var(--anim-time);
+  }
+} */
+
+.tns-autowidth {
+  @apply inline-block;
+}
+
+.tns-lazy-img {
+  transition: opacity calc(var(--anim-time) * 2);
+
+  @apply opacity-60;
+
+  &.tns-complete {
+    @apply opacity-100;
+  }
+}
+
+.tns-ah {
+  transition: height 0s;
+}
+
+.tns-ovh {
+  @apply overflow-hidden;
+}
+
+.tns-visually-hidden {
+  left: -10000em;
+
+  @apply absolute;
+}
+
+.tns-transparent {
+  @apply opacity-0 invisible;
+}
+
+.tns-fadeIn {
+  @apply opacity-100 z-0;
+}
+
+.tns-normal,
+.tns-fadeOut {
+  @apply opacity-0 -z-1;
+}
+
+.tns-vpfix {
+  @apply whitespace-no-wrap;
+
+  > div,
+  > li {
+    @apply inline-block;
+  }
+}
+
+/* .tns-t {
+  &-subp2 {
+    margin: 0 auto;
+    width: 310px;
+    position: relative;
+    height: 10px;
+    overflow: hidden;
+  }
+
+  &-ct {
+    width: calc(100% * 70 / 3);
+    position: absolute;
+    right: 0;
+
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    > div {
+      width: calc(100% / 70);
+      height: 10px;
+      float: left;
+    }
+  }
+} */
 
 .tns-nav {
   bottom: 20px;
@@ -22,5 +170,35 @@
   & + button[data-action="stop"],
   & + button[data-action="start"] {
     @apply hidden;
+  }
+
+  > button {
+    text-indent: -99999px;
+    transform: translateY(-50%);
+
+    @apply top-1/2 absolute z-1;
+
+    &::before {
+      content: "";
+      background-image: url(common/chevron-arrow.svg);
+
+      @apply top-1/2 left-1/2 bg-center bg-no-repeat bg-cover absolute;
+    }
+
+    &:first-child {
+      &::before {
+        @apply translate-1/2;
+      }
+    }
+
+    &:last-child {
+      &::before {
+        transform: translate(-50%, -50%) scaleX(-1);
+      }
+    }
+
+    &:disabled {
+      @apply opacity-10;
+    }
   }
 }

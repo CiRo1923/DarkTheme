@@ -1,0 +1,197 @@
+<div class="m-tab mt-64 data-cnt">
+  <%- require('component/mTabHd.ejs')({
+    active: 1,
+    style: {
+      item: 'w-1/5'
+    },
+    tabs: [{
+      name: 'My Bets',
+      link: urlFuns.page('account', 'bets', 'running')
+    }]
+  }) %>
+  <div class="m-tab-bd px-20 py-40 bg-x1241">
+    <div class="px-12 py-16 border-1 border-b-0 border-solid border-x3368 bg-x0030 flex items-center">
+      <p class="flex-grow"><b>My bet ( Settle 2021-10-03 - 2021-10-05 ) </b></p>
+      <div class="flex-shrink-0 overflow-hidden">
+        <ul class="flex items-center">
+          <li class="px-4">
+            <button type="button" class="m-btn --blue --rectangle">
+              <b>Refresh</b>
+            </button>
+          </li>
+          <li class="px-4">
+            <a href="<%- urlFuns.page('account', 'bets', 'running') %>" class="m-btn --green --rectangle">
+              <b>View Running</b>
+            </a>
+          </li>
+          <li class="px-4">
+            <a href="<%- urlFuns.page('account', 'bets', 'settled') %>" class="m-btn --line --rectangle">
+              <b>View Settled</b>
+            </a>
+          </li>
+          <li class="px-4">
+            <div class="m-form">
+              <div class="m-form-item">
+                <div class="m-form-elem">
+                  <select class="m-form-type">
+                    <option value="">Sports</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <table class="m-table w-full">
+      <thead>
+        <tr>
+          <th class="text-center">
+            <b>#</b>
+          </th>
+          <th class="w-2/12 text-center">
+            <b>Details</b>
+          </th>
+          <th class="w-3/12 text-center">
+            <b>Selection</b>
+          </th>
+          <th class="text-center">
+            <b>Currnecy</b>
+          </th>
+          <th class="text-center">
+            <b>Odds</b>
+          </th>
+          <th class="text-center">
+            <b>Stake</b>
+          </th>
+          <th class="text-center">
+            <b>Win/Loss<br>Commission</b>
+          </th>
+          <th class="text-center">
+            <b>Status</b>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="space-y-8 text-center">
+            <p>01</p>
+          </td>
+          <td class="space-y-8 text-center text-12 text-right">
+            <p class="text-xfb2e">4063249</p>
+            <p>Football</p>
+            <p>2021-10-05 4:08:28 AM</p>
+          </td>
+          <td class="space-y-8 text-right text-12">
+            <p class="text-xf25c">Even @ 1.90</p>
+            <p>Football Odd/Even</p>
+            <p>Halifax Town -vs- Notts County</p>
+            <p class="text-xf25c">English National League @ 0001-01-01</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p>TMP</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p class="text-xfb2e">1.90</p>
+            <p>E</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p class="text-xfb2e">10.00</p>
+            <p>10.00</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p>5.40</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p class="text-x3c6e">Won</p>
+            <p>HT:0:0</p>
+            <p>FT:1:1</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="space-y-8 text-center">
+            <p>01</p>
+          </td>
+          <td class="space-y-8 text-center text-12 text-right">
+            <p class="text-xfb2e">4063249</p>
+            <p>Football</p>
+            <p>2021-10-05 4:08:28 AM</p>
+          </td>
+          <td class="space-y-8 text-right text-12">
+            <p class="text-xf25c">Even @ 1.90</p>
+            <p>Football Odd/Even</p>
+            <p>Halifax Town -vs- Notts County</p>
+            <p class="text-xf25c">English National League @ 0001-01-01</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p>TMP</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p class="text-xfb2e">1.90</p>
+            <p>E</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p class="text-xfb2e">10.00</p>
+            <p>10.00</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p>-10.00</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p class="text-xf25c">Lose</p>
+            <p>HT:0:0</p>
+            <p>FT:1:1</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="space-y-8 text-center">
+            <p>01</p>
+          </td>
+          <td class="space-y-8 text-center text-12 text-right">
+            <p class="text-xfb2e">4063249</p>
+            <p>Football</p>
+            <p>2021-10-05 4:08:28 AM</p>
+          </td>
+          <td class="space-y-8 text-right text-12">
+            <p class="text-xf25c">Even @ 1.90</p>
+            <p>Football Odd/Even</p>
+            <p>Halifax Town -vs- Notts County</p>
+            <p class="text-xf25c">English National League @ 0001-01-01</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p>TMP</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p class="text-xfb2e">1.90</p>
+            <p>E</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p class="text-xfb2e">10.00</p>
+            <p>10.00</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p>0.00</p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p>Draw</p>
+            <p>HT:0:0</p>
+            <p>FT:1:1</p>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6" class="text-right">
+            <p><b>Total =</b></p>
+          </td>
+          <td class="space-y-8 text-center">
+            <p>-4.60</p>
+            <p>0.00</p>
+          </td>
+          <td class="text-center"></td>
+        </tr>
+      </tfoot>
+    </table>
+    <p class="mt-24 text-16 text-x88a1">All transaction time is in GMT -4</p>
+  </div>
+</div>

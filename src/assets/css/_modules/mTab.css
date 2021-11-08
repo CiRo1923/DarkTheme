@@ -1,0 +1,13 @@
+.m-tab-item {
+  &:not(.active) {
+    > * {
+      @apply bg-x0030;
+    }
+  }
+
+  &.active {
+    > * {
+      @apply bg-x1241;
+    }
+  }
+}

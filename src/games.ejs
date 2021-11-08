@@ -1,8 +1,8 @@
 <%- require('component/mBanner.ejs')() %>
 <div class="mt-20 max-cnt">
-  <div class="pb-20 flex items-center border-b-1 border-solid border-x3368">
-    <div class="menu flex-grow">
-      <ul class="menu-bd -mx-10 inline-space jMenu">
+  <div class="flex border-b-1 border-solid border-x3368">
+    <div class="menu px-28 flex-grow overflow-hidden relative">
+      <ul class="menu-bd -mx-10 inline-space whitespace-no-wrap jTns" :set="{'items': 8, 'autoWidth': true, 'loop': false, 'nav': false}">
         <%
           const links = [{
             name: 'Top Games',
@@ -32,12 +32,13 @@
         -%>
         <% for( let i = 0; i < links.length; i += 1 ) { -%>
           <% const { name, img } = links[i]; -%>
-          <li class="menu-item<%- i === 0 ? ' active' : '' %> px-10 inline-block">
+          <li class="menu-item<%- i === 0 ? ' active' : '' %> px-10 pt-6 pb-24 inline-block align-middle relative jTnsItem">
             <a href="<%- urlFuns.page('games') %>" class="flex flex-row-reverse items-center text-x88a1">
               <b class="block"><%- name %></b>
               <%- require('component/img.ejs')({
                 style: {
-                  main: 'mr-4 w-20 h-20',
+                  main: 'mr-4 w-20 h-20 overflow-hidden',
+                  img: 'w-auto h-40 relative'
                 },
                 path: img,
                 alt: name
@@ -47,30 +48,34 @@
         <% } -%>
       </ul>
     </div>
-    <form method="POST" class="flex-shrink-0 overflow-hidden">
+    <form method="POST" class="ml-16 flex-shrink-0 overflow-hidden">
       <ul class="-mx-10 flex">
         <li class="px-10 w-160">
           <div class="m-form">
-            <div class="m-form-item --bg">
-              <input type="search" class="m-form-type" placeholder="Search...">
-              <button type="submit" class="flex-shrink-0">
-                <%- require('component/svg.ejs')({
-                  style: {
-                    main: 'w-16 h-16',
-                  },
-                  svgName: 'search'
-                }) %>
-              </button>
+            <div class="m-form-item">
+              <div class="m-form-elem --bg">
+                <input type="search" class="m-form-type" placeholder="Search...">
+                <button type="submit" class="flex-shrink-0">
+                  <%- require('component/svg.ejs')({
+                    style: {
+                      main: 'w-16 h-16',
+                    },
+                    svgName: 'search'
+                  }) %>
+                </button>
+              </div>
             </div>
           </div>
         </li>
         <li class="px-10">
           <div class="m-form">
-            <div class="m-form-item --bg">
-              <select class="m-form-type">
-                <option value="">Select</option>
-                <option value="1">Providers</option>
-              </select>
+            <div class="m-form-item">
+              <div class="m-form-elem --bg">
+                <select class="m-form-type">
+                  <option value="">Select</option>
+                  <option value="1">Providers</option>
+                </select>
+              </div>
             </div>
           </div>
         </li>

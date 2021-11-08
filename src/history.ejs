@@ -1,0 +1,191 @@
+<div class="m-tab mt-64 data-cnt">
+  <%- require('component/mTabHd.ejs')({
+    active: 3,
+    style: {
+      item: 'w-4/12'
+    },
+    tabs: [{
+      name: urlFuns.name('deposit', 'deposit'),
+      link: urlFuns.page('deposit', 'deposit')
+    }, {
+      name: urlFuns.name('deposit', 'withdrawal'),
+      link: urlFuns.page('deposit', 'withdrawal')
+    }, {
+      name: urlFuns.name('account', 'history'),
+      link: urlFuns.page('account', 'history')
+    }]
+  }) %>
+  <div class="m-tab-bd px-20 py-40 bg-x1241">
+    <div class="m-swich jSwich">
+      <%- require('component/mSwichHd.ejs')({
+        active: 1,
+        tabs: [{
+          name: 'Deposit'
+        }, {
+          name: 'Withdrawal'
+        }]
+      }) %>
+      <div class="m-swich-bd mt-32 overflow-hidden">
+        <ul class="jSwichSlide">
+          <li>
+            <table class="m-table w-full">
+              <thead>
+                <tr>
+                  <th class="text-center">
+                    <b>Transaction No</b>
+                  </th>
+                  <th class="text-center">
+                    <b>Amount</b>
+                  </th>
+                  <th class="text-center">
+                    <b>Date</b>
+                  </th>
+                  <th class="text-center">
+                    <b>Deposit Time</b>
+                  </th>
+                  <th class="text-center">
+                    <b>Status</b>
+                  </th>
+                  <th class="text-center">
+                    <b>Action</b>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">
+                    <p>BankTransfer_ 2669</p>
+                  </td>
+                  <td class="text-center">
+                    <p>1000</p>
+                  </td>
+                  <td class="text-center">
+                    <p>2021-09-21 11:31:02 PM</p>
+                  </td>
+                  <td class="text-center"></td>
+                  <td class="text-center">
+                    <p class="text-xfb2e">Waiting</p>
+                  </td>
+                  <td class="text-center">
+                    <button type="button" class="text-xf underline">
+                      <em class="not-italic">Cancel</em>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center">
+                    <p>BankTransfer_ 2669</p>
+                  </td>
+                  <td class="text-center">
+                    <p>1000</p>
+                  </td>
+                  <td class="text-center">
+                    <p>2021-09-21 11:31:02 PM</p>
+                  </td>
+                  <td class="text-center"></td>
+                  <td class="text-center">
+                    <p class="text-x3c6e">Approved</p>
+                  </td>
+                  <td class="text-center"></td>
+                </tr>
+                <tr>
+                  <td class="text-center">
+                    <p>BankTransfer_ 2669</p>
+                  </td>
+                  <td class="text-center">
+                    <p>1000</p>
+                  </td>
+                  <td class="text-center">
+                    <p>2021-09-21 11:31:02 PM</p>
+                  </td>
+                  <td class="text-center"></td>
+                  <td class="text-center">
+                    <p class="text-xf25c">Reject</p>
+                  </td>
+                  <td class="text-center"></td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>
+            <table class="m-table w-full">
+              <thead>
+                <tr>
+                  <th class="text-center">
+                    <b>Transaction No</b>
+                  </th>
+                  <th class="text-center">
+                    <b>Amount</b>
+                  </th>
+                  <th class="text-center">
+                    <b>Date</b>
+                  </th>
+                  <th class="text-center">
+                    <b>Status</b>
+                  </th>
+                  <th class="text-center">
+                    <b>Action</b>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">
+                    <p>BankTransfer_ 2669</p>
+                  </td>
+                  <td class="text-center">
+                    <p>1000</p>
+                  </td>
+                  <td class="text-center">
+                    <p>2021-09-21 11:31:02 PM</p>
+                  </td>
+                  <td class="text-center">
+                    <p class="text-xfb2e">Waiting</p>
+                  </td>
+                  <td class="text-center">
+                    <button type="button" class="text-xf underline">
+                      <em class="not-italic">Cancel</em>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center">
+                    <p>BankTransfer_ 2669</p>
+                  </td>
+                  <td class="text-center">
+                    <p>1000</p>
+                  </td>
+                  <td class="text-center">
+                    <p>2021-09-21 11:31:02 PM</p>
+                  </td>
+                  <td class="text-center">
+                    <p class="text-x3c6e">Approved</p>
+                  </td>
+                  <td class="text-center"></td>
+                </tr>
+                <tr>
+                  <td class="text-center">
+                    <p>BankTransfer_ 2669</p>
+                  </td>
+                  <td class="text-center">
+                    <p>1000</p>
+                  </td>
+                  <td class="text-center">
+                    <p>2021-09-21 11:31:02 PM</p>
+                  </td>
+                  <td class="text-center">
+                    <p class="text-xf25c">Reject</p>
+                  </td>
+                  <td class="text-center"></td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </div>
+      <footer class="m-swich-ft mt-24">
+        <small class="text-16 text-x88a1">All transaction time is in GMT -4</small>
+      </footer>
+    </div>
+  </div>
+</div>

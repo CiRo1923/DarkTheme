@@ -1,6 +1,7 @@
+import axios from 'axios';
 import LazyLoad from 'vanilla-lazyload';
 import {
-  prjs, j$, svgRequire, device
+  prjs, j$, svgRequire, device, validate
 } from '_factory.js';
 
 let lazyLoadFun = () => {
@@ -110,7 +111,7 @@ export const tinySlider = (tns) => {
     tneElem[0].forEach(elem => {
       let tnsSlide = null;
       const tneElemEq = j$(elem);
-      const tenItem = tneElemEq.children('.jTnsItem');
+      const tenItem = tneElemEq.find('.jTnsItem');
       const tneSet = tneElemEq.attr(':set') ? JSON.parse(tneElemEq.attr(':set').replace(/'/g, '"')) : {};
       let startIndex = 0;
       let newSet = {};
@@ -158,8 +159,8 @@ export const tinySlider = (tns) => {
       for (let j = 0; j < tenItem[0].length; j += 1) {
         const tenItemElem = tenItem.eq(j);
 
-        if (tenItemElem.hasClass('act')) {
-          startIndex = tenItemElem.parent().index();
+        if (tenItemElem.hasClass('active')) {
+          startIndex = tenItemElem.index();
         }
       }
 
@@ -212,6 +213,25 @@ export const tinySlider = (tns) => {
   }
 };
 
+export const swich = () => {
+  const swichClass = {
+    main: '.jSwich',
+    btn: '.jSwichBtn',
+    slide: '.jSwichSlide'
+  };
+  const $btn = j$(swichClass.btn);
+
+  $btn.on('click', (e) => {
+    const $this = j$(e.$this);
+    const $swich = $this.parents(swichClass.main);
+    const $slide = $swich.find(swichClass.slide);
+    const index = $this.parent().index();
+
+    $this.parent().addClass('active').siblings().removeClass('active');
+    $slide.css('transform', `translateX(${(-100 * index)}%)`);
+  });
+};
+
 const langChange = () => {
   const dropClass = {
     main: '.jDropLang',
@@ -229,6 +249,59 @@ const langChange = () => {
     j$(dropClass.main).removeClass('active');
   });
 };
+
+j$('[\\:validate]').on('blur', e => {
+  const $this = j$(e.$this);
+
+  validate($this);
+});
+
+prjs.$d.on('click', '.jSubmit', e => {
+  const $cxt = j$('[\\:validate]');
+  const $pop = j$('.jPop');
+  let isError = 0;
+
+  $cxt[0].forEach(el => {
+    validate(j$(el), error => {
+      if (error) {
+        isError += 1;
+      }
+    });
+  });
+
+  if (isError !== 0) {
+    e.preventDefault();
+  } else if (j$('[\\:ajax]').attr(':ajax')) {
+    const $form = j$('[\\:ajax]');
+    const url = $form.attr(':ajax');
+    const method = /method=([^?&#]*)/.exec(url)[1];
+    const formdata = /formdata=([^?&#]*)/.exec(url)[1];
+    const getData = () => {
+      const kvpairs = {};
+      for (let i = 0; i < $form.find('[name]')[0].length; i += 1) {
+        const elem = $form.find('[name]')[0][i];
+        kvpairs[elem.name] = elem.value;
+      }
+
+      return kvpairs;
+    };
+    const formData = (data) => {
+      const newFormData = new FormData();
+      Object.keys(data).forEach(key => {
+        newFormData.append(key, data[key]);
+      });
+
+      return newFormData;
+    };
+    const axiosApi = method === 'post' ? axios.post : axios.get;
+    const data = formdata ? formData(getData()) : getData();
+    axiosApi(url, data).then(() => {
+      $pop.addClass('act');
+    });
+  } else {
+    j$('form')[0][0].submit();
+  }
+});
 
 prjs.$d.on('ready', () => {
   lazyLoadFun();
