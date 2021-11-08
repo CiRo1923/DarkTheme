@@ -9,16 +9,22 @@ const spacing = {};
 
 const size = {
   '2full': '200%',
+  650: '650px',
   480: '480px',
+  240: '240px',
   226: '226px',
   208: '208px',
   200: '200px',
   188: '188px',
+  170: '170px',
   160: '160px',
   140: '140px',
   120: '120px',
   110: '110px',
-  100: '100px'
+  100: '100px',
+  40: '40px',
+  32: '32px',
+  16: '16px'
 };
 
 const negative = {};
@@ -26,7 +32,8 @@ const negative = {};
 const borderRadius = {};
 
 const leading = {
-  1.2: '1.2'
+  1.2: '1.2',
+  32: '32px'
 };
 
 const zIndex = {
@@ -55,6 +62,7 @@ const colors = {
   x3368: '#393c68',
   x88a1: '#8486a1',
   x65cb: '#6b52cb',
+  xa9ff: '#a891ff',
   x1956: '#1f9956',
   x3c6e: '#31c46e',
   xfb2e: '#ffbd2e',

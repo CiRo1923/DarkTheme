@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "webpack.config.js",
   "dependencies": {
+    "axios": "^0.24.0",
     "tiny-slider": "^2.9.4",
     "vanilla-lazyload": "^17.5.0"
   },
