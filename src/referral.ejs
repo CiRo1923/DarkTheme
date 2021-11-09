@@ -1,4 +1,4 @@
-<div class="referral py-80">
+<div class="referral min-h-screen py-80">
   <div class="referral-bd mx-auto w-650">
     <div class="qrcode py-32 bg-x3368 rounded-8">
       <%- require('component/img.ejs')({
@@ -9,7 +9,26 @@
         path: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/QRcode_image.svg/440px-QRcode_image.svg.png',
         alt: 'qrCode'
       }) %>
+      <div class="mt-32 mx-auto w-8/12 overflow-hidden">
+        <ul class="-mx-10 flex items-center">
+          <li class="px-10 w-1/2">
+            <button type="button" class="m-btn --green w-full jCopy" data-link="copy_url">
+              <b>COPY LINK</b>
+            </button>
+          </li>
+          <li class="px-10 w-1/2">
+            <a href="<%- require('referral/background.jpg') %>" class="m-btn --green w-full" download="qrCode">
+              <b>COPY QRCODE</b>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-16 text-center">
+        <button type="button">
+          <em class="not-italic text-16 text-x88a1">Referral Program Rules</em>
+        </button>
+      </div>
     </div>
-    <div class="mt-32"></div>
+    
   </div>
 </div>

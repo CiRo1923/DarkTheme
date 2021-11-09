@@ -718,3 +718,53 @@ export const scrollTo = obj => {
     smoothScrollTo();
   }
 };
+
+export const CopyToClipboard = (copyText) => {
+  const textToClipboard = copyText;
+  let success = true;
+  const SelectContent = element => {
+    // first create a range
+    var rangeToSelect = document.createRange();
+    rangeToSelect.selectNodeContents(element);
+
+    // select the contents
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(rangeToSelect);
+  };
+  const CreateElementForExecCommand = text => {
+    const forExecElement = document.createElement('div');
+    // place outside the visible area
+    forExecElement.style.position = 'absolute';
+    forExecElement.style.left = '-99999px';
+    forExecElement.style.top = '-99999px';
+    // write the necessary text into the element and append to the document
+    forExecElement.textContent = text;
+    document.body.appendChild(forExecElement);
+    // the contentEditable mode is necessary for the  execCommand method in Firefox
+    forExecElement.contentEditable = true;
+
+    return forExecElement;
+  };
+
+  if (window.clipboardData) {
+    window.clipboardData.setData('Text', textToClipboard);
+  } else {
+    const forExecElement = CreateElementForExecCommand(textToClipboard);
+
+    SelectContent(forExecElement);
+    // var supported = true;
+    try {
+      if (window.netscape && window.netscape.security) {
+        window.netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+      }
+      success = document.execCommand('copy', false, null);
+    } catch (e) {
+      success = false;
+    }
+
+    document.body.removeChild(forExecElement);
+  }
+
+  return success;
+};
