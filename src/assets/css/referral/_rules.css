@@ -1,0 +1,20 @@
+.rules {
+  transition: opacity var(--anim-time), visibility var(--anim-time);
+
+  &:not(.\-\-show) {
+    @apply opacity-0 invisible;
+  }
+
+  &.\-\-show {
+    @apply opacity-100 visible;
+  }
+}
+
+.rules-data {
+  &::after {
+    content: "";
+    transform: translate(-50%, 100%);
+
+    @apply bottom-0 left-1/2 w-1 h-32 bg-xccd9 absolute;
+  }
+}

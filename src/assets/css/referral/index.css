@@ -1,4 +1,9 @@
 @import '../_library';
 
+/* modules */
+@import '../_modules/mTable';
+
 /* page */
 @import '_referral';
+@import '_tab';
+@import '_rules';

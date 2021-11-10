@@ -1,0 +1,13 @@
+.tab-item {
+  &:not(.active) {
+    .tab-button {
+      @apply bg-x1241 text-x88a1;
+    }
+  }
+
+  &.active {
+    .tab-button {
+      @apply bg-x3368 text-xf;
+    }
+  }
+}

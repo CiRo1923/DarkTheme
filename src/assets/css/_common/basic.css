@@ -44,7 +44,7 @@
 }
 
 .transition-bg-color {
-  transition: background-color var(--anim-time) color var(--anim-time);
+  transition: background-color var(--anim-time), color var(--anim-time);
 }
 
 .transition-opacity {
@@ -57,4 +57,8 @@
 
 .transition-border-color {
   transition: border-color var(--anim-time);
+}
+
+.transition-transform {
+  transition: transform var(--anim-time);
 }

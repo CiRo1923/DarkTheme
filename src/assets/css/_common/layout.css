@@ -1,6 +1,4 @@
 .l-wrap {
-  min-width: 1280px;
-
   @apply min-h-screen flex flex-col flex-grow;
 }
 

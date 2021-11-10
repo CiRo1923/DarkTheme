@@ -24,10 +24,6 @@
 
 .m-swich-bd {
   > ul {
-    transition: transform var(--anim-time);
-
-    @apply whitespace-no-wrap inline-space;
-
     > li {
       @apply w-full inline-block align-top;
     }

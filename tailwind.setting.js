@@ -22,6 +22,7 @@ const size = {
   120: '120px',
   110: '110px',
   100: '100px',
+  54: '54px',
   40: '40px',
   32: '32px',
   16: '16px'
@@ -63,6 +64,7 @@ const colors = {
   x88a1: '#8486a1',
   x65cb: '#6b52cb',
   xa9ff: '#a891ff',
+  xccd9: '#cecfd9',
   x1956: '#1f9956',
   x3c6e: '#31c46e',
   xfb2e: '#ffbd2e',

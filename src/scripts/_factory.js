@@ -768,3 +768,57 @@ export const CopyToClipboard = (copyText) => {
 
   return success;
 };
+
+/* documentOff */
+export const documentOff = (element, func) => {
+  const elem = element.split(',');
+  const composedPath = (el) => {
+    let path = [];
+
+    while (el) {
+      path.push(el);
+
+      if (el.tagName === 'HTML') {
+        path.push(document);
+        path.push(window);
+        return path;
+      }
+
+      // eslint-disable-next-line no-param-reassign
+      el = el.parentElement;
+    }
+
+    return null;
+  };
+  const matchesElem = e => {
+    const path = e.path || (e.composedPath && e.composedPath()) || composedPath(e.target);
+    let matches = false;
+    const same = (ele) => {
+      path.some(el => {
+        if (el === ele) {
+          matches = true;
+          return false;
+        }
+
+        return null;
+      });
+    };
+
+    e.stopPropagation();
+
+    for (let i = 0; i < elem.length; i += 1) {
+      const $elem = document.querySelectorAll(elem[i].replace(/^\s/, ''));
+
+      for (let j = 0; j < $elem.length; j += 1) {
+        same($elem[j]);
+      }
+    }
+
+    if (!matches && func) {
+      func.call();
+      document.removeEventListener('click', matchesElem, false);
+    }
+  };
+
+  document.addEventListener('click', matchesElem, false);
+};
