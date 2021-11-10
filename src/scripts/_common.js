@@ -191,6 +191,24 @@ const langChange = () => {
   });
 };
 
+const marquee = () => {
+  const box = j$('.jMarquee');
+  const text = j$('.jMarqueeTxt');
+  const boxWidth = box.width();
+  const txtWidth = text.width(true);
+  let initLeft = 0;
+
+  if (boxWidth < txtWidth) {
+    setInterval(() => {
+      if (initLeft < txtWidth * -1) {
+        initLeft = boxWidth;
+      }
+      initLeft -= 1;
+      text.css('left', `${initLeft}px`);
+    }, 50);
+  }
+};
+
 j$('[\\:validate]').on('blur', e => {
   const $this = j$(e.$this);
 
@@ -251,4 +269,5 @@ prjs.$d.on('ready', () => {
 prjs.$w.on('load', () => {
   dropdown();
   langChange();
+  marquee();
 });

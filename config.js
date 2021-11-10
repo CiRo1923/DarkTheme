@@ -34,7 +34,7 @@ module.exports = {
   plugins: () => {
     const def = [];
     let publish = def.concat(
-      // index.HtmlWebpackPlugin,
+      index.HtmlWebpackPlugin
       // sports.HtmlWebpackPlugin,
       // liveCasion.HtmlWebpackPlugin,
       // promotions.HtmlWebpackPlugin,
@@ -44,11 +44,11 @@ module.exports = {
       // changePassword.HtmlWebpackPlugin,
       // register.HtmlWebpackPlugin,
       // singIn.HtmlWebpackPlugin,
-      deposit.HtmlWebpackPlugin,
-      statement.HtmlWebpackPlugin,
-      myPromotion.HtmlWebpackPlugin,
-      bets.HtmlWebpackPlugin,
-      referral.HtmlWebpackPlugin
+      // deposit.HtmlWebpackPlugin,
+      // statement.HtmlWebpackPlugin,
+      // myPromotion.HtmlWebpackPlugin,
+      // bets.HtmlWebpackPlugin,
+      // referral.HtmlWebpackPlugin
     );
 
     if (process.env.NODE_ENV === 'production') {

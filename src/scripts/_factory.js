@@ -405,11 +405,15 @@ j$.Fn.prototype = {
     return this;
   },
   // eslint-disable-next-line func-names
-  width: function () {
+  width: function (isScrollWidth) {
     let width = '';
 
     this[0].forEach(el => {
-      width = el.innerWidth || el.offsetWidth || el.scrollWidth || el.clientWidth;
+      if (isScrollWidth) {
+        width = el.scrollWidth;
+      } else {
+        width = el.innerWidth || el.offsetWidth || el.scrollWidth || el.clientWidth;
+      }
     });
 
     return width;
@@ -594,12 +598,15 @@ export const prjs = {
 export const device = () => {
   let angle = window.screen.orientation ? window.screen.orientation.angle : 0;
 
-  if (prjs.$w.width() <= 740 || /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  if (window.innerWidth <= 740 || /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     return 'M';
   }
-  if ((angle === 0 && prjs.$w.width() > 740 && prjs.$w.width() < 1024) || /Android|webOS|iPad|BlackBerry/i.test(navigator.userAgent)) {
+
+  if ((angle === 0 && window.innerWidth > 740 && window.innerWidth < 1024) || /Android|webOS|iPad|BlackBerry/i.test(navigator.userAgent)) {
     return 'T';
-  } if ((angle !== 0 && prjs.$w.width() > 730 && prjs.$w.width() < 815) || /iPhone/i.test(navigator.userAgent)) {
+  }
+
+  if ((angle !== 0 && window.innerWidth > 730 && window.innerWidth < 815) || /iPhone/i.test(navigator.userAgent)) {
     return 'M';
   }
   return 'P';
