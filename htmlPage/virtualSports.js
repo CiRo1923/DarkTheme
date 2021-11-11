@@ -5,13 +5,11 @@ module.exports = {
     action: 'virtualSports',
     description: '',
     chunks: ['virtualSports/index']
-  }
-  // , {
-  //   filename: 'mobile/virtualSports.html',
-  //   template: '_shared/layout.ejs',
-  //   action: 'virtualSports',
-  //   description: '',
-  //   chunks: ['virtualSports/index_m']
-  // }
-  ]
+  }, {
+    filename: 'mobile/virtualSports.html',
+    template: '_shared/layout.ejs',
+    action: 'virtualSports',
+    description: '',
+    chunks: ['virtualSports/index_m']
+  }]
 };

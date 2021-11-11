@@ -1,0 +1,7 @@
+.tns-nav {
+  bottom: 8px;
+
+  > * {
+    @apply w-20;
+  }
+}

@@ -1,0 +1,146 @@
+<%- require('component/mBanner.ejs')({
+  isMobile: isMobile
+}) %>
+<div class="mt-16 px-12">
+  <form method="POST">
+    <ul class="-mx-8 flex">
+      <li class="px-8 w-200">
+        <div class="m-form">
+          <div class="m-form-item">
+            <div class="m-form-elem --bg">
+              <input type="search" class="m-form-type" placeholder="Search...">
+              <button type="submit" class="flex-shrink-0">
+                <%- require('component/svg.ejs')({
+                  style: {
+                    main: 'w-16 h-16',
+                  },
+                  svgName: 'search'
+                }) %>
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="px-8 flex-grow">
+        <div class="m-form">
+          <div class="m-form-item">
+            <div class="m-form-elem --bg">
+              <select class="m-form-type w-full">
+                <option value="">Select</option>
+                <option value="1">Providers</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </form>
+  <div class="menu relative">
+    <ul class="menu-bd -mx-10 inline-space whitespace-no-wrap jTns" :set="{'autoWidth': true, 'controls': false, 'loop': false, 'nav': false}">
+      <%
+        const links = [{
+          name: 'Top Games',
+          img: require('games/top.svg')
+        }, {
+          name: 'New Games',
+          img: require('games/fire.svg')
+        }, {
+          name: 'Slots',
+          img: require('games/slots.svg')
+        }, {
+          name: 'Table Games',
+          img: require('games/poker.svg')
+        }, {
+          name: 'Fishing and Arcade',
+          img: require('games/airplane.svg')
+        }, {
+          name: 'Lobby',
+          img: require('games/lobby.svg')
+        }, {
+          name: 'LobHi-Lo & Numberby',
+          img: require('games/lob.svg')
+        }, {
+          name: 'Other Games',
+          img: require('games/other.svg')
+        }]
+      -%>
+      <% for( let i = 0; i < links.length; i += 1 ) { -%>
+        <% const { name, img } = links[i]; -%>
+        <li class="menu-item<%- i === 0 ? ' active' : '' %> px-10 py-20 inline-block align-middle relative jTnsItem">
+          <a href="<%- urlFuns.page('games') %>" class="flex flex-row-reverse items-center text-x88a1">
+            <b class="block text-14"><%- name %></b>
+            <%- require('component/img.ejs')({
+              style: {
+                main: 'mr-4 w-20 h-20 overflow-hidden',
+                img: 'w-auto h-40 relative'
+              },
+              path: img,
+              alt: name
+            }) %>
+          </a>
+        </li>
+      <% } -%>
+    </ul>
+  </div>
+  <div class="mt-20 m-product">
+    <div class="m-product-bd overflow-hidden">
+      <ul class="-mx-6 -my-8 flex items-center flex-wrap">
+        <%
+          const newGames = [{
+            img: 'https://www.yggdrasilgaming.com/w/files/2016/10/Thumbnail-Nirvana.jpg',
+            status: '--new'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2016/01/Thumbnail-Incinerator.jpg',
+            status: '--hot'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/08/Thumbnail-VikingsGoWild.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2018/08/Thumbnail-HanzosDojo.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Atlantis.jpg',
+            status: '--hot'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2019/09/Yggdrasil-Thumbnail-GoldenChipRoulette.png',
+            status: '--hot'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/04/Thumbnail-JokerMillions.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/09/Thumbnail-HolmesAndTheStolenStones.jpg',
+            status: '--new'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Elemental.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2018/03/Thumbnail-LuchaManiacs.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-GIZA.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Hades.png'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/07/Yggdrasil-Thumbnail-MedusaFortune.jpg',
+            status: '--new'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/10/Thumbnail-CazinoZeppelin.jpg',
+            status: '--hot'
+          }];
+        -%>
+        <% for( let i = 0; i < newGames.length; i += 1 ) { -%>
+          <% const { img, status } = newGames[i]; -%>
+          <li class="m-product-item px-6 py-8 w-1/2">
+            <div class="m-product-block<%- status ? ` ${status}` : '' %> h-full relative">
+              <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
+                <%- require('component/img.ejs')({
+                  style: {
+                    main: 'w-2full left-1/2 h-100 translate-x-1/2 text-center relative',
+                    img: 'w-auto h-full inline-block'
+                  },
+                  path: img,
+                  alt: `gameName-${i}`
+                }) %>
+              </a>
+            </div>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,37 +1,55 @@
 .m-btn {
   transition: background-color var(--anim-time), color var(--anim-time), border-color var(--anim-time);
 
-  &:not(.\-\-rectangle) {
-    @apply py-6 rounded-16;
-  }
-
-  &.\-\-rectangle {
-    @apply py-8 rounded-5;
-  }
-
-  @apply px-8 text-center inline-block;
+  @apply text-center inline-block;
 
   &.\-\-green {
     @apply bg-x3c6e border-1 border-solid border-x3c6e;
-
-    &:hover {
-      @apply bg-x1956 border-x1956;
-    }
   }
 
   &.\-\-blue {
     @apply bg-x3368 border-1 border-solid border-x3368;
-
-    &:hover {
-      @apply bg-x1241 border-x1241;
-    }
   }
 
   &.\-\-line {
     @apply text-x3c6e border-1 border-solid border-x3c6e;
+  }
+}
 
-    &:hover {
-      @apply text-x1956 border-x1956;
+@screen p {
+  .m-btn {
+    @apply px-8;
+
+    &:not(.\-\-rectangle) {
+      @apply py-6 rounded-16;
     }
+
+    &.\-\-rectangle {
+      @apply py-8 rounded-5;
+    }
+
+    &.\-\-green {
+      &:hover {
+        @apply bg-x1956 border-x1956;
+      }
+    }
+
+    &.\-\-blue {
+      &:hover {
+        @apply bg-x1241 border-x1241;
+      }
+    }
+
+    &.\-\-line {
+      &:hover {
+        @apply text-x1956 border-x1956;
+      }
+    }
+  }
+}
+
+@screen tm {
+  .m-btn {
+    @apply px-8 py-7 rounded-16;
   }
 }

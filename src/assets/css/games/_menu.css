@@ -35,3 +35,14 @@
     }
   }
 }
+
+@screen tm {
+  .menu {
+    &::after {
+      content: "";
+      transform: translateX(-50%);
+
+      @apply bottom-0 left-1/2 w-screen h-1 bg-x3368 absolute;
+    }
+  }
+}

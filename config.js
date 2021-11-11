@@ -34,12 +34,12 @@ module.exports = {
   plugins: () => {
     const def = [];
     let publish = def.concat(
-      index.HtmlWebpackPlugin
-      // sports.HtmlWebpackPlugin,
-      // liveCasion.HtmlWebpackPlugin,
-      // promotions.HtmlWebpackPlugin,
-      // virtualSports.HtmlWebpackPlugin,
-      // games.HtmlWebpackPlugin,
+      index.HtmlWebpackPlugin,
+      sports.HtmlWebpackPlugin,
+      liveCasion.HtmlWebpackPlugin,
+      promotions.HtmlWebpackPlugin,
+      virtualSports.HtmlWebpackPlugin,
+      games.HtmlWebpackPlugin
       // profile.HtmlWebpackPlugin,
       // changePassword.HtmlWebpackPlugin,
       // register.HtmlWebpackPlugin,

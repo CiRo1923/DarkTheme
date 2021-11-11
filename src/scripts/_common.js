@@ -223,7 +223,12 @@ j$('[\\:validate]').on('blur', e => {
   validate($this);
 });
 
-prjs.$d.on('click', '.jSubmit', e => {
+prjs.$d.on('click', '.jAmountCtrl', e => {
+  const $this = j$(e.$this);
+  const $amount = $this.parents('.jAmount');
+
+  $amount.toggleClass('--hide');
+}).on('click', '.jSubmit', e => {
   const $cxt = j$('[\\:validate]');
   const $pop = j$('.jPop');
   let isError = 0;

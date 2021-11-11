@@ -1,0 +1,40 @@
+<%- require('component/mBanner.ejs')({
+  isMobile: isMobile
+}) %>
+<div class="mt-20 px-12 overflow-hidden">
+  <ul class="-m-6 flex items-center flex-wrap">
+    <%
+      const spoets = [{
+        title: 'LIVE BACCARAT',
+        img: 'http://file.32828a.com/images/DELUXEWIN/52707f72e1fe1460eb3e9f05c2422fac_4352182.jpg'
+      }, {
+        title: 'LIVE ROULETTE',
+        img: 'https://afbasia.com/wp-content/uploads/2021/06/online-live-casino-game2.jpg'
+      }, {
+        title: 'LIVE SIC BO',
+        img: 'https://i.pinimg.com/originals/14/07/90/1407905c29589645ec6c129532d51bb3.png'
+      }, {
+        title: 'LIVE DRAGON TIGER',
+        img: 'http://mvp168th.com/images/dragon-tiger.jpg'
+      }]
+    -%>
+    <% for( let i = 0; i < spoets.length; i += 1 ) { -%>
+      <% const { title, img } = spoets[i]; -%>
+      <li class="p-6 w-1/2">
+        <a href="javascript:;" class="bg-x1241 rounded-8 flex flex-col-reverse overflow-hidden">
+          <h2 class="p-8 text-14 text-center"><%- title %></h2>
+          <div class="relative">
+            <%- require('component/img.ejs')({
+              style: {
+                main: 'left-1/2 w-2full h-88 text-center translate-x-1/2 relative',
+                img: 'w-auto h-full inline-block'
+              },
+              path: img,
+              alt: title
+            }) %>
+          </div>
+        </a>
+      </li>
+    <% } -%>
+  </ul>
+</div>

@@ -5,6 +5,7 @@
 /* @import '../../../../node_modules/tiny-slider/dist/tiny-slider'; */
 
 @import "../_tinySlider";
+@import "../_tinySliderNav";
 
 /* purgecss end ignore */
 

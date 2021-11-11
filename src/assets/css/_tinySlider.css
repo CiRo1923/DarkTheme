@@ -86,10 +86,6 @@
   }
 }
 
-.tns-ah {
-  transition: height 0s;
-}
-
 .tns-ovh {
   @apply overflow-hidden;
 }
@@ -113,52 +109,13 @@
   @apply opacity-0 -z-1;
 }
 
-.tns-vpfix {
-  @apply whitespace-no-wrap;
-
-  > div,
-  > li {
-    @apply inline-block;
-  }
-}
-
-/* .tns-t {
-  &-subp2 {
-    margin: 0 auto;
-    width: 310px;
-    position: relative;
-    height: 10px;
-    overflow: hidden;
-  }
-
-  &-ct {
-    width: calc(100% * 70 / 3);
-    position: absolute;
-    right: 0;
-
-    &::after {
-      content: '';
-      display: table;
-      clear: both;
-    }
-
-    > div {
-      width: calc(100% / 70);
-      height: 10px;
-      float: left;
-    }
-  }
-} */
-
 .tns-nav {
-  bottom: 20px;
-
   @apply left-0 w-full flex items-center justify-center box-border absolute;
 
   > * {
     transition: background-color var(--anim-time);
 
-    @apply mx-4 w-40 h-4 bg-xf-60 block rounded-4 origin-center;
+    @apply mx-4 h-4 bg-xf-60 block rounded-4 origin-center;
 
     &.tns-nav-active {
       @apply bg-xfb2e;

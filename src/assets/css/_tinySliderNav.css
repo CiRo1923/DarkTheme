@@ -1,0 +1,7 @@
+.tns-nav {
+  bottom: 20px;
+
+  > * {
+    @apply w-40;
+  }
+}

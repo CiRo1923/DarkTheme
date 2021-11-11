@@ -50,6 +50,10 @@
     name: 'Account',
     value: 'account',
     subNavs: [{
+      name: 'Account',
+      href: 'account.html',
+      value: 'index',
+    }, {
       name: 'Profile',
       href: 'profile.html',
       value: 'profile',
@@ -71,9 +75,9 @@
         value: 'settled'
       }]
     }, {
-      name: 'Transaction History',
-      href: 'history.html',
-      value: 'history'
+      name: 'Balance',
+      href: 'balance.html',
+      value: 'balance'
     }, {
       name: 'Statement',
       href: 'statement.html',
@@ -92,6 +96,10 @@
     name: 'Deposit',
     value: 'deposit',
     subNavs: [{
+      name: 'Transaction',
+      href: 'transaction.html',
+      value: 'index'
+    }, {
       name: 'Deposit',
       href: 'deposit.html',
       value: 'deposit'
@@ -99,8 +107,17 @@
       name: 'Withdrawal',
       href: 'withdrawal.html',
       value: 'withdrawal'
+    }, {
+      name: 'Transaction History',
+      href: 'history.html',
+      value: 'history'
     }],
     group: 'navTools'
+  }, {
+    name: 'Contact',
+    href: 'contact.html',
+    value: 'contact',
+    group: 'toolbar'
   }];
   const urlFuns = {
     name: (channel, subChannel, lastChannel) => {
@@ -192,21 +209,21 @@
     <link rel="canonical" href="">
   </head>
   <body class="bg-x001e text-xf">
-    <div class="l-wrap <%- !isMobile ? 'text-14' : 'text-12' %> jWrap">
+    <div class="l-wrap <%- !isMobile ? 'text-14' : 'pb-68 text-12' %> jWrap">
       <% if ( !isBlank ) { -%>
         <header class="l-hd relative">
           <h1 class="sr-only"><%- TITLE %></h1>
-          <% if( !isMobile ) { -%>
-            <div class="m-hd flex items-center max-cnt">
-              <div class="m-hd-logo mr-32 w-120 h-32 flex-shrink-0">
-                <%- require('component/img.ejs')({
-                  style: {
-                    main: 'm-hd-logo-fig w-full h-full'
-                  },
-                  path: require('common/logo.svg'),
-                  alt: TITLE
-                }) %>
-              </div>
+          <div class="m-hd <%- !isMobile ? '' : 'p-12' %> flex items-center max-cnt">
+            <div class="m-hd-logo <%- !isMobile ? 'mr-32 flex-shrink-0' : 'flex-grow' %>">
+              <%- require('component/img.ejs')({
+                style: {
+                  main: `m-hd-logo-fig w-144 h-32`
+                },
+                path: require('common/logo.svg'),
+                alt: TITLE
+              }) %>
+            </div>
+            <% if( !isMobile ) { -%>
               <nav class="m-nav flex-grow overflow-hidden jNav">
                 <ul class="m-nav-menu -mx-12 flex items-center">
                   <% for(let i = 0; i < navs.length; i += 1) { -%>
@@ -261,7 +278,9 @@
                   <% } -%>
                 </ul>
               </nav>
-              <div class="m-hd-tools flex-shrink-0">
+            <% } -%>
+            <div class="m-hd-tools flex-shrink-0">
+              <% if( !isMobile ) { -%>
                 <!-- 尚未登入 -->
                 <!-- <ul class="flex items-center space-x-16">
                   <li>
@@ -281,7 +300,7 @@
                       }, {
                         name: '简体中文',
                         data: {
-                          flag: require('common/lang_english.svg')
+                          flag: require('common/lang_china.svg')
                         }
                       }, {
                         name: 'Indonesia',
@@ -371,8 +390,8 @@
                         name: urlFuns.name('account', 'bets', 'running'),
                         href: urlFuns.page('account', 'bets', 'running')
                       }, {
-                        name: urlFuns.name('account', 'history'),
-                        href: urlFuns.page('account', 'history')
+                        name: urlFuns.name('deposit', 'history'),
+                        href: urlFuns.page('deposit', 'history')
                       }, {
                         name: urlFuns.name('account', 'statement'),
                         href: urlFuns.page('account', 'statement')
@@ -404,9 +423,60 @@
                     </a>
                   </li>
                 </ul>
-              </div>  
-            </div>
-          <% } -%>
+              <% } else { -%>
+                <!-- 尚未登入 -->
+                <!-- <ul class="-mx-4 flex items-center">
+                  <li class="px-4">
+                    <a href="<%- urlFuns.page('login') %>" class="m-btn --blue">
+                      <b class="px-4 block text-14"><%- urlFuns.name('login') %></b>
+                    </a>
+                  </li>
+                  <li class="px-4">
+                    <a href="<%- urlFuns.page('register') %>" class="m-btn --green">
+                      <b class="px-4 block text-14"><%- urlFuns.name('register') %></b>
+                    </a>
+                  </li>
+                </ul> -->
+                <!-- 已登入 -->
+                <div class="overflow-hidden">
+                  <ul class="-mx-2 flex items-center">
+                    <li class="px-2">
+                      <div class="m-amount py-2 pr-8 pl-2 flex items-center flex-row-reverse rounded-10 bg-x3368 jAmount">
+                        <p class="text-12 flex items-center">
+                          <em class="not-italic block">TMP</em>
+                          <span class="m-amount-number ml-4 block">1099.97</span>
+                        </p>
+                        <button type="button" class="m-amount-btn mr-4 w-16 h-16 text-x0030 rounded-8 flex items-center justify-center bg-xf overflow-hidden jAmountCtrl">
+                          <%- require('component/svg.ejs')({
+                            style: {
+                              main: `w-12 h-12`
+                            },
+                            svgName: 'eye-open'
+                          }) %>
+                          <%- require('component/svg.ejs')({
+                            style: {
+                              main: `w-12 h-12`
+                            },
+                            svgName: 'eye-close'
+                          }) %>
+                        </button>
+                      </div>
+                    </li>
+                    <li class="px-2">
+                      <button type="button" class="block text-x88a1">
+                        <%- require('component/svg.ejs')({
+                          style: {
+                            main: 'm-hd-svg w-12 h-12'
+                          },
+                          svgName: 'refresh'
+                        }) %>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              <% } -%>
+            </div>  
+          </div>
           <div class="m-notice bg-x1241">
             <div class="m-notice-bd <%- !isMobile ? 'py-10' : 'py-8 pr-12' %> flex items-center max-cnt relative">
               <div class="m-notice-info whitespace-no-wrap text-xf-70 overflow-hidden jMarquee">
@@ -569,6 +639,69 @@
             </div>
           </footer>
         <% } -%>
+      <% } -%>
+      <% if( isMobile ) { -%>
+        <div class="l-toolbar h-52 bottom-0 left-0 w-full bg-x1241 flex flex-col justify-center fixed">
+          <div class="m-toolbar">
+            <ul class="flex items-center">
+              <%
+                const toolbar = [{
+                  name: urlFuns.name('home'),
+                  icon: 'home',
+                  href: urlFuns.page('home'),
+                  show: (htmlWebpackPlugin.options.action !== 'home' && htmlWebpackPlugin.options.action !== 'sports'  && htmlWebpackPlugin.options.action !== 'virtualSports'  && htmlWebpackPlugin.options.action !== 'liveCasion'),
+                  value: 'home'
+                }, {
+                  name: urlFuns.name('promotions'),
+                  icon: 'gift',
+                  href: urlFuns.page('promotions'),
+                  show: (htmlWebpackPlugin.options.action === 'home' || htmlWebpackPlugin.options.action === 'sports'  || htmlWebpackPlugin.options.action === 'virtualSports'  || htmlWebpackPlugin.options.action === 'liveCasion'),
+                  value: 'promotions'
+                }, {
+                  name: urlFuns.name('account', 'statement'),
+                  icon: 'wallet',
+                  href: urlFuns.page('account', 'statement'),
+                  show: true,
+                  value: 'statement'
+                }, {
+                  name: urlFuns.name('deposit', 'index'),
+                  icon: 'money',
+                  href: urlFuns.page('deposit', 'index'),
+                  show: true,
+                  value: 'transaction'
+                }, {
+                  name: urlFuns.name('contact'),
+                  icon: 'hearmic',
+                  href: urlFuns.page('contact'),
+                  show: true,
+                  value: 'contact'
+                }, {
+                  name: urlFuns.name('account', 'index'),
+                  icon: 'person',
+                  href: urlFuns.page('account', 'index'),
+                  show: true,
+                  value: 'account'
+                }]
+              -%>
+              <% for( let i = 0; i < toolbar.length; i += 1 ) { -%>
+                <% const { name, icon, href, show, value } = toolbar[i]; -%>
+                <% if ( show ) { -%>
+                  <li class="text-center flex-1">
+                    <a href="<%- href %>" class="<%- htmlWebpackPlugin.options.action === value ? 'text-xfb2e' : 'text-x88a1' %> inline-flex items-center flex-col-reverse">
+                      <em class="mt-4 not-italic block"><%- name %></em>
+                      <%- require('component/svg.ejs')({
+                        style: {
+                          main: 'w-20 h-20'
+                        },
+                        svgName: icon
+                      }) %>
+                    </a>
+                  </li>
+                <% } -%>
+              <% } -%>
+            </ul>
+          </div>
+        </div>
       <% } -%>
     </div>
     <% if( !isMobile ) { -%>

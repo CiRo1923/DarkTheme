@@ -1,0 +1,37 @@
+<%- require('component/mBanner.ejs')({
+  isMobile: isMobile
+}) %>
+<div class="mt-20 px-12 overflow-hidden">
+  <ul class="-m-6 flex items-center flex-wrap">
+    <%
+      const sports = [{
+        title: 'SBOBET',
+        img: 'https://www.crewsmostcorrupt.org/wp-content/uploads/2021/04/sbobet-6.jpg'
+      }, {
+        title: 'SABA SPORTS',
+        img: 'https://goal123.org/Aug/123-SPORTSBOOK-WELCOME-BONUS-EN.jpg'
+      }, {
+        title: 'SBO SPORTS WAP',
+        img: 'https://www.sportingpedia.com/wp-content/uploads/2021/03/bethard-app-intro.jpg'
+      }]
+    -%>
+    <% for( let i = 0; i < sports.length; i += 1 ) { -%>
+      <% const { title, img } = sports[i]; -%>
+      <li class="p-6 w-1/2">
+        <a href="javascript:;" class="bg-x1241 rounded-8 flex flex-col-reverse overflow-hidden">
+          <h2 class="p-8 text-14 text-center"><%- title %></h2>
+          <div class="relative">
+            <%- require('component/img.ejs')({
+              style: {
+                main: 'left-1/2 w-2full h-75 text-center translate-x-1/2 relative',
+                img: 'w-auto h-full inline-block'
+              },
+              path: img,
+              alt: title
+            }) %>
+          </div>
+        </a>
+      </li>
+    <% } -%>
+  </ul>
+</div>

@@ -1,0 +1,25 @@
+.m-amount {
+  &:not(.--hide) {
+    .m-amount-btn {
+      svg {
+        &:last-child {
+          @apply hidden;
+        }
+      }
+    }
+  }
+
+  &.--hide {
+    .m-amount-btn {
+      svg {
+        &:first-child {
+          @apply hidden;
+        }
+      }
+    }
+
+    .m-amount-number {
+      @apply hidden;
+    }
+  }
+}
