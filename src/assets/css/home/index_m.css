@@ -1,1 +1,6 @@
 @import '../_library_m';
+
+/* purgecss start ignore */
+@import "../_tinySlider";
+
+/* purgecss end ignore */
