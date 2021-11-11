@@ -1,4 +1,6 @@
-<%- require('component/mBanner.ejs')() %>
+<%- require('component/mBanner.ejs')({
+  isMobile: isMobile
+}) %>
 <div class="mt-48 max-cnt overflow-hidden">
   <ul class="-mx-8 -my-12 flex items-center flex-wrap">
     <%

@@ -1,5 +1,5 @@
 <div class="m-banner relative">
-  <ul class="m-banner-list whitespace-no-wrap overflow-hidden inline-space jTns" :set="{'autoplay': true, 'autoplayTimeout': 8000}">
+  <ul class="m-banner-list whitespace-no-wrap overflow-hidden inline-space jTns" :set="{'controls': false,'autoplay': true, 'autoplayTimeout': 8000, 'autoplayHoverPause': true, 'prevElem': '.jBannerPrev', 'nextElem': '.jBannerNext'}">
     <%
       const banner = [{
         img: 'https://api2-mj3.tr8ngames.com/images/id_cbd_dc228c70-ba22-49fb-9606-568eaeb20217_1618915724997.jpg'
@@ -25,4 +25,24 @@
       </li>
     <% } -%>
   </ul>
+  <% if (!isMobile) { -%>
+    <div class="m-banner-controls">
+      <button type="button" class="m-banner-prev top-1/2 w-48 h-48 bg-x0-50 rounded-48 absolute translate-y-1/2 jBannerPrev">
+        <%- require('component/svg.ejs')({
+          style: {
+            main: 'mx-auto w-32 h-32'
+          },
+          svgName: 'arrow_chevron_left'
+        }) %>
+      </button>
+      <button type="button" class="m-banner-next top-1/2 w-48 h-48 bg-x0-50 rounded-48 absolute translate-y-1/2 jBannerNext">
+        <%- require('component/svg.ejs')({
+          style: {
+            main: 'mx-auto w-32 h-32'
+          },
+          svgName: 'arrow_chevron_right'
+        }) %>
+      </button>
+    </div>
+  <% } -%>
 </div>

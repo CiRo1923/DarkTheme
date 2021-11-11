@@ -24,7 +24,7 @@
     <title>Dark Theme</title>
     <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
     <link rel="canonical" href="">
-    <link href="assets/css/home/index.css?e53009b7" rel="stylesheet">
+    <link href="assets/css/home/index.css?234c0756" rel="stylesheet">
   </head>
 
   <body class="bg-x001e text-xf">
@@ -34,7 +34,7 @@
         <div class="m-hd flex items-center max-cnt">
           <div class="m-hd-logo mr-32 w-120 h-32 flex-shrink-0">
             <figure class="m-hd-logo-fig w-full h-full">
-              <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/logo.svg?4055b7ed" class="lazy" alt="Dark Theme | Dark Theme" width="100%" height="100%">
+              <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/logo.svg?b83d41c2" class="lazy" alt="Dark Theme | Dark Theme" width="100%" height="100%">
             </figure>
           </div>
           <nav class="m-nav flex-grow overflow-hidden jNav">
@@ -211,7 +211,7 @@
   <div class="m-dropdown-hd">
     <button type="button" class="m-dropdown-ctrl flex items-center jDropCtrl">
               <figure class="m-dropdown-fig bg-xf rounded-24 overflow-hidden w-24 h-24">
-          <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/lang_english.svg?16942ade" class="lazy" alt="English | Dark Theme" width="100%" height="100%">
+          <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/lang_english.svg?35e1130d" class="lazy" alt="English | Dark Theme" width="100%" height="100%">
     </figure>
           </button>
   </div>
@@ -271,7 +271,7 @@
                   <div class="m-dropdown-hd">
                     <button type="button" class="m-dropdown-ctrl flex items-center jDropCtrl">
                       <figure class="m-dropdown-fig bg-xf rounded-24 overflow-hidden w-24 h-24">
-                        <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/lang_english.svg?16942ade" class="lazy" alt="English | Dark Theme" width="100%" height="100%">
+                        <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/lang_english.svg?35e1130d" class="lazy" alt="English | Dark Theme" width="100%" height="100%">
                       </figure>
                     </button>
                   </div>
@@ -389,17 +389,18 @@
         </div>
         <div class="m-notice bg-x1241">
           <div class="m-notice-bd py-10 flex items-center max-cnt relative">
-            <div class="m-notice-info whitespace-no-wrap text-xf-70 flex-grow overflow-hidden jMarquee">
-              <p class="left-0 relative jMarqueeTxt">Dear Valued Customers, 120% Welcome bonus is Not able to Claim with ATM Deposit anymore, we apologise for any inconvenience caused.</p>
+            <div class="m-notice-info whitespace-no-wrap text-xf-70 overflow-hidden jMarquee">
+              <p class="m-notice-text jMarqueeTxt">Dear Valued Customers, 120% Welcome bonus is Not able to Claim with ATM Deposit anymore, we apologise for any inconvenience caused.</p>
             </div>
             <time class="m-notice-time ml-16 pl-16 text-12 text-x88a1 flex-shrink-0 relative">2021/08/10 15:46:54PM GMT+8</time>
+
           </div>
         </div>
       </header>
       <main class="l-main">
         <div class="l-cnt">
           <div class="m-banner relative">
-            <ul class="m-banner-list whitespace-no-wrap overflow-hidden inline-space jTns" :set="{'autoplay': true, 'autoplayTimeout': 8000}">
+            <ul class="m-banner-list whitespace-no-wrap overflow-hidden inline-space jTns" :set="{'controls': false,'autoplay': true, 'autoplayTimeout': 8000, 'autoplayHoverPause': true, 'prevElem': '.jBannerPrev', 'nextElem': '.jBannerNext'}">
               <li class="m-banner-item w-full h-480 inline-block overflow-hidden jTnsItem">
                 <a href="javascript:;" class="w-full h-full block">
                   <figure class="left-1/2 w-2full h-full text-center translate-x-1/2 relative">
@@ -422,6 +423,18 @@
                 </a>
               </li>
             </ul>
+            <div class="m-banner-controls">
+              <button type="button" class="m-banner-prev top-1/2 w-48 h-48 bg-x0-50 rounded-48 absolute translate-y-1/2 jBannerPrev">
+                <svg class="mx-auto w-32 h-32 fill-current block">
+                  <use xlink:href="#arrow_chevron_left"></use>
+                </svg>
+              </button>
+              <button type="button" class="m-banner-next top-1/2 w-48 h-48 bg-x0-50 rounded-48 absolute translate-y-1/2 jBannerNext">
+                <svg class="mx-auto w-32 h-32 fill-current block">
+                  <use xlink:href="#arrow_chevron_right"></use>
+                </svg>
+              </button>
+            </div>
           </div>
           <div class="list mt-48 space-y-48 max-cnt">
             <!-- Sports Betting -->
@@ -439,7 +452,7 @@
                   </a>
                 </div>
               </header>
-              <div class="betting-bd overflow-hidden">
+              <div class="betting-bd">
                 <ul class="-mx-8 -my-12 flex items-center flex-wrap">
                   <li class="px-8 py-12 w-4/12">
                     <div class="p-24 h-208 flex flex-col justify-center rounded-8 bg-x1241 relative">
@@ -450,7 +463,7 @@
                         </a>
                       </div>
                       <figure class="betting-fig right-0 bottom-0 absolute">
-                        <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/home/SBO_Sports.png?45883645" class="lazy" alt="SBO Sports | Dark Theme" width="100%" height="100%">
+                        <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/home/SBO_Sports.png?eeb9390d" class="lazy" alt="SBO Sports | Dark Theme" width="100%" height="100%">
                       </figure>
                     </div>
                   </li>
@@ -463,7 +476,7 @@
                         </a>
                       </div>
                       <figure class="betting-fig right-0 bottom-0 absolute">
-                        <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/home/SABA_Sports.png?45883645" class="lazy" alt="SABA Sports | Dark Theme" width="100%" height="100%">
+                        <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/home/SABA_Sports.png?eeb9390d" class="lazy" alt="SABA Sports | Dark Theme" width="100%" height="100%">
                       </figure>
                     </div>
                   </li>
@@ -476,7 +489,7 @@
                         </a>
                       </div>
                       <figure class="betting-fig right-0 bottom-0 absolute">
-                        <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/home/SBO_Sports_WAP.png?45883645" class="lazy" alt="SBO Sports WAP | Dark Theme" width="100%" height="100%">
+                        <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/home/SBO_Sports_WAP.png?eeb9390d" class="lazy" alt="SBO Sports WAP | Dark Theme" width="100%" height="100%">
                       </figure>
                     </div>
                   </li>
@@ -564,10 +577,10 @@
               </header>
               <div class="m-product-bd overflow-hidden">
                 <ul class="-mx-8 -my-12 flex items-center flex-wrap">
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block --hot h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
                           <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2016/10/Thumbnail-Nirvana.jpg" class="w-auto h-full inline-block lazy" alt="gameName-0 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
@@ -578,10 +591,10 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
                           <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2016/01/Thumbnail-Incinerator.jpg" class="w-auto h-full inline-block lazy" alt="gameName-1 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
@@ -592,10 +605,10 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
                           <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2015/08/Thumbnail-VikingsGoWild.jpg" class="w-auto h-full inline-block lazy" alt="gameName-2 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
@@ -606,10 +619,10 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block --new h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
                           <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2018/08/Thumbnail-HanzosDojo.jpg" class="w-auto h-full inline-block lazy" alt="gameName-3 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
@@ -620,10 +633,10 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
                           <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Atlantis.jpg" class="w-auto h-full inline-block lazy" alt="gameName-4 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
@@ -634,11 +647,25 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
                           <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2019/09/Yggdrasil-Thumbnail-GoldenChipRoulette.png" class="w-auto h-full inline-block lazy" alt="gameName-5 | Dark Theme" width="100%" height="100%">
+                        </figure>
+                        <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
+                          <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
+                    <b class="px-10 text-xf block">PLAY NOW</b>
+                  </span>
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="m-product-item px-8 py-12 w-185">
+                    <div class="m-product-block h-full relative">
+                      <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2015/04/Thumbnail-JokerMillions.jpg" class="w-auto h-full inline-block lazy" alt="gameName-6 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
                           <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
@@ -669,11 +696,11 @@
               </header>
               <div class="m-product-bd overflow-hidden">
                 <ul class="-mx-8 -my-12 flex items-center flex-wrap">
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://i.ytimg.com/vi/r3-pkP6Tif0/maxresdefault.jpg" class="w-auto h-full inline-block lazy" alt="gameName-0 | Dark Theme" width="100%" height="100%">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2015/09/Thumbnail-HolmesAndTheStolenStones.jpg" class="w-auto h-full inline-block lazy" alt="gameName-0 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
                           <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
@@ -683,10 +710,10 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block --new h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
                           <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Elemental.jpg" class="w-auto h-full inline-block lazy" alt="gameName-1 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
@@ -697,11 +724,11 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block --hot h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://slotcatalog.com/userfiles/image/games/Yggdrasil/18906/Frost-Queen-Jackpots-2_s.jpg" class="w-auto h-full inline-block lazy" alt="gameName-2 | Dark Theme" width="100%" height="100%">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2018/03/Thumbnail-LuchaManiacs.jpg" class="w-auto h-full inline-block lazy" alt="gameName-2 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
                           <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
@@ -711,11 +738,11 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://cf.geekdo-images.com/klyW3atcrS1IODI5bv-6nQ__imagepage/img/KKiEY9mhkiwARAdqINsG8YFmUok=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4707313.jpg" class="w-auto h-full inline-block lazy" alt="gameName-3 | Dark Theme" width="100%" height="100%">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-GIZA.jpg" class="w-auto h-full inline-block lazy" alt="gameName-3 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
                           <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
@@ -725,11 +752,11 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://cdn.coingaming.io/casino-yggdrasil/golden-chip-roulette-thumbnail.jpg" class="w-auto h-full inline-block lazy" alt="gameName-4 | Dark Theme" width="100%" height="100%">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Hades.png" class="w-auto h-full inline-block lazy" alt="gameName-4 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
                           <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
@@ -739,11 +766,25 @@
                       </a>
                     </div>
                   </li>
-                  <li class="m-product-item px-8 py-12 w-2/12">
+                  <li class="m-product-item px-8 py-12 w-185">
                     <div class="m-product-block --hot h-full relative">
                       <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
-                        <figure class="w-2full left-1/2 h-200 translate-x-1/2 text-center relative">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://slotgods.co.uk/storage/app/media/online-slots/Robbin-Robin-Online-Slot-by-Iron-Dog-Studio-Logo.png" class="w-auto h-full inline-block lazy" alt="gameName-5 | Dark Theme" width="100%" height="100%">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2020/07/Yggdrasil-Thumbnail-MedusaFortune.jpg" class="w-auto h-full inline-block lazy" alt="gameName-5 | Dark Theme" width="100%" height="100%">
+                        </figure>
+                        <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
+                          <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
+                    <b class="px-10 text-xf block">PLAY NOW</b>
+                  </span>
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="m-product-item px-8 py-12 w-185">
+                    <div class="m-product-block h-full relative">
+                      <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
+                        <figure class="w-2full left-1/2 h-105 translate-x-1/2 text-center relative">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="https://www.yggdrasilgaming.com/w/files/2015/10/Thumbnail-CazinoZeppelin.jpg" class="w-auto h-full inline-block lazy" alt="gameName-6 | Dark Theme" width="100%" height="100%">
                         </figure>
                         <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
                           <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
@@ -778,7 +819,7 @@
                     <div class="providers-block">
                       <a href="javascript:;" class="py-32 h-100 block rounded-8 bg-x1241 overflow-hidden text-center" target="_blank" rel="noopener">
                         <figure class="h-full inline-block">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?4055b7ed" class="w-auto h-full lazy" alt="logoName-0 | Dark Theme" width="100%" height="100%">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?b83d41c2" class="w-auto h-full lazy" alt="logoName-0 | Dark Theme" width="100%" height="100%">
                         </figure>
                       </a>
                     </div>
@@ -787,7 +828,7 @@
                     <div class="providers-block">
                       <a href="javascript:;" class="py-32 h-100 block rounded-8 bg-x1241 overflow-hidden text-center" target="_blank" rel="noopener">
                         <figure class="h-full inline-block">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?4055b7ed" class="w-auto h-full lazy" alt="logoName-1 | Dark Theme" width="100%" height="100%">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?b83d41c2" class="w-auto h-full lazy" alt="logoName-1 | Dark Theme" width="100%" height="100%">
                         </figure>
                       </a>
                     </div>
@@ -796,7 +837,7 @@
                     <div class="providers-block">
                       <a href="javascript:;" class="py-32 h-100 block rounded-8 bg-x1241 overflow-hidden text-center" target="_blank" rel="noopener">
                         <figure class="h-full inline-block">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?4055b7ed" class="w-auto h-full lazy" alt="logoName-2 | Dark Theme" width="100%" height="100%">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?b83d41c2" class="w-auto h-full lazy" alt="logoName-2 | Dark Theme" width="100%" height="100%">
                         </figure>
                       </a>
                     </div>
@@ -805,7 +846,7 @@
                     <div class="providers-block">
                       <a href="javascript:;" class="py-32 h-100 block rounded-8 bg-x1241 overflow-hidden text-center" target="_blank" rel="noopener">
                         <figure class="h-full inline-block">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?4055b7ed" class="w-auto h-full lazy" alt="logoName-3 | Dark Theme" width="100%" height="100%">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?b83d41c2" class="w-auto h-full lazy" alt="logoName-3 | Dark Theme" width="100%" height="100%">
                         </figure>
                       </a>
                     </div>
@@ -814,7 +855,7 @@
                     <div class="providers-block">
                       <a href="javascript:;" class="py-32 h-100 block rounded-8 bg-x1241 overflow-hidden text-center" target="_blank" rel="noopener">
                         <figure class="h-full inline-block">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?4055b7ed" class="w-auto h-full lazy" alt="logoName-4 | Dark Theme" width="100%" height="100%">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?b83d41c2" class="w-auto h-full lazy" alt="logoName-4 | Dark Theme" width="100%" height="100%">
                         </figure>
                       </a>
                     </div>
@@ -823,7 +864,7 @@
                     <div class="providers-block">
                       <a href="javascript:;" class="py-32 h-100 block rounded-8 bg-x1241 overflow-hidden text-center" target="_blank" rel="noopener">
                         <figure class="h-full inline-block">
-                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?4055b7ed" class="w-auto h-full lazy" alt="logoName-5 | Dark Theme" width="100%" height="100%">
+                          <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_yggdrasil.svg?b83d41c2" class="w-auto h-full lazy" alt="logoName-5 | Dark Theme" width="100%" height="100%">
                         </figure>
                       </a>
                     </div>
@@ -944,27 +985,27 @@
             <ul class="-mx-8 inline-flex items-center">
               <li class="px-8">
                 <figure class="m-ft-sponsor-fig h-20">
-                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_bca.svg?16942ade" class="h-full lazy" alt="BCA | Dark Theme" width="100%" height="100%">
+                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_bca.svg?35e1130d" class="h-full lazy" alt="BCA | Dark Theme" width="100%" height="100%">
                 </figure>
               </li>
               <li class="px-8">
                 <figure class="m-ft-sponsor-fig h-20">
-                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_mandiri.svg?16942ade" class="h-full lazy" alt="mandiri | Dark Theme" width="100%" height="100%">
+                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_mandiri.svg?35e1130d" class="h-full lazy" alt="mandiri | Dark Theme" width="100%" height="100%">
                 </figure>
               </li>
               <li class="px-8">
                 <figure class="m-ft-sponsor-fig h-20">
-                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_BNI.svg?16942ade" class="h-full lazy" alt="BNI | Dark Theme" width="100%" height="100%">
+                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_BNI.svg?35e1130d" class="h-full lazy" alt="BNI | Dark Theme" width="100%" height="100%">
                 </figure>
               </li>
               <li class="px-8">
                 <figure class="m-ft-sponsor-fig h-20">
-                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_BANKBRI.svg?16942ade" class="h-full lazy" alt="BANK BRI | Dark Theme" width="100%" height="100%">
+                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_BANKBRI.svg?35e1130d" class="h-full lazy" alt="BANK BRI | Dark Theme" width="100%" height="100%">
                 </figure>
               </li>
               <li class="px-8">
                 <figure class="m-ft-sponsor-fig h-20">
-                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_CIMBBank.svg?16942ade" class="h-full lazy" alt="CIMB BANK | Dark Theme" width="100%" height="100%">
+                  <img src="assets/img/common/lazyload.png?c1414784" data-src="static/img/fake/logo_CIMBBank.svg?35e1130d" class="h-full lazy" alt="CIMB BANK | Dark Theme" width="100%" height="100%">
                 </figure>
               </li>
             </ul>
@@ -975,7 +1016,7 @@
               <li class="px-8">
                 <a href="javascript:;" target="_blank" rel="noopener">
                   <figure class="m-ft-social-fig w-24 h-24">
-                    <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/facebook.svg?16942ade" class="lazy" alt="facebook | Dark Theme" width="100%" height="100%">
+                    <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/facebook.svg?35e1130d" class="lazy" alt="facebook | Dark Theme" width="100%" height="100%">
                   </figure>
                 </a>
               </li>
@@ -983,7 +1024,7 @@
               <li class="px-8">
                 <a href="javascript:;" target="_blank" rel="noopener">
                   <figure class="m-ft-social-fig w-24 h-24">
-                    <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/twitter.svg?16942ade" class="lazy" alt="twitter | Dark Theme" width="100%" height="100%">
+                    <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/twitter.svg?35e1130d" class="lazy" alt="twitter | Dark Theme" width="100%" height="100%">
                   </figure>
                 </a>
               </li>
@@ -991,7 +1032,7 @@
               <li class="px-8">
                 <a href="javascript:;" target="_blank" rel="noopener">
                   <figure class="m-ft-social-fig w-24 h-24">
-                    <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/instagram.svg?16942ade" class="lazy" alt="instagram | Dark Theme" width="100%" height="100%">
+                    <img src="assets/img/common/lazyload.png?c1414784" data-src="assets/img/common/instagram.svg?35e1130d" class="lazy" alt="instagram | Dark Theme" width="100%" height="100%">
                   </figure>
                 </a>
               </li>
@@ -1054,7 +1095,7 @@
         </div>
       </div>
     </div>
-    <script defer="defer" src="scripts/home/index.js?e53009b7"></script>
+    <script defer="defer" src="scripts/home/index.js?234c0756"></script>
   </body>
 
 </html>

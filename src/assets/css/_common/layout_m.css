@@ -1,0 +1,11 @@
+.l-wrap {
+  @apply min-h-screen flex flex-col flex-grow;
+}
+
+.l-hd {
+  @apply flex-shrink-0;
+}
+
+.l-main {
+  @apply flex-grow;
+}

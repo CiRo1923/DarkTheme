@@ -1,4 +1,6 @@
-<%- require('component/mBanner.ejs')() %>
+<%- require('component/mBanner.ejs')({
+  isMobile: isMobile
+}) %>
 <div class="mt-20 max-cnt">
   <div class="flex border-b-1 border-solid border-x3368">
     <div class="menu px-28 flex-grow overflow-hidden relative">
@@ -87,37 +89,43 @@
       <ul class="-mx-8 -my-12 flex items-center flex-wrap">
         <%
           const newGames = [{
-            img: 'https://i.ytimg.com/vi/r3-pkP6Tif0/maxresdefault.jpg'
+            img: 'https://www.yggdrasilgaming.com/w/files/2016/10/Thumbnail-Nirvana.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2016/01/Thumbnail-Incinerator.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/08/Thumbnail-VikingsGoWild.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2018/08/Thumbnail-HanzosDojo.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Atlantis.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2019/09/Yggdrasil-Thumbnail-GoldenChipRoulette.png'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/04/Thumbnail-JokerMillions.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/09/Thumbnail-HolmesAndTheStolenStones.jpg'
           }, {
             img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Elemental.jpg'
           }, {
-            img: 'https://slotcatalog.com/userfiles/image/games/Yggdrasil/18906/Frost-Queen-Jackpots-2_s.jpg'
+            img: 'https://www.yggdrasilgaming.com/w/files/2018/03/Thumbnail-LuchaManiacs.jpg'
           }, {
-            img: 'https://cf.geekdo-images.com/klyW3atcrS1IODI5bv-6nQ__imagepage/img/KKiEY9mhkiwARAdqINsG8YFmUok=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4707313.jpg'
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-GIZA.jpg'
           }, {
-            img: 'https://cdn.coingaming.io/casino-yggdrasil/golden-chip-roulette-thumbnail.jpg'
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Hades.png'
           }, {
-            img: 'https://slotgods.co.uk/storage/app/media/online-slots/Robbin-Robin-Online-Slot-by-Iron-Dog-Studio-Logo.png'
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/07/Yggdrasil-Thumbnail-MedusaFortune.jpg'
           }, {
-            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Elemental.jpg'
-          }, {
-            img: 'https://slotcatalog.com/userfiles/image/games/Yggdrasil/18906/Frost-Queen-Jackpots-2_s.jpg'
-          }, {
-            img: 'https://cf.geekdo-images.com/klyW3atcrS1IODI5bv-6nQ__imagepage/img/KKiEY9mhkiwARAdqINsG8YFmUok=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4707313.jpg'
-          }, {
-            img: 'https://cdn.coingaming.io/casino-yggdrasil/golden-chip-roulette-thumbnail.jpg'
-          }, {
-            img: 'https://slotgods.co.uk/storage/app/media/online-slots/Robbin-Robin-Online-Slot-by-Iron-Dog-Studio-Logo.png'
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/10/Thumbnail-CazinoZeppelin.jpg'
           }];
         -%>
         <% for( let i = 0; i < newGames.length; i += 1 ) { -%>
           <% const { img, status } = newGames[i]; -%>
-          <li class="m-product-item px-8 py-12 w-2/12">
+          <li class="m-product-item px-8 py-12 w-185">
             <div class="m-product-block h-full relative">
               <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
                 <%- require('component/img.ejs')({
                   style: {
-                    main: 'w-2full left-1/2 h-200 translate-x-1/2 text-center relative',
+                    main: 'w-2full left-1/2 h-105 translate-x-1/2 text-center relative',
                     img: 'w-auto h-full inline-block'
                   },
                   path: img,

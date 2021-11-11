@@ -1,19 +1,7 @@
-.m-banner {
-  .tns-controls {
-    > button {
-      @apply w-48 h-48 bg-x0-50 rounded-48;
+.m-banner-prev {
+  left: 32px;
+}
 
-      &::before {
-        @apply w-32 h-32;
-      }
-
-      &:first-child {
-        left: 32px;
-      }
-
-      &:last-child {
-        right: 32px;
-      }
-    }
-  }
+.m-banner-next {
+  right: 32px;
 }

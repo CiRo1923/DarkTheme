@@ -167,11 +167,6 @@
 }
 
 .tns-controls {
-  & + button[data-action="stop"],
-  & + button[data-action="start"] {
-    @apply hidden;
-  }
-
   > button {
     text-indent: -99999px;
     transform: translateY(-50%);
@@ -180,7 +175,7 @@
 
     &::before {
       content: "";
-      background-image: url(common/chevron-arrow.svg);
+      background-image: url(common/arrow_chevron.svg);
 
       @apply top-1/2 left-1/2 bg-center bg-no-repeat bg-cover absolute;
     }

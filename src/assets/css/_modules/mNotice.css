@@ -4,8 +4,12 @@
     background: url(common/notice.svg) no-repeat center center;
     background-size: auto 100%;
 
-    @apply px-16 w-16 h-16 box-content block flex-shrink-0;
+    @apply w-16 h-16 box-content block flex-shrink-0;
   }
+}
+
+.m-notice-text {
+  transform: translateX(100%);
 }
 
 .m-notice-time {
@@ -16,5 +20,29 @@
     transform: translateY(-50%);
 
     @apply top-1/2 left-0 bg-x3368 absolute;
+  }
+}
+
+@screen p {
+  .m-notice-bd {
+    &::before {
+      @apply px-16 w-16 h-16;
+    }
+  }
+}
+
+@screen t {
+  .m-notice-bd {
+    &::before {
+      @apply px-14;
+    }
+  }
+}
+
+@screen m {
+  .m-notice-bd {
+    &::before {
+      @apply px-12;
+    }
   }
 }

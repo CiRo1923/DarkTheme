@@ -73,7 +73,7 @@
     }
 
     select.m-form-type {
-      background-image: url(common/arrow-white.svg);
+      background-image: url(common/arrow_white.svg);
     }
   }
 
@@ -81,7 +81,7 @@
     @apply bg-xf text-x88a1;
 
     select.m-form-type {
-      background-image: url(common/arrow-black.svg);
+      background-image: url(common/arrow_black.svg);
     }
   }
 

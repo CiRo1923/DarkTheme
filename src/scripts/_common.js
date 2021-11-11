@@ -109,6 +109,7 @@ export const tinySlider = (tns) => {
         ...{
           container: elem,
           startIndex: startIndex,
+          autoplayButtonOutput: false,
           navPosition: tneSet.navPosition ? tneSet.navPosition : 'bottom'
         },
         ...newSet
@@ -130,19 +131,21 @@ export const tinySlider = (tns) => {
           }
         });
 
-        tnsSlide.events.on('indexChanged', info => {
-          const $prev = j$(tneSet.prevElem);
-          const $next = j$(tneSet.nextElem);
+        if (!tneSet.autoplay && !tneSet.loop) {
+          tnsSlide.events.on('indexChanged', info => {
+            const $prev = j$(tneSet.prevElem);
+            const $next = j$(tneSet.nextElem);
 
-          $prev.prop('disabled', false);
-          $next.prop('disabled', false);
+            $prev.prop('disabled', false);
+            $next.prop('disabled', false);
 
-          if (info.slideCount - info.items - info.index <= 0) {
-            $next.prop('disabled', true);
-          } else if (info.index === 0) {
-            $prev.prop('disabled', true);
-          }
-        });
+            if (info.slideCount - info.items - info.index <= 0) {
+              $next.prop('disabled', true);
+            } else if (info.index === 0) {
+              $prev.prop('disabled', true);
+            }
+          });
+        }
       }
 
       resizeFuns();
@@ -191,21 +194,26 @@ const langChange = () => {
   });
 };
 
-const marquee = () => {
+const marquee = (set) => {
   const box = j$('.jMarquee');
   const text = j$('.jMarqueeTxt');
   const boxWidth = box.width();
   const txtWidth = text.width(true);
-  let initLeft = 0;
-
-  if (boxWidth < txtWidth) {
+  let initLeft = set?.autoplay ? boxWidth : 0;
+  const runFun = () => {
     setInterval(() => {
       if (initLeft < txtWidth * -1) {
         initLeft = boxWidth;
       }
       initLeft -= 1;
-      text.css('left', `${initLeft}px`);
-    }, 50);
+      text.css('transform', `translateX(${initLeft}px)`);
+    }, set?.speed ? set.speed : 10);
+  };
+
+  if (set?.autoplay) {
+    runFun();
+  } else if (boxWidth < txtWidth) {
+    runFun();
   }
 };
 
@@ -269,5 +277,7 @@ prjs.$d.on('ready', () => {
 prjs.$w.on('load', () => {
   dropdown();
   langChange();
-  marquee();
+  marquee({
+    autoplay: true
+  });
 });
