@@ -568,7 +568,7 @@ j$.Fn.prototype = {
   },
   // eslint-disable-next-line func-names
   eq: function (index) {
-    return new j$.Fn([typeof this[0][0][0] !== 'undefined' ? this[0][0][0][index] : this[0][index]]);
+    return new j$.Fn([this[0][index]]);
   },
   // eslint-disable-next-line func-names
   index: function () {
@@ -680,6 +680,21 @@ export const validate = (elem, callback) => {
 
   if (callback) {
     callback(!!errorMsg);
+  }
+};
+
+export const validateReset = (elem) => {
+  const $reset = j$(elem);
+  const $form = $reset.parents('form');
+  const $formType = $form.find('[\\:validate]');
+  const $formErroe = $form.find('.jFormError');
+
+  for (let i = 0; i < $formType[0].length; i += 1) {
+    $formType.eq(i).parent().removeClass('--success').removeClass('--error');
+  }
+
+  for (let i = 0; i < $formErroe[0].length; i += 1) {
+    $formErroe.eq(i).empty();
   }
 };
 

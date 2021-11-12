@@ -11,12 +11,12 @@
     -%>
     <% for( let i = 0; i < banner.length; i += 1 ) { -%>
       <% const { img } = banner[i]; -%>
-      <li class="m-banner-item w-full <%- !isMobile ? 'h-480' : 'h-120' %> inline-block overflow-hidden jTnsItem">
-        <a href="javascript:;" class="w-full h-full block">
+      <li class="m-banner-item w-full inline-block overflow-hidden jTnsItem">
+        <a href="javascript:;" class="w-full block">
           <%- require('component/img.ejs')({
             style: {
-              main: 'left-1/2 w-2full h-full text-center translate-x-1/2 relative',
-              img: 'w-auto h-full inline-block'
+              main: 'w-full text-center',
+              img: 'w-full h-auto inline-block'
             },
             path: img,
             alt: 'banner'

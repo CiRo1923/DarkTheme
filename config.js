@@ -35,16 +35,16 @@ module.exports = {
     const def = [];
     let publish = def.concat(
       index.HtmlWebpackPlugin,
-      sports.HtmlWebpackPlugin,
-      liveCasion.HtmlWebpackPlugin,
-      promotions.HtmlWebpackPlugin,
-      virtualSports.HtmlWebpackPlugin,
-      games.HtmlWebpackPlugin
+      // sports.HtmlWebpackPlugin,
+      // liveCasion.HtmlWebpackPlugin,
+      // promotions.HtmlWebpackPlugin,
+      // virtualSports.HtmlWebpackPlugin,
+      // games.HtmlWebpackPlugin,
       // profile.HtmlWebpackPlugin,
       // changePassword.HtmlWebpackPlugin,
       // register.HtmlWebpackPlugin,
       // singIn.HtmlWebpackPlugin,
-      // deposit.HtmlWebpackPlugin,
+      deposit.HtmlWebpackPlugin
       // statement.HtmlWebpackPlugin,
       // myPromotion.HtmlWebpackPlugin,
       // bets.HtmlWebpackPlugin,

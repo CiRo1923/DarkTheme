@@ -1,7 +1,7 @@
 import axios from 'axios';
 import LazyLoad from 'vanilla-lazyload';
 import {
-  prjs, j$, svgRequire, device, validate
+  prjs, j$, svgRequire, device, validate, validateReset
 } from '_factory.js';
 
 let lazyLoadFun = () => {
@@ -24,7 +24,7 @@ export const dropdown = () => {
   const $dropCtrl = j$(dropClass.ctrl);
 
   for (let i = 0; i < $dropCtrl[0].length; i += 1) {
-    const $drop = j$($dropCtrl).eq(i).parents(dropClass.main);
+    const $drop = $dropCtrl.eq(i).parents(dropClass.main);
     const $dropBd = $drop.find(dropClass.bd);
     const height = `${$drop.find(`${dropClass.bd} > *`).height() + parseFloat($drop.find(`${dropClass.bd} > *`).css('margin-top'), 10)}px`;
 
@@ -116,36 +116,49 @@ export const tinySlider = (tns) => {
       });
 
       if (tneSet.prevElem && tneSet.nextElem) {
-        j$(tneSet.prevElem).on('click', e => {
+        let $prev = j$(tneSet.prevElem);
+        let $next = j$(tneSet.nextElem);
+
+        if (!tneSet.autoplay && !tneSet.loop) {
+          $prev.prop('disabled', (startIndex === 0));
+          $next.prop('disabled', (startIndex === (tenItem[0].length - 1)));
+
+          tnsSlide.events.on('indexChanged', info => {
+            // $prev = j$(tneSet.prevElem);
+            // $next = j$(tneSet.nextElem);
+
+            console.log(info);
+            console.log(info.index);
+
+            if (info.index === 1) {
+              console.log($prev[0]);
+              $prev.prop('disabled', true);
+            } else {
+              $prev.prop('disabled', false);
+            }
+
+            if (info.slideCount - info.items - info.indexCached <= 0) {
+              $next.prop('disabled', true);
+            } else {
+              $next.prop('disabled', false);
+            }
+          });
+        }
+
+        $prev.on('click', e => {
           const $this = j$(e.$this);
           if (!$this.prop('disabled')) {
             tnsSlide.goTo('prev');
           }
         });
 
-        j$(tneSet.nextElem).on('click', e => {
+        $next.on('click', e => {
           const $this = j$(e.$this);
 
           if (!$this.prop('disabled')) {
             tnsSlide.goTo('next');
           }
         });
-
-        if (!tneSet.autoplay && !tneSet.loop) {
-          tnsSlide.events.on('indexChanged', info => {
-            const $prev = j$(tneSet.prevElem);
-            const $next = j$(tneSet.nextElem);
-
-            $prev.prop('disabled', false);
-            $next.prop('disabled', false);
-
-            if (info.slideCount - info.items - info.index <= 0) {
-              $next.prop('disabled', true);
-            } else if (info.index === 0) {
-              $prev.prop('disabled', true);
-            }
-          });
-        }
       }
 
       resizeFuns();
@@ -273,6 +286,8 @@ prjs.$d.on('click', '.jAmountCtrl', e => {
   } else {
     j$('form')[0][0].submit();
   }
+}).on('click', '.jReset', e => {
+  validateReset(e.$this);
 });
 
 prjs.$d.on('ready', () => {

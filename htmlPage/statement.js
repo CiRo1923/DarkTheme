@@ -5,13 +5,12 @@ module.exports = {
     action: 'statement',
     description: '',
     chunks: ['statement/index']
-  }
-  // , {
-  //   filename: 'mobile/statement.html',
-  //   template: '_shared/layout.ejs',
-  //   action: 'statement',
-  //   description: '',
-  //   chunks: ['statement/index_m']
-  // }
-  ]
+  }, {
+    filename: 'mobile/statement.html',
+    template: '_shared/layout.ejs',
+    action: 'statement',
+    blank: true,
+    description: '',
+    chunks: ['statement/index_m']
+  }]
 };

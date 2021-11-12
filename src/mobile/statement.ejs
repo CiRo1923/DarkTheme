@@ -1,0 +1,94 @@
+<%- require('component/mPageHeader.ejs')({
+  title: urlFuns.name('account', 'statement'),
+  href: urlFuns.page('account', 'statement')
+}) %>
+<div class="mt-24 px-12">
+  <div class="tab">
+    <div class="tab-hd overflow-hidden">
+      <ul class="-mx-6 flex items-center">
+        <%
+          const tabs = [{
+            name: '08/01 ~ 08/31',
+            href: urlFuns.page('account', 'statement')
+          }, {
+            name: '09/01 ~ 09/30',
+            href: urlFuns.page('account', 'statement')
+          }, {
+            name: '10/01 ~ 10/08',
+            href: urlFuns.page('account', 'statement')
+          }]
+        -%>
+        <% for( let i = 0; i < tabs.length; i += 1 ) { -%>
+          <% const { name, href } = tabs[i]; -%>
+          <li class="tab-item<%- i === 0 ? ' active' : '' %> px-6 w-1/3">
+            <a href="<%- href %>" class="tab-button py-12 block rounded-4 bg-x3368 text-center overflow-hidden relative">
+              <em class="text-14 not-italic relative z-1"><%- name %></em>
+            </a>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+    <div class="tab-bd mt-24">
+      <ul class="space-y-12">
+        <%
+          datas = [[{
+            name: 'Date',
+            value: '08/02/2021',
+          }, {
+            name: 'Remark',
+            value: 'Betting'
+          }, {
+            name: 'Winlose',
+            value: '2.65'
+          }, {
+            name: 'Commission',
+            value: '0.00'
+          }, {
+            name: 'Running Total',
+            value: '2.65'
+          }, {
+            name: 'Running Total',
+            value: '1,184.75'
+          }], [{
+            name: 'Date',
+            value: '08/02/2021',
+          }, {
+            name: 'Remark',
+            value: 'Betting'
+          }, {
+            name: 'Winlose',
+            value: '-24.40'
+          }, {
+            name: 'Commission',
+            value: '0.00'
+          }, {
+            name: 'Running Total',
+            value: '-24.40'
+          }, {
+            name: 'Running Total',
+            value: '1,159.10'
+          }]]
+        -%>
+        <% for( let i = 0; i < datas.length; i += 1 ) { -%>
+          <li>
+            <div class="px-16 py-12 rounded-4 border-1 border-solid border-x3368 bg-x1241">
+              <ul class="space-y-12">
+                <% for( let j = 0; j < datas[i].length; j += 1 ) { -%>
+                  <% const { name, value } = datas[i][j]; -%>
+                  <li class="flex items-center">
+                    <small class="block flex-shrink-0 text-x88a1">
+                      <b class="text-14"><%- name %></b>
+                    </small>
+                    <div class="flex-grow text-right">
+                      <p class="text-14<%- /^-/.test(value) ? ' text-xf25c' : '' %>"><%- value %></p>
+                    </div>
+                  </li>
+                <% } -%>
+              </ul>
+            </div>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+  </div>
+</div>

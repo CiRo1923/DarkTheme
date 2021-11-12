@@ -1,0 +1,139 @@
+<%- require('component/mPageHeader.ejs')({
+  title: urlFuns.name('deposit', 'deposit'),
+  href: urlFuns.page('deposit', 'deposit')
+}) %>
+<form method="POST" class="mt-24 px-12">
+  <ul class="space-y-32">
+    <%
+      const form = [{
+        items: [{
+          formType: 'radio',
+          radios: [{
+            name: 'transfer',
+            text: 'Bank Transfer',
+            value: 'bank',
+            checked: true
+          }]
+        }]
+      }, {
+        title: 'From',
+        msg: 'After you have successfully completed your deposit, please contact our customer support to get your preferable bank information.',
+        items: [{
+          title: 'Bank',
+          formType: 'select',
+          required: true,
+          options: [{
+            name: 'DemoBankTMP',
+            value: 'DemoBankTMP'
+          }],
+          validate : `{'req': 'This field is required.'}`
+        }, {
+          title: 'Bank Account Name',
+          formType: 'text',
+          required: true,
+          validate : `{'req': 'This field is required.'}`
+        }, {
+          title: 'Bank Account Number',
+          formType: 'tel',
+          required: true,
+          validate : `{'req': 'This field is required.', 'digital': 'Please enter a valid bank account number.'}`
+        }, {
+          title: 'Amount',
+          formType: 'tel',
+          required: true,
+          validate : `{'req': 'This field is required.', 'digital': 'Please enter a valid bank account number.'}`
+        }, {
+          title: 'Reference Number - (Optional)',
+          formType: 'tel',
+          validate : `{'digital': 'Please enter a valid bank account number.'}`
+        }]
+      }, {
+        title: 'To',
+        items: [{
+          title: 'Company Bank',
+          formType: 'select',
+          required: true,
+          options: [{
+            name: 'DemoBankTMP',
+            value: 'DemoBankTMP'
+          }],
+          validate : `{'req': 'This field is required.'}`
+        }, {
+          title: 'Bank Account',
+          formType: 'tel',
+          required: true,
+          validate : `{'req': 'This field is required.', 'digital': 'Please enter a valid bank account number.'}`
+        }]
+      }]
+    -%>
+    <% for( let i = 0; i < form.length; i += 1 ) { -%>
+      <% const { title, msg, items } = form[i]; -%>
+      <li>
+        <% if ( title ) { -%>
+          <div class="mb-16 pb-10 border-b-2 border-solid border-x3368">
+            <p class="text-x3c6e text-14"><b><%- title %></b></p>
+          </div>
+        <% } -%>
+        <% if ( msg ) { -%>
+          <div class="mb-16 p-16 bg-x1241 rounded-8">
+            <p class="text-14 text-xf-70"><%- msg %></p>
+          </div>
+        <% } -%>
+        <ul class="space-y-16">
+          <% for( let i = 0; i < items.length; i += 1 ) { -%>
+            <% const { title, radios, formType, required, options, validate, classCtrl } = items[i]; -%>
+            <li>
+              <% if ( title ) { -%>
+                <b class="mb-8 text-14 block"><%- title %> <sup class="text-xf25c<%- required ? '' : ' opacity-0 pointer-events-none' %>">*</sup></b>
+              <% } -%>
+              <div class="m-form overflow-hidden jForm">
+                <div class="m-form-item">
+                  <% if ( formType !== 'checkbox' && formType !== 'radio'  ) { -%>
+                    <div class="m-form-elem">
+                      <% if ( formType !== 'select' && formType !== 'textarea' ) { -%>
+                        <input type="<%- formType %>" class="m-form-type<%- classCtrl ? ` ${classCtrl}` : '' %>"<%- validate ? ` :validate="${validate}"` : '' %>>
+                      <% } else if ( formType === 'select' ) { -%>
+                        <select class="m-form-type w-full<%- classCtrl ? ` ${classCtrl}` : '' %>"<%- validate ? ` :validate="${validate}"` : '' %>>
+                          <option value="">Select</option>
+                          <% for( let j = 0; j < options.length; j += 1 ) { -%>
+                            <% const { name, value } = options[j]; -%>
+                            <option value="<%- value %>"><%- name %></option>
+                          <% } -%>
+                        </select>
+                      <% } -%>
+                    </div>
+                  <% } else { -%>
+                    <% for( let j = 0; j < radios.length; j += 1 ) { -%>
+                      <% const { name, value, checked, text } = radios[j]; -%>
+                      <label class="m-form-elem">
+                        <input type="<%- formType %>" name="<%- name %>" class="m-form-type<%- classCtrl ? ` ${classCtrl}` : '' %>" value="<%- value %>"<%- checked ? ' checked' : '' %>>
+                        <p class="text-x001e text-14"><%- text %></p>
+                      </label>
+                    <% } -%>
+                  <% } -%>
+                </div>
+                <span class="m-form-error jFormError"></span>
+              </div>
+            </li>
+          <% } -%>
+        </ul>
+      </li>
+    <% } -%>
+    <li>
+      <div class="overflow-hidden">
+        <ul class="-mx-12 flex items-center">
+          <li class="px-12 w-1/2">
+            <button type="reset" class="m-btn --blue w-full jReset">
+              <b>Reset</b>
+            </button>
+          </li>
+          <li class="px-12 w-1/2">
+            <button type="submit" class="m-btn --green w-full jSubmit">
+              <b>Submit</b>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</form>

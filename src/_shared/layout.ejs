@@ -8,42 +8,42 @@
   const navs = [{
     name: 'Home',
     icon: 'home',
-    href: 'index.html',
+    href: `../${isMobile ? 'mobile/' : ''}index.html`,
     value: 'home',
     group: 'nav'
   }, {
     name: 'Sports',
-    href: 'sports.html',
+    href: `../${isMobile ? 'mobile/' : ''}sports.html`,
     value: 'sports',
     group: 'nav'
   }, {
     name: 'Virtual Sports',
-    href: 'virtualSports.html',
+    href: `../${isMobile ? 'mobile/' : ''}virtualSports.html`,
     value: 'virtualSports',
     group: 'nav'
   }, {
     name: 'Live Casion',
-    href: 'liveCasion.html',
+    href: `../${isMobile ? 'mobile/' : ''}liveCasion.html`,
     value: 'liveCasion',
     group: 'nav'
   }, {
     name: 'Games',
-    href: 'games.html',
+    href: `../${isMobile ? 'mobile/' : ''}games.html`,
     value: 'games',
     group: 'nav'
   }, {
     name: 'Promotions',
-    href: 'promotions.html',
+    href: `../${isMobile ? 'mobile/' : ''}promotions.html`,
     value: 'promotions',
     group: 'nav'
   }, {
     name: 'Login',
-    href: 'singIn.html',
+    href: `../${isMobile ? 'mobile/' : ''}singIn.html`,
     value: 'login',
     group: 'navTools'
   }, {
     name: 'Sign Up',
-    href: 'register.html',
+    href: `../${isMobile ? 'mobile/' : ''}register.html`,
     value: 'register',
     group: 'navTools'
   }, {
@@ -51,15 +51,15 @@
     value: 'account',
     subNavs: [{
       name: 'Account',
-      href: 'account.html',
+      href: `../${isMobile ? 'mobile/' : ''}account.html`,
       value: 'index',
     }, {
       name: 'Profile',
-      href: 'profile.html',
+      href: `../${isMobile ? 'mobile/' : ''}profile.html`,
       value: 'profile',
       lastNavs: [{
         name: 'Change Password',
-        href: 'changePassword.html',
+        href: `../${isMobile ? 'mobile/' : ''}changePassword.html`,
         value: 'changePassword'
       }]
     }, {
@@ -67,28 +67,28 @@
       value: 'bets',
       lastNavs: [{
         name: 'My Bets',
-        href: 'betsRunning.html',
+        href: `../${isMobile ? 'mobile/' : ''}betsRunning.html`,
         value: 'running'
       }, {
         name: 'My Bets',
-        href: 'betsSettled.html',
+        href: `../${isMobile ? 'mobile/' : ''}betsSettled.html`,
         value: 'settled'
       }]
     }, {
       name: 'Balance',
-      href: 'balance.html',
+      href: `../${isMobile ? 'mobile/' : ''}balance.html`,
       value: 'balance'
     }, {
       name: 'Statement',
-      href: 'statement.html',
+      href: `../${isMobile ? 'mobile/' : ''}statement.html`,
       value: 'statement'
     }, {
       name: 'My Promotion',
-      href: 'myPromotion.html',
+      href: `../${isMobile ? 'mobile/' : ''}myPromotion.html`,
       value: 'myPromotion'
     }, {
       name: 'Referral',
-      href: 'referral.html',
+      href: `../${isMobile ? 'mobile/' : ''}referral.html`,
       value: 'referral'
     }],
     group: 'navTools'
@@ -97,25 +97,25 @@
     value: 'deposit',
     subNavs: [{
       name: 'Transaction',
-      href: 'transaction.html',
-      value: 'index'
+      href: `../${isMobile ? 'mobile/' : ''}transaction.html`,
+      value: 'transaction'
     }, {
       name: 'Deposit',
-      href: 'deposit.html',
+      href: `../${isMobile ? 'mobile/' : ''}deposit.html`,
       value: 'deposit'
     }, {
       name: 'Withdrawal',
-      href: 'withdrawal.html',
+      href: `../${isMobile ? 'mobile/' : ''}withdrawal.html`,
       value: 'withdrawal'
     }, {
       name: 'Transaction History',
-      href: 'history.html',
+      href: `../${isMobile ? 'mobile/' : ''}history.html`,
       value: 'history'
     }],
     group: 'navTools'
   }, {
     name: 'Contact',
-    href: 'contact.html',
+    href: `../${isMobile ? 'mobile/' : ''}contact.html`,
     value: 'contact',
     group: 'toolbar'
   }];
@@ -217,7 +217,7 @@
             <div class="m-hd-logo <%- !isMobile ? 'mr-32 flex-shrink-0' : 'flex-grow' %>">
               <%- require('component/img.ejs')({
                 style: {
-                  main: `m-hd-logo-fig w-144 h-32`
+                  main: `m-hd-logo-fig ${ !isMobile ? 'w-160 h-32' : 'w-100 h-20' }`
                 },
                 path: require('common/logo.svg'),
                 alt: TITLE
@@ -479,8 +479,8 @@
           </div>
           <div class="m-notice bg-x1241">
             <div class="m-notice-bd <%- !isMobile ? 'py-10' : 'py-8 pr-12' %> flex items-center max-cnt relative">
-              <div class="m-notice-info whitespace-no-wrap text-xf-70 overflow-hidden jMarquee">
-                <p class="m-notice-text jMarqueeTxt">Dear Valued Customers, 120% Welcome bonus is Not able to Claim with ATM Deposit anymore, we apologise for any inconvenience caused.</p>
+              <div class="m-notice-info whitespace-no-wrap text-xf-70 flex-grow overflow-hidden jMarquee">
+                <p class="m-notice-text inline-block jMarqueeTxt">Dear Valued Customers, 120% Welcome bonus is Not able to Claim with ATM Deposit anymore, we apologise for any inconvenience caused.</p>
               </div>
               <% if( !isMobile ) { -%>
                 <time class="m-notice-time ml-16 pl-16 text-12 text-x88a1 flex-shrink-0 relative">2021/08/10 15:46:54PM GMT+8</time>
@@ -664,9 +664,9 @@
                   show: true,
                   value: 'statement'
                 }, {
-                  name: urlFuns.name('deposit', 'index'),
+                  name: urlFuns.name('deposit', 'transaction'),
                   icon: 'money',
-                  href: urlFuns.page('deposit', 'index'),
+                  href: urlFuns.page('deposit', 'transaction'),
                   show: true,
                   value: 'transaction'
                 }, {

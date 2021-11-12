@@ -5,6 +5,8 @@
   background-size: 16px 16px;
   transition: border-color var(--anim-time);
 
+  @apply text-14;
+
   &::placeholder {
     @apply text-x88a1 opacity-100;
   }
@@ -24,7 +26,7 @@
     & + * {
       transition: border-color var(--anim-time);
 
-      @apply px-20 py-10 h-40 rounded-3 block border-2 border-solid border-transparent overflow-hidden relative;
+      @apply px-24 py-10 h-40 rounded-3 block border-2 border-solid border-transparent overflow-hidden relative;
 
       &::before {
         content: "";
@@ -79,6 +81,10 @@
 
   &:not(.\-\-bg) {
     @apply bg-xf text-x88a1;
+
+    .m-form-type {
+      @apply bg-xf;
+    }
 
     select.m-form-type {
       background-image: url(common/arrow_black.svg);
