@@ -1,8 +1,21 @@
-<div class="m-page-header px-48 h-56 flex items-center justify-center bg-x0030 relative">
+<div class="m-page-header<%- typeof bgGradient !== 'undefined' ? ' --bg-gradient' : ' bg-x0030' %> px-48 h-56 flex items-center justify-center relative">
   <h2 class="text-16"><b><%- title %></b></h2>
   <a href="<%- href %>" class="m-page-back-url top-1/2 w-24 h-24 flex items-center justify-center text-x88a1 absolute translate-y-1/2">
     <%- require('component/svg.ejs')({
+      style: {
+        main: 'w-full h-full'
+      },
       svgName: 'arrow_chevron_left'
     }) %>
   </a>
+  <% if ( typeof refresh !== 'undefined' ) { -%>
+    <a href="<%- refresh %>" class="m-page-refresh-url top-1/2 w-24 h-24 flex items-center justify-center text-x88a1 absolute translate-y-1/2">
+      <%- require('component/svg.ejs')({
+        style: {
+          main: 'w-full h-full'
+        },
+        svgName: 'refresh'
+      }) %>
+    </a>
+  <% } -%>
 </div>

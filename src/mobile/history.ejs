@@ -1,4 +1,301 @@
 <%- require('component/mPageHeader.ejs')({
   title: urlFuns.name('deposit', 'history'),
-  href: urlFuns.page('deposit', 'history')
+  href: urlFuns.page('deposit', 'transaction')
 }) %>
+<div class="m-swich mt-24 px-12 jSwich">
+  <%- require('component/mSwichHd.ejs')({
+    active: 1,
+    style: {
+      frame: 'rounded-4 overflow-hidden',
+      button: 'py-10',
+      text: 'text-14'
+    },
+    tabs: [{
+      name: 'Deposit'
+    }, {
+      name: 'Withdrawal'
+    }]
+  }) %>
+  <div class="m-swich-bd mt-16 overflow-hidden">
+    <ul class="whitespace-no-wrap inline-space transition-transform jSwichSlide">
+      <li>
+        <ul class="space-y-16">
+          <%
+            deposit = [[{
+              name: {
+                text: 'Transaction No',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'BankTransfer_2669',
+              }
+            }, {
+              name: {
+                text: 'Date',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:31:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Amount',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '100'
+              }
+            }, {
+              name: {
+                text: 'Deposit Time',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:35:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Status',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'Watting',
+                color: 'text-xfb2e'
+              }
+            }, {
+              button: 'Cancel'
+            }], [{
+              name: {
+                text: 'Transaction No',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'BankTransfer_2669',
+              }
+            }, {
+              name: {
+                text: 'Date',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:31:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Amount',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '100'
+              }
+            }, {
+              name: {
+                text: 'Deposit Time',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:35:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Status',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'Approved',
+                color: 'text-x3c6e'
+              }
+            }], [{
+              name: {
+                text: 'Transaction No',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'BankTransfer_2669',
+              }
+            }, {
+              name: {
+                text: 'Date',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:31:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Amount',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '100'
+              }
+            }, {
+              name: {
+                text: 'Deposit Time',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:35:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Status',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'Reject',
+                color: 'text-xf25c'
+              }
+            }]];
+          -%>
+          <% for( let i = 0; i < deposit.length; i += 1 ) { -%>
+            <li>
+              <%- require('component/mListData.ejs')({
+                item: deposit[i]
+              }) %>
+            </li>
+          <% } -%>
+        </ul>
+      </li>
+      <li>
+        <ul class="space-y-16">
+          <%
+            withdrawal = [[{
+              name: {
+                text: 'Transaction No',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'BankTransfer_2669'
+              }
+            }, {
+              name: {
+                text: 'Date',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:31:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Amount',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '100'
+              }
+            }, {
+              name: {
+                text: 'Deposit Time',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:35:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Status',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'Watting',
+                color: 'text-xfb2e'
+              }
+            }, {
+              button: 'Cancel'
+            }], [{
+              name: {
+                text: 'Transaction No',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'BankTransfer_2669',
+              }
+            }, {
+              name: {
+                text: 'Date',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:31:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Amount',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '100'
+              }
+            }, {
+              name: {
+                text: 'Deposit Time',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:35:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Status',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'Approved',
+                color: 'text-x3c6e'
+              }
+            }], [{
+              name: {
+                text: 'Transaction No',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'BankTransfer_2669',
+              }
+            }, {
+              name: {
+                text: 'Date',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:31:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Amount',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '100'
+              }
+            }, {
+              name: {
+                text: 'Deposit Time',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: '08/02/2021 11:35:02 PM'
+              }
+            }, {
+              name: {
+                text: 'Status',
+                color: 'text-x88a1'
+              },
+              value: {
+                text: 'Reject',
+                color: 'text-xf25c'
+              }
+            }]];
+          -%>
+          <% for( let i = 0; i < withdrawal.length; i += 1 ) { -%>
+            <li>
+              <%- require('component/mListData.ejs')({
+                item: withdrawal[i]
+              }) %>
+            </li>
+          <% } -%>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

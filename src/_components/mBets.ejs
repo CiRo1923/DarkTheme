@@ -1,0 +1,54 @@
+<div class="m-bets bg-x1241 border-1 border-solid border-x3368 rounded-8 overflow-hidden">
+  <div class="m-bets-hd p-16 space-y-8 relative" tag="<%- header.tag %>">
+    <b class="block text-14"><%- header.title %></b>
+    <small class="block text-x88a1">Refercence No. 40184</small>
+    <time class="block text-x88a1">02/20/2021 09:35:20PM</time>
+  </div>
+  <ul class="m-bets-bd space-y-32 p-16 relative">
+    <% for( let i = 0; i < body.length; i += 1 ) { -%>
+      <% const { title, list } = body[i]; -%>
+      <li class="space-y-16">
+        <div class="flex flex-row-reverse items-center">
+          <p class="flex items-center flex-grow">
+            <b class="m-bets-title flex items-center text-14 flex-grow"<%- title.tag ? ` tag=${title.tag}` : '' %>><%- title.text %></b>
+            <% if ( title.value ) { -%>
+              <small class="block flex-shrink-0 text-x88a1"><%- title.value %></small>
+            <% } -%>
+          </p>
+          <%- require('component/img.ejs')({
+            style: {
+              main: 'mr-8 w-16 h-16 flex-shrink-0'
+            },
+            path: require('account/sports_soccer.svg'),
+            alt: 'Handicap - Bashundhara Kings'
+          }) %>
+        </div>
+        <ul class="space-y-8">
+          <% for( let j = 0; j < list.length; j += 1 ) { -%>
+            <% const { text } = list[j]; -%>
+            <li class="text-x88a1 flex items-center">
+              <% for ( let k = 0; k < text.length; k += 1 ) { -%>
+                <p class="<%- k === 0 ? 'flex-grow' : 'flex-shrink-0' %>"><%- text[k] %></p>
+              <% } -%>
+            </li>
+          <% } -%>
+        </ul>
+      </li>
+    <% } -%>
+  </ul>
+  <footer class="m-bets-ft p-16 bg-x3368 overflow-hidden">
+    <ul class="-mx-14 flex items-center">
+      <% for( let i = 0; i < footer.length; i += 1 ) { -%>
+        <% const { title, value, color } = footer[i]; -%>
+        <li class="px-14 flex-auto">
+          <b class="mb-8 block"><%- title %></b>
+          <% if ( i !== (footer.length - 1) ) { %>
+            <p<%- color ? ` class="${color}"` : '' %>><%- value %></p>
+          <% } else { -%>
+            <p<%- color ? ` class="${color}"` : '' %>><b><%- value %></b></p>
+          <% } -%>
+        </li>
+      <% } -%>
+    </ul>
+  </footer>
+</div>

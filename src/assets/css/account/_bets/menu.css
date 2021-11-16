@@ -1,0 +1,13 @@
+.menu-item {
+  &.active {
+    > * {
+      @apply text-xfb2e;
+
+      &::after {
+        content: "";
+
+        @apply bottom-0 left-0 w-full h-2 rounded-1 bg-xfb2e absolute;
+      }
+    }
+  }
+}

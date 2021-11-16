@@ -1,0 +1,33 @@
+<div class="m-list-data px-16 py-12 rounded-4 border-1 border-solid border-x3368 bg-x1241 overflow-hidden">
+  <% if ( typeof header !== 'undefined' ) { -%>
+    <div class="m-list-data-hd mb-20<%- typeof style !== 'undefined' && typeof style.header !== 'undefined' ? ` ${style.header}` : '' %>">
+      <b><%- header %></b>
+    </div>
+  <% } -%>
+  <ul class="m-list-data-bd space-y-16">
+    <% for( let j = 0; j < item.length; j += 1 ) { -%>
+      <% const { name, value, button } = item[j]; -%>
+      <li class="flex items-center">
+        <% if (name) { -%>
+          <small class="block flex-shrink-0<%- typeof name.color !== 'undefined' ? ` ${name.color}` : '' %>">
+            <b class="text-14"><%- name.text %></b>
+          </small>
+        <% } -%>
+        <div class="flex-grow text-right">
+          <% if (value) { -%>
+            <p class="text-14<%- typeof value.color !== 'undefined' ? ` ${value.color}` : '' %>"><%- value.text %></p>
+          <% } else if ( button ) { -%>
+            <button type="button" class="m-btn --blue">
+              <b class="px-10 block"><%- button %></b>
+            </button>
+          <% } -%>
+        </div>
+      </li>
+    <% } -%>
+  </ul>
+  <% if ( typeof footer !== 'undefined' ) { -%>
+    <div class="m-list-data-ft mt-16 pt-16 relative">
+      <%- footer %>
+    </div>
+  <% } -%>
+</div>

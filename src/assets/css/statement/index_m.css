@@ -1,7 +1,7 @@
 @import '../_library_m';
 
 /* modules */
-@import '../_modules/mPage';
+@import '../_modules/mPage_m';
 
 /* page */
 @import '_tab';

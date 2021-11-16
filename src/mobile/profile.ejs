@@ -1,0 +1,93 @@
+<%- require('component/mPageHeader.ejs')({
+  title: urlFuns.name('account', 'profile'),
+  href: urlFuns.page('account', 'account')
+}) %>
+<div class="mt-24 px-12">
+  <%- require('component/mListData.ejs')({
+    style: {
+      header: 'text-x3c6e text-20'
+    },
+    header: 'Account Information',
+    item: [{
+      name: {
+        text: 'Name'
+      },
+      value: {
+        text: 'WJ1899',
+        color: 'text-x88a1'
+      }
+    }, {
+      name: {
+        text: 'Login Name'
+      },
+      value: {
+        text: 'TMP',
+        color: 'text-x88a1'
+      }
+    }, {
+      name: {
+        text: 'Mobile'
+      },
+      value: {
+        text: '-',
+        color: 'text-x88a1'
+      }
+    }, {
+      name: {
+        text: 'Cuntry'
+      },
+      value: {
+        text: 'TW',
+        color: 'text-x88a1'
+      }
+    }, {
+      name: {
+        text: 'Currency'
+      },
+      value: {
+        text: 'TMP',
+        color: 'text-x88a1'
+      }
+    }, {
+      name: {
+        text: 'Player Transfer Bank'
+      },
+      value: {
+        text: 'TMP',
+        color: 'text-x88a1'
+      }
+    }, {
+      name: {
+        text: 'Player Transfer Bank'
+      },
+      value: {
+        text: 'DemoBankTMP<br>234566 123456',
+        color: 'text-x88a1'
+      }
+    }, {
+      name: {
+        text: 'Player Payment Bank'
+      },
+      value: {
+        text: '-',
+        color: 'text-x88a1'
+      }
+    }, {
+      name: {
+        text: 'Email'
+      },
+      value: {
+        text: 'WJ18956344@gmail.com',
+        color: 'text-x88a1'
+      }
+    }, {
+      name: {
+        text: 'Phone'
+      },
+      value: {
+        text: '0912345768',
+        color: 'text-x88a1'
+      }
+    }]
+  }) %>
+</div>

@@ -1,0 +1,19 @@
+.m-page-header {
+  &.\-\-bg-gradient {
+    &::before {
+      content: "";
+      background: linear-gradient(108deg, #3f1ec5, #a73fd4) no-repeat center center;
+      transform: translate(-50%, -50%);
+
+      @apply top-1/2 left-1/2 w-1.5full h-200 rounded-1/2 absolute -z-1;
+    }
+  }
+}
+
+.m-page-back-url {
+  left: 12px;
+}
+
+.m-page-refresh-url {
+  right: 12px;
+}

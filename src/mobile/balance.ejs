@@ -1,0 +1,90 @@
+<%- require('component/mPageHeader.ejs')({
+  title: urlFuns.name('account', 'balance'),
+  href: urlFuns.page('account', 'account')
+}) %>
+<div class="mt-24 px-12">
+  <ul class="space-y-16">
+    <li>
+      <%- require('component/mListData.ejs')({
+        style: {
+          header: 'text-x3c6e text-20'
+        },
+        header: 'Account Information',
+        item: [{
+          name: {
+            text: 'Login Name'
+          },
+          value: {
+            text: 'WJ1899',
+            color: 'text-x88a1'
+          }
+        }, {
+          name: {
+            text: 'Currency'
+          },
+          value: {
+            text: 'TMP',
+            color: 'text-x88a1'
+          }
+        }, {
+          name: {
+            text: 'Last Login'
+          },
+          value: {
+            text: '2021-10-01 1:53:57 AM',
+            color: 'text-x88a1'
+          }
+        }, {
+          name: {
+            text: 'Last Transaction'
+          },
+          value: {
+            text: '2021-10-01 1:53:57 AM',
+            color: 'text-x88a1'
+          }
+        }, {
+          name: {
+            text: 'Password Expiry On'
+          },
+          value: {
+            text: '2021-10-01 1:53:57 AM',
+            color: 'text-x88a1'
+          }
+        }]
+      }) %>
+    </li>
+    <li>
+      <%- require('component/mListData.ejs')({
+        style: {
+          header: 'text-x3c6e text-20'
+        },
+        header: 'Credit Information',
+        item: [{
+          name: {
+            text: 'Bet Balance'
+          },
+          value: {
+            text: '1,527.66',
+            color: 'text-x88a1'
+          }
+        }, {
+          name: {
+            text: 'Outstanding TXN'
+          },
+          value: {
+            text: '0.00',
+            color: 'text-x88a1'
+          }
+        }, {
+          name: {
+            text: 'Actual Cash Balance'
+          },
+          value: {
+            text: '1,527.66',
+            color: 'text-x88a1'
+          }
+        }]
+      }) %>
+    </li>
+  </ul>
+</div>

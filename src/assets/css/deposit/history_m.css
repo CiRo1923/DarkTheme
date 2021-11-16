@@ -1,6 +1,8 @@
 @import '../_library_m';
 
 /* modules */
-@import '../_modules/mPage';
+@import '../_modules/mPage_m';
+@import '../_modules/mSwich';
+@import '../_modules/mSwich_m';
 
 /* page */

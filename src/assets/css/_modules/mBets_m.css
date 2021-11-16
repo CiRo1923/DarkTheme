@@ -1,0 +1,56 @@
+.m-bets-hd,
+.m-bets-title {
+  &::after {
+    content: attr(tag);
+  }
+
+  &[tag="Running"] {
+    &::after {
+      @apply bg-x59d9;
+    }
+  }
+
+  &[tag="Won"] {
+    &::after {
+      @apply bg-x3c6e;
+    }
+  }
+
+  &[tag="Lose"] {
+    &::after {
+      @apply bg-xf25c;
+    }
+  }
+
+  &[tag="Draw"] {
+    &::after {
+      @apply bg-x88a1;
+    }
+  }
+}
+
+.m-bets-hd {
+  &::after {
+    top: 16px;
+    border-radius: 20px 0 0 20px;
+
+    @apply py-6 pr-10 pl-20 text-14 font-bold right-0 absolute;
+  }
+}
+
+.m-bets-title {
+  &::after {
+    @apply ml-8 px-1 py-2 text-12 font-normal rounded-2;
+  }
+}
+
+.m-bets-bd {
+  &::before {
+    content: "";
+    background: linear-gradient(90deg, #8486a1, #8486a1 50%, transparent 0, transparent) repeat center center;
+    background-size: 8px 1px;
+    transform: translateX(-50%);
+
+    @apply top-0 left-1/2 w-screen h-1 absolute;
+  }
+}

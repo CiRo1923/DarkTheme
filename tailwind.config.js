@@ -17,6 +17,9 @@ const defaultNegative = {
 };
 
 const defaultBorderRadius = {
+  ...{
+    '1/2': '50%'
+  },
   ...setData(1, 50)
 };
 

@@ -29,63 +29,113 @@
       </ul>
     </div>
     <div class="tab-bd mt-24">
-      <ul class="space-y-12">
+      <ul class="space-y-16">
         <%
           datas = [[{
-            name: 'Date',
-            value: '08/02/2021',
+            name: {
+              text: 'Date',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '08/02/2021',
+            }
           }, {
-            name: 'Remark',
-            value: 'Betting'
+            name: {
+              text: 'Remark',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: 'Betting'
+            }
           }, {
-            name: 'Winlose',
-            value: '2.65'
+            name: {
+              text: 'Winlose',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '2.65'
+            }
           }, {
-            name: 'Commission',
-            value: '0.00'
+            name: {
+              text: 'Commission',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '0.00'
+            }
           }, {
-            name: 'Running Total',
-            value: '2.65'
+            name: {
+              text: 'Running Total',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '2.65'
+            }
           }, {
-            name: 'Running Total',
-            value: '1,184.75'
+            name: {
+              text: 'Running Total',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '1,184.75'
+            }
           }], [{
-            name: 'Date',
-            value: '08/02/2021',
+            name: {
+              text: 'Date',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '08/02/2021',
+            }
           }, {
-            name: 'Remark',
-            value: 'Betting'
+            name: {
+              text: 'Remark',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: 'Betting'
+            }
           }, {
-            name: 'Winlose',
-            value: '-24.40'
+            name: {
+              text: 'Winlose',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '-24.40',
+              color: 'text-xf25c'
+            }
           }, {
-            name: 'Commission',
-            value: '0.00'
+            name: {
+              text: 'Commission',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '0.00'
+            }
           }, {
-            name: 'Running Total',
-            value: '-24.40'
+            name: {
+              text: 'Running Total',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '-24.40',
+              color: 'text-xf25c'
+            }
           }, {
-            name: 'Running Total',
-            value: '1,159.10'
+            name: {
+              text: 'Running Total',
+              color: 'text-x88a1'
+            },
+            value: {
+              text: '1,159.10'
+            }
           }]]
         -%>
         <% for( let i = 0; i < datas.length; i += 1 ) { -%>
           <li>
-            <div class="px-16 py-12 rounded-4 border-1 border-solid border-x3368 bg-x1241">
-              <ul class="space-y-12">
-                <% for( let j = 0; j < datas[i].length; j += 1 ) { -%>
-                  <% const { name, value } = datas[i][j]; -%>
-                  <li class="flex items-center">
-                    <small class="block flex-shrink-0 text-x88a1">
-                      <b class="text-14"><%- name %></b>
-                    </small>
-                    <div class="flex-grow text-right">
-                      <p class="text-14<%- /^-/.test(value) ? ' text-xf25c' : '' %>"><%- value %></p>
-                    </div>
-                  </li>
-                <% } -%>
-              </ul>
-            </div>
+            <%- require('component/mListData.ejs')({
+              item: datas[i]
+            }) %>
           </li>
         <% } -%>
       </ul>

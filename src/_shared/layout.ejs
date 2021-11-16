@@ -52,7 +52,7 @@
     subNavs: [{
       name: 'Account',
       href: `../${isMobile ? 'mobile/' : ''}account.html`,
-      value: 'index',
+      value: 'account',
     }, {
       name: 'Profile',
       href: `../${isMobile ? 'mobile/' : ''}profile.html`,
@@ -66,11 +66,11 @@
       name: 'My Bets',
       value: 'bets',
       lastNavs: [{
-        name: 'My Bets',
+        name: 'View Running',
         href: `../${isMobile ? 'mobile/' : ''}betsRunning.html`,
         value: 'running'
       }, {
-        name: 'My Bets',
+        name: 'View Settled',
         href: `../${isMobile ? 'mobile/' : ''}betsSettled.html`,
         value: 'settled'
       }]
@@ -209,7 +209,7 @@
     <link rel="canonical" href="">
   </head>
   <body class="bg-x001e text-xf">
-    <div class="l-wrap <%- !isMobile ? 'text-14' : 'pb-68 text-12' %> jWrap">
+    <div class="l-wrap <%- !isMobile ? 'text-14' : 'pb-80 text-12' %> jWrap">
       <% if ( !isBlank ) { -%>
         <header class="l-hd relative">
           <h1 class="sr-only"><%- TITLE %></h1>
@@ -387,7 +387,7 @@
                         name: urlFuns.name('account', 'profile'),
                         href: urlFuns.page('account', 'profile')
                       }, {
-                        name: urlFuns.name('account', 'bets', 'running'),
+                        name: urlFuns.name('account', 'bets'),
                         href: urlFuns.page('account', 'bets', 'running')
                       }, {
                         name: urlFuns.name('deposit', 'history'),
@@ -451,13 +451,13 @@
                             style: {
                               main: `w-12 h-12`
                             },
-                            svgName: 'eye-open'
+                            svgName: 'eye_open'
                           }) %>
                           <%- require('component/svg.ejs')({
                             style: {
                               main: `w-12 h-12`
                             },
-                            svgName: 'eye-close'
+                            svgName: 'eye_close'
                           }) %>
                         </button>
                       </div>
@@ -490,7 +490,7 @@
         </header>
       <% } -%>
       <main class="l-main">
-        <div class="l-cnt">
+        <div class="l-cnt<%- isMobile ? ' overflow-hidden' : '' %>">
           <%- reqFile %>
         </div>
       </main>
@@ -555,7 +555,7 @@
                   <% for( let i = 0; i < sitemap.length; i += 1 ) { -%>
                     <% const { title, items } = sitemap[i]; -%>
                     <li class="px-8 flex-1">
-                      <p class="mb-16 text-xf"><b><%- title %></b></p>
+                      <p class="mb-16"><b><%- title %></b></p>
                       <ul class="space-y-12">
                         <% for( let j = 0; j < items.length; j += 1 ) { -%>
                           <% const { name, href } = items[j]; -%>
@@ -641,7 +641,7 @@
         <% } -%>
       <% } -%>
       <% if( isMobile ) { -%>
-        <div class="l-toolbar h-52 bottom-0 left-0 w-full bg-x1241 flex flex-col justify-center fixed">
+        <div class="l-toolbar h-52 bottom-0 left-0 w-full bg-x3368 flex flex-col justify-center fixed">
           <div class="m-toolbar">
             <ul class="flex items-center">
               <%
@@ -676,9 +676,9 @@
                   show: true,
                   value: 'contact'
                 }, {
-                  name: urlFuns.name('account', 'index'),
-                  icon: 'person',
-                  href: urlFuns.page('account', 'index'),
+                  name: urlFuns.name('account', 'account'),
+                  icon: 'person_o',
+                  href: urlFuns.page('account', 'account'),
                   show: true,
                   value: 'account'
                 }]

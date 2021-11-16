@@ -9,6 +9,8 @@ const spacing = {};
 
 const size = {
   '2full': '200%',
+  '1.5full': '150%',
+  initial: 'initial',
   650: '650px',
   640: '640px',
   480: '480px',
@@ -46,7 +48,8 @@ const borderRadius = {};
 
 const leading = {
   1.2: '1.2',
-  32: '32px'
+  32: '32px',
+  24: '24px'
 };
 
 const zIndex = {
@@ -77,6 +80,7 @@ const colors = {
   x65cb: '#6b52cb',
   xa9ff: '#a891ff',
   xccd9: '#cecfd9',
+  x59d9: '#589dd9',
   x1956: '#1f9956',
   x3c6e: '#31c46e',
   xfb2e: '#ffbd2e',

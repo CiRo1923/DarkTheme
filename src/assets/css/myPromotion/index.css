@@ -1,8 +1,0 @@
-@import '../_library';
-
-/* modules */
-@import '../_modules/mTab';
-@import '../_modules/mTable';
-
-/* page */
-@import '_bar';

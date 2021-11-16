@@ -1,0 +1,8 @@
+@import '../_library';
+
+/* modules */
+@import '../_modules/mPage_m';
+@import '../_modules/mListData_m';
+
+/* page */
+@import '_promotion/bar';

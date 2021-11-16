@@ -1,11 +1,17 @@
 <div class="m-swich-hd">
-  <ul class="flex items-center">
+  <ul class="m-swich-frame<%- typeof style !== 'undefined' && typeof style.frame !== 'undefined' ? ` ${style.frame}` : '' %> flex items-center relative">
     <% for( let i = 0; i < tabs.length; i += 1 ) { -%>
-      <% const { name } = tabs[i]; -%>
-      <li class="m-swich-item<%- active === (i + 1) ? ' active' : '' %> flex-1">
-        <button type="button" class="m-swich-button py-8 w-full block text-center bg-x3368 relative jSwichBtn">
-          <b class="text-16 text-xf"><%- name %></b>
-        </button>
+      <% const { name, href } = tabs[i]; -%>
+      <li class="m-swich-item<%- active === (i + 1) ? ' active' : '' %> flex-1 relative">
+        <% if ( href ) { %>
+          <a href="<%- href %>" class="m-swich-button<%- typeof style !== 'undefined' && typeof style.button !== 'undefined' ? ` ${style.button}` : '' %> w-full block text-center relative jSwichBtn">
+            <b class="<%- typeof style !== 'undefined' && typeof style.text !== 'undefined' ? `${style.text} ` : '' %>"><%- name %></b>
+          </a>
+        <% } else { -%>
+          <button type="button" class="m-swich-button<%- typeof style !== 'undefined' && typeof style.button !== 'undefined' ? ` ${style.button}` : '' %> w-full block text-center relative jSwichBtn">
+            <b class="<%- typeof style !== 'undefined' && typeof style.text !== 'undefined' ? `${style.text} ` : '' %>"><%- name %></b>
+          </button>
+        <% } -%>
       </li>
     <% } -%>
   </ul>

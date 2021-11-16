@@ -1,0 +1,17 @@
+.m-swich-frame {
+  &::before {
+    content: "";
+
+    @apply top-0 left-0 w-full h-full border-1 border-solid border-x3368 rounded-4 absolute;
+  }
+}
+
+.m-swich-item {
+  &:not(:first-child) {
+    &::before {
+      content: "";
+
+      @apply top-0 left-0 w-1 h-full bg-x3368 absolute;
+    }
+  }
+}

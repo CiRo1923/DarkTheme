@@ -1,0 +1,110 @@
+<%- require('component/mPageHeader.ejs')({
+  title: urlFuns.name('account', 'myPromotion'),
+  href: urlFuns.page('account', 'account')
+}) %>
+<div class="mt-24 px-12">
+  <ul class="space-y-16">
+    <li>
+      <%- require('component/mListData.ejs')({
+        style: {
+          header: 'text-16'
+        },
+        header: 'Feb Deposit Bonus % (Feb Depbon %)',
+        item: [{
+          name: {
+            text: 'Approved Amount',
+            color: 'text-x88a1'
+          },
+          value: {
+            text: '$ 100.00'
+          }
+        }, {
+          name: {
+            text: 'Turnover',
+            color: 'text-x88a1'
+          },
+          value: {
+            text: '$ 22,000.00'
+          }
+        }, {
+          name: {
+            text: 'Requested On',
+            color: 'text-x88a1'
+          },
+          value: {
+            text: '2021-02-07 11:16:02 PM'
+          }
+        }, {
+          name: {
+            text: 'Status',
+            color: 'text-x88a1'
+          },
+          value: {
+            text: 'Approved',
+          }
+        }, {
+          button: 'Cancel'
+        }],
+        footer: `<div>
+          <ul class="space-y-8">
+            <li class="flex items-center">
+              <b class="block text-14 flex-grow">Turnover Progress</b>
+              <small class="block text-14 flex-shrink-0">60%</small>
+            </li>
+            <li>
+              <span class="bar h-12 block rounded-6 bg-x88a1 overflow-hidden relative">
+                <i class="bar-speed top-0 left-0 h-full rounded-6 absolute" style="width: 60%;"></i>
+              </span>
+            </li>
+            <li class="flex items-center text-x88a1">
+              <p class="flex-grow text-14">Start / End Date</p>
+              <p class="flex-shrink-0 text-14">2021/02/10 - 2021/12/31</p>
+            </li>
+          </ul>
+        </div>`
+      }) %>
+    </li>
+    <li>
+      <%- require('component/mListData.ejs')({
+        style: {
+          header: 'text-16'
+        },
+        header: 'Feb Deposit Bonus % (Feb Depbon %)',
+        item: [{
+          name: {
+            text: 'Approved Amount',
+            color: 'text-x88a1'
+          },
+          value: {
+            text: '$ 100.00'
+          }
+        }, {
+          name: {
+            text: 'Turnover',
+            color: 'text-x88a1'
+          },
+          value: {
+            text: '$ 22,000.00'
+          }
+        }, {
+          name: {
+            text: 'Requested On',
+            color: 'text-x88a1'
+          },
+          value: {
+            text: '2021-02-07 11:16:02 PM'
+          }
+        }, {
+          name: {
+            text: 'Status',
+            color: 'text-x88a1'
+          },
+          value: {
+            text: 'Rejcet',
+            color: 'text-xf25c'
+          }
+        }]
+      }) %>
+    </li>
+  </ul>
+</div>

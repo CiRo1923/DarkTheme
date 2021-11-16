@@ -1,3 +1,8 @@
 import 'css/deposit/history_m.css';
 
-import '_common.js';
+import { swich } from '_common.js';
+import { prjs } from '_factory.js';
+
+prjs.$d.on('ready', () => {
+  swich();
+});

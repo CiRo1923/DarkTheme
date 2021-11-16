@@ -1,0 +1,94 @@
+<%- require('component/mPageHeader.ejs')({
+  bgGradient: true,
+  title: urlFuns.name('account', 'account'),
+  href: urlFuns.page('home')
+}) %>
+<div class="px-12">
+  <div class="p-20 flex flex-row-reverse items-center bg-x1241 rounded-8">
+    <ul class="space-y-8 flex-grow">
+      <li>
+        <p>
+          <b class="text-14">WJ18956344</b>
+        </p>
+      </li>
+      <li>
+        <div class="flex items-center">
+          <p class="mr-8">TMP 1,099.75</p>
+          <button type="button" class="block">
+            <%- require('component/svg.ejs')({
+              style: {
+                main: 'w-12 h-12',
+              },
+              svgName: 'refresh'
+            }) %>
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div class="mr-16 w-48 h-48 rounded-1/2 overflow-hidden flex-shrink-0">
+      <%- require('component/img.ejs')({
+        lazy: false,
+        style: {
+          main: 'left-1/2 w-2full h-full translate-x-1/2 relative',
+          img: 'w-auto h-full'
+        },
+        path: 'https://storage.googleapis.com/www-cw-com-tw/article/201810/article-5bd182cf13ebb.jpg',
+        alt: 'WJ18956344'
+      }) %>
+    </div>
+  </div>
+  <ul class="list mt-20 px-16 bg-x1241 rounded-8">
+    <% const lists = [{
+      name: urlFuns.name('account', 'profile'),
+      icon: 'person',
+      href: urlFuns.page('account', 'profile')
+    }, {
+      name: urlFuns.name('account', 'bets'),
+      icon: 'list_check',
+      href: urlFuns.page('account', 'bets', 'running')
+    }, {
+      name: urlFuns.name('account', 'balance'),
+      icon: 'wallet_s',
+      href: urlFuns.page('account', 'balance')
+    }, {
+      name: urlFuns.name('account', 'myPromotion'),
+      icon: 'gift_s',
+      href: urlFuns.page('account', 'myPromotion')
+    }, {
+      name: urlFuns.name('account', 'profile', 'changePassword'),
+      icon: 'locked',
+      href: urlFuns.page('account', 'profile', 'changePassword')
+    }, {
+      name: urlFuns.name('account', 'referral'),
+      icon: 'groups',
+      href: urlFuns.page('account', 'referral')
+    }] -%>
+    <% for( let i = 0; i < lists.length; i += 1 ) { -%>
+      <% const { name, icon, href } = lists[i]; -%>
+      <li class="list-item">
+        <a href="<%- href %>" class="py-16 flex items-center">
+          <p class="flex flex-row-reverse items-center flex-grow">
+            <b class="ml-8 text-14 block flex-grow"><%- name %></b>
+            <%- require('component/svg.ejs')({
+              style: {
+                main: 'w-20 h-20 flex-shrink-0',
+              },
+              svgName: icon
+            }) %>
+          </p>
+          <%- require('component/svg.ejs')({
+            style: {
+              main: 'w-20 h-20 flex-shrink-0',
+            },
+            svgName: 'arrow_chevron_right'
+          }) %>
+        </a>
+      </li>
+    <% } -%>
+  </ul>
+  <div class="mt-24">
+    <button type="button" class="p-16 w-full bg-x1241 rounded-8 block text-center">
+      <b class="text-14">Sign Out</b>
+    </button>
+  </div>
+</div>

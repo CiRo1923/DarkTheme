@@ -1,0 +1,166 @@
+<%- require('component/mPageHeader.ejs')({
+  title: urlFuns.name('account', 'bets'),
+  href: urlFuns.page('account', 'account'),
+  refresh: urlFuns.page('account', 'bets', 'running')
+}) %>
+<div class="menu bg-x1241">
+  <ul class="menu-bd inline-space whitespace-no-wrap jTns" :set="{'autoWidth': true, 'controls': false, 'loop': false, 'nav': false}">
+    <% const items = [{
+      name: 'Sports'
+    }, {
+      name: 'Game'
+    }, {
+      name: 'Live Casino'
+    }, {
+      name: 'Virtual Sports'
+    }, {
+      name: 'Seamless Game'
+    }] -%>
+    <% for( let i = 0; i < items.length; i += 1 ) { -%>
+      <% const { name } = items[i]; -%>
+      <li class="menu-item<%- i === 0 ? ' active' : '' %> px-12 inline-block align-middle relative jTnsItem">
+        <a href="javascript:;" class="py-12 text-x88a1 block relative">
+          <b class="text-14"><%- name %></b>
+        </a>
+      </li>
+    <% } -%>
+  </ul>
+</div>
+<div class="m-swich mt-24 px-12">
+  <%- require('component/mSwichHd.ejs')({
+    active: 1,
+    style: {
+      frame: 'rounded-4 overflow-hidden',
+      button: 'py-10',
+      text: 'text-14'
+    },
+    tabs: [{
+      name: urlFuns.name('account', 'bets', 'running'),
+      href: urlFuns.page('account', 'bets', 'running')
+    }, {
+      name: urlFuns.name('account', 'bets', 'settled'),
+      href: urlFuns.page('account', 'bets', 'settled')
+    }]
+  }) %>
+  <div class="m-swich-bd">
+    <ul>
+      <li>
+        <div class="mt-24 space-y-16">
+          <form method="POST" class="block overflow-hidden">
+            <div class="m-form">
+              <div class="m-form-item">
+                <div class="m-form-elem">
+                  <select class="m-form-type w-full">
+                    <option value="">Today</option>
+                    <option value="1">Today1</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+          <ul class="space-y-16">
+            <li>
+              <%- require('component/mBets.ejs')({
+                header: {
+                  title: 'Single',
+                  tag: 'Running'
+                },
+                body: [{
+                  title: {
+                    text: 'Handicap - Bashundhara Kings 0.00'
+                  },
+                  list: [{
+                    text: ['Bashundhara Kings -vs- Muktijoddha SKC']
+                  }, {
+                    text: ['Bangladesh Premier League']
+                  }, {
+                    text: ['2021/02/22', '@Live 1:0']
+                  }]
+                }],
+                footer: [{
+                  title: 'Odds',
+                  value: '1.78 (E)'
+                }, {
+                  title: 'Stake',
+                  value: '10.00 (0.00)'
+                }, {
+                  title: 'P. Winning',
+                  value: '178.00 (0.00)',
+                  color: 'text-x3c6e'
+                }]
+              }) %>
+            </li>
+            <li>
+              <%- require('component/mBets.ejs')({
+                header: {
+                  title: 'MixParly',
+                  tag: 'Running'
+                },
+                body: [{
+                  title: {
+                    text: 'Over/Under - Over 1.75',
+                    value: '@1.78(E)'
+                  },
+                  list: [{
+                    text: ['Bashundhara Kings -vs- Muktijoddha SKC']
+                  }, {
+                    text: ['Bangladesh Premier League']
+                  }, {
+                    text: ['2021/02/22', '@Live 1:0']
+                  }]
+                }, {
+                  title: {
+                    text: 'Handicap - Boavista U23 0.00',
+                    value: '@1.78(E)'
+                  },
+                  list: [{
+                    text: ['Boavista U23 -vs- Vitoria Guimaraes U23']
+                  }, {
+                    text: ['Portugal Liga Revelacao U23 Playoff']
+                  }, {
+                    text: ['2021/02/22', '@Live 1:0']
+                  }]
+                }, {
+                  title: {
+                    text: 'Double Chance - 12',
+                    value: '@1.78(E)'
+                  },
+                  list: [{
+                    text: ['Bashundhara Kings -vs- Muktijoddha SKC']
+                  }, {
+                    text: ['Bangladesh Premier League']
+                  }, {
+                    text: ['2021/02/22', '@Live 1:0']
+                  }]
+                }, {
+                  title: {
+                    text: 'Over/Under - Over 1.75',
+                    value: '@1.78(E)'
+                  },
+                  list: [{
+                    text: ['Bashundhara Kings -vs- Muktijoddha SKC']
+                  }, {
+                    text: ['Bangladesh Premier League']
+                  }, {
+                    text: ['2021/02/22', '@Live 1:0']
+                  }]
+                }],
+                footer: [{
+                  title: 'Odds',
+                  value: '1.78 (E)'
+                }, {
+                  title: 'Stake',
+                  value: '10.00 (0.00)'
+                }, {
+                  title: 'P. Winning',
+                  value: '178.00 (0.00)',
+                  color: 'text-x3c6e'
+                }]
+              }) %>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

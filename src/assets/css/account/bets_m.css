@@ -1,0 +1,17 @@
+@import '../_library';
+
+/* purgecss start ignore */
+@import "../_tinySlider";
+@import "../_tinySliderNav_m";
+
+/* purgecss end ignore */
+
+/* modules */
+@import '../_modules/mPage_m';
+@import '../_modules/mSwich';
+@import '../_modules/mSwich_m';
+@import '../_modules/mForm';
+@import '../_modules/mBets_m';
+
+/* page */
+@import '_bets/menu';

@@ -9,3 +9,7 @@
 .l-main {
   @apply flex-grow;
 }
+
+.l-toolbar {
+  box-shadow: rgba(#000, 0.8) 0 0 12px 0;
+}

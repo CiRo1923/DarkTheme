@@ -1,0 +1,10 @@
+.m-list-data-ft {
+  &::before {
+    content: "";
+    background: linear-gradient(90deg, #8486a1, #8486a1 50%, transparent 0, transparent) repeat center center;
+    background-size: 8px 1px;
+    transform: translateX(-50%);
+
+    @apply top-0 left-1/2 w-screen h-1 absolute;
+  }
+}

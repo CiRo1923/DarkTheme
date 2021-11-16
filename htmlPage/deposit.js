@@ -27,21 +27,21 @@ module.exports = {
   }, {
     filename: 'mobile/deposit.html',
     template: '_shared/layout.ejs',
-    action: 'deposit',
+    action: 'transaction',
     blank: true,
     description: '',
     chunks: ['deposit/deposit_m']
   }, {
     filename: 'mobile/withdrawal.html',
     template: '_shared/layout.ejs',
-    action: 'withdrawal',
+    action: 'transaction',
     blank: true,
     description: '',
     chunks: ['deposit/withdrawal_m']
   }, {
     filename: 'mobile/history.html',
     template: '_shared/layout.ejs',
-    action: 'history',
+    action: 'transaction',
     blank: true,
     description: '',
     chunks: ['deposit/history_m']

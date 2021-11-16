@@ -1,6 +1,6 @@
 <div class="mt-64 data-cnt">
   <header class="py-16 text-center bg-x0030">
-    <h2 class="text-xf">
+    <h2>
       <strong class="text-24">Profile</strong>
     </h2>
   </header>
@@ -47,7 +47,7 @@
           <% for( let i = 0; i < account.length; i += 1 ) { -%>
             <% const { title, value, link } = account[i]; -%>
             <li class="flex items-center">
-              <b class="w-1/5 text-right text-xf"><%- title %></b>
+              <b class="w-1/5 text-right"><%- title %></b>
               <div class="ml-32 flex-grow">
                 <% if ( value ) { -%>
                   <p class="text-x88a1"><%- value %></p>
@@ -83,7 +83,7 @@
           <% for( let i = 0; i < credit.length; i += 1 ) { -%>
             <% const { title, value, link } = credit[i]; -%>
             <li class="flex items-center">
-              <b class="w-1/5 text-right text-xf"><%- title %></b>
+              <b class="w-1/5 text-right"><%- title %></b>
               <div class="ml-32 flex-grow">
                 <% if ( value ) { -%>
                   <p class="text-x88a1"><%- value %></p>

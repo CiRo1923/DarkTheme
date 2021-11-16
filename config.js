@@ -4,15 +4,16 @@ const liveCasion = require('./htmlPage/liveCasion.js');
 const promotions = require('./htmlPage/promotions.js');
 const virtualSports = require('./htmlPage/virtualSports.js');
 const games = require('./htmlPage/games.js');
-const profile = require('./htmlPage/profile.js');
-const changePassword = require('./htmlPage/changePassword.js');
-const register = require('./htmlPage/register.js');
-const singIn = require('./htmlPage/singIn.js');
+const accountAccount = require('./htmlPage/account_account.js');
+const accountBalance = require('./htmlPage/account_balance.js');
+const accountBets = require('./htmlPage/account_bets.js');
+const accountForm = require('./htmlPage/account_form.js');
+const accountPeofile = require('./htmlPage/account_peofile.js');
+const accountPromotion = require('./htmlPage/account_promotion.js');
+const accountReferral = require('./htmlPage/account_referral.js');
 const deposit = require('./htmlPage/deposit.js');
 const statement = require('./htmlPage/statement.js');
-const myPromotion = require('./htmlPage/myPromotion.js');
-const bets = require('./htmlPage/bets.js');
-const referral = require('./htmlPage/referral.js');
+const contact = require('./htmlPage/contact.js');
 
 module.exports = {
   ieVersion: 10, // 10 或 0
@@ -40,15 +41,17 @@ module.exports = {
       // promotions.HtmlWebpackPlugin,
       // virtualSports.HtmlWebpackPlugin,
       // games.HtmlWebpackPlugin,
-      // profile.HtmlWebpackPlugin,
-      // changePassword.HtmlWebpackPlugin,
-      // register.HtmlWebpackPlugin,
-      // singIn.HtmlWebpackPlugin,
-      deposit.HtmlWebpackPlugin
+      accountAccount.HtmlWebpackPlugin,
+      // accountBalance.HtmlWebpackPlugin,
+      // accountBets.HtmlWebpackPlugin,
+      accountForm.HtmlWebpackPlugin
+      // accountPeofile.HtmlWebpackPlugin,
+      // accountPromotion.HtmlWebpackPlugin,
+      // accountReferral.HtmlWebpackPlugin,
+      // deposit.HtmlWebpackPlugin,
       // statement.HtmlWebpackPlugin,
-      // myPromotion.HtmlWebpackPlugin,
       // bets.HtmlWebpackPlugin,
-      // referral.HtmlWebpackPlugin
+      // contact.HtmlWebpackPluginaccount
     );
 
     if (process.env.NODE_ENV === 'production') {
@@ -59,15 +62,16 @@ module.exports = {
         promotions.HtmlWebpackPlugin,
         virtualSports.HtmlWebpackPlugin,
         games.HtmlWebpackPlugin,
-        profile.HtmlWebpackPlugin,
-        changePassword.HtmlWebpackPlugin,
-        register.HtmlWebpackPlugin,
-        singIn.HtmlWebpackPlugin,
+        accountAccount.HtmlWebpackPlugin,
+        accountBalance.HtmlWebpackPlugin,
+        accountBets.HtmlWebpackPlugin,
+        accountForm.HtmlWebpackPlugin,
+        accountPeofile.HtmlWebpackPlugin,
+        accountPromotion.HtmlWebpackPlugin,
+        accountReferral.HtmlWebpackPlugin,
         deposit.HtmlWebpackPlugin,
         statement.HtmlWebpackPlugin,
-        myPromotion.HtmlWebpackPlugin,
-        bets.HtmlWebpackPlugin,
-        referral.HtmlWebpackPlugin
+        contact.HtmlWebpackPlugin
       );
     }
 

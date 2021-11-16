@@ -1,0 +1,86 @@
+<%- require('component/mPageHeader.ejs')({
+  title: urlFuns.name('contact'),
+  href: urlFuns.page('home')
+}) %>
+<div class="mt-24 px-12">
+  <div class="mb-24">
+    <a href="javascript:;" class="service p-16 flex items-center rounded-8 overflow-hidden">
+      <div class="flex flex-grow">
+        <%- require('component/svg.ejs')({
+          style: {
+            main: 'mr-8 w-24 h-24 flex-shrink-0'
+          },
+          svgName: 'hearmic'
+        }) %>
+        <ul class="space-y-4 flex-grow">
+          <li class="leading-24">
+            <p><b class="text-14">Online Customer Service</b></p>
+          </li>
+          <li class="leading-24">
+            <p>Dedicated service, caring first</p>
+          </li>
+        </ul>
+      </div>
+      <%- require('component/svg.ejs')({
+        style: {
+            main: 'w-20 h-20 flex-shrink-0'
+          },
+        svgName: 'arrow_chevron_right'
+      }) %>
+    </a>
+  </div>
+  <div>
+    <ul class="space-y-12">
+      <%
+        const contact = [{
+          text: 'LINE : @riverive4056',
+          icon: {
+            name: 'line'
+          },
+          href: 'line://ti/p/@riverive4056',
+          hrefTxt: 'ADD'
+        }, {
+          text: 'Skype : riverive4056',
+          icon: {
+            name: 'skype'
+          },
+          href: 'skype:riverive4056?add',
+          hrefTxt: 'ADD'
+        }, {
+          text: 'Tel : +86-455773575',
+          icon: {
+            name: 'phone'
+          },
+          href: 'tel:+86-455773575',
+          hrefTxt: 'CALL'
+        }, {
+          text: 'E-mail : service@riverive4056.com',
+          icon: {
+            name: 'mail'
+          },
+          href: 'mailto:service@riverive4056.com',
+          hrefTxt: 'COPY'
+        }]
+      -%>
+      <% for( let i = 0; i < contact.length; i += 1 ) { -%>
+        <% const { text, icon, href, hrefTxt } = contact[i]; -%>
+        <li>
+          <a href="<%- href %>" class="px-16 py-20 flex items-center bg-x1241 rounded-8">
+            <p class="flex flex-row-reverse items-center flex-grow">
+              <b class="ml-8 block text-14 flex-grow"><%- text %></b>
+              <%- require('component/svg.ejs')({
+                style: {
+                    main: `w-24 h-24 flex-shrink-0${icon.color ? ' '+ icon.color +'' : ''}`
+                  },
+                svgName: icon.name
+              }) %>
+            </p>
+            <small class="ml-6 block flex-shrink-0">
+              <b class="text-xfb2e text-14"><%- hrefTxt %></b>
+            </small>
+          </a>
+        </li>
+      <% } -%>
+    </ul>
+  </div>
+</div>
