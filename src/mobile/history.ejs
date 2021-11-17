@@ -2,7 +2,7 @@
   title: urlFuns.name('deposit', 'history'),
   href: urlFuns.page('deposit', 'transaction')
 }) %>
-<div class="m-swich mt-24 px-16 jSwich">
+<div class="m-swich mt-24 px-16 jSwich" :set="{'height': 'auto'}">
   <%- require('component/mSwichHd.ejs')({
     active: 1,
     style: {
