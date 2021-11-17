@@ -158,6 +158,9 @@ module.exports = {
       height: {
         ...size
       },
+      maxHeight: {
+        ...size
+      },
       spacing: {
         ...defaultSpacing
       },

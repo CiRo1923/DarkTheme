@@ -15,8 +15,12 @@
     @apply h-32;
   }
 
+  &:not([type="checked"]):not([type="radio"]):not(select) {
+    @apply p-6;
+  }
+
   &:not([type="checked"]):not([type="radio"]) {
-    @apply p-6 border-2 border-solid border-transparent;
+    @apply border-2 border-solid border-transparent;
   }
 
   &[type="checked"],

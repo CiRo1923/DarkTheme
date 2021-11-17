@@ -18,3 +18,8 @@
     @apply bottom-0 left-1/2 w-1 h-32 bg-xccd9 absolute;
   }
 }
+
+.rules-close {
+  top: 12px;
+  right: 12px;
+}

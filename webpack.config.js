@@ -109,7 +109,7 @@ const extendPlugins = () => {
   }
 
   return [miniCssExtractCSS].concat(
-    [cleanWebpackPlugin],
+    // [cleanWebpackPlugin],
     [webpackDefinePlugin],
     copyWebpackPlugin,
     htmlWebpackPlugin,

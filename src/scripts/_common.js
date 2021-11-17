@@ -186,6 +186,8 @@ export const swich = () => {
     const swichItem = swichElemEq.find(swichClass.item);
     const swichSet = swichElemEq.attr(':set') ? JSON.parse(swichElemEq.attr(':set').replace(/'/g, '"')) : {};
 
+    swichItem.addClass('inline-block').removeClass('hidden');
+
     if (swichSet.height === 'auto') {
       for (let j = 0; j < swichItem[0].length; j += 1) {
         const swichItemEq = swichItem.eq(j);
@@ -210,6 +212,32 @@ export const swich = () => {
     if (swichSet.height === 'auto') {
       $slide.css('height', `${$item.eq(index).height()}px`);
     }
+  });
+};
+
+export const boxPopup = () => {
+  const boxClass = {
+    main: '.jBox',
+    btn: '.jBoxCtrl',
+    data: '.jBoxData',
+    close: '.jBoxClose'
+  };
+
+  j$(boxClass.btn).on('click', (e) => {
+    const $this = j$(e.$this);
+    const href = $this.attr('href');
+
+    e.preventDefault();
+
+    axios.get(href).then((res) => {
+      j$(boxClass.main).addClass('--show');
+      j$(boxClass.data).html(res.data);
+      lazyLoadFun();
+    });
+  });
+
+  prjs.$d.on('click', boxClass.close, () => {
+    j$(boxClass.main).removeClass('--show');
   });
 };
 

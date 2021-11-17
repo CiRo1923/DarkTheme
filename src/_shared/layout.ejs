@@ -5,6 +5,7 @@
   const fileName = /(.*)(?=\.html$)/.exec(htmlWebpackPlugin.options.filename)[1];
   const isMobile = /^mobile/.test(fileName);
   const isBlank = htmlWebpackPlugin.options.blank;
+  const isBox = htmlWebpackPlugin.options.box;
   const navs = [{
     name: 'Home',
     icon: 'home',
@@ -35,6 +36,11 @@
     name: 'Promotions',
     href: `../${isMobile ? 'mobile/' : ''}promotions.html`,
     value: 'promotions',
+    subNavs: [{
+      name: 'PromotionsDetail',
+      href: `../${isMobile ? 'mobile/' : ''}promotionsDetail.html`,
+      value: 'promotionsDetail',
+    }],
     group: 'nav'
   }, {
     name: 'Login',
@@ -181,7 +187,7 @@
     isMobile: isMobile
   });
 -%>
-
+<% if ( !isBox ) { -%>
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
   <head>
@@ -712,3 +718,6 @@
     <% } -%>
   </body>
 </html>
+<% } else { -%>
+  <%- reqFile %>
+<% } -%>

@@ -36,7 +36,7 @@
             <footer>
               <ul class="-mx-8 flex">
                 <li class="px-8 w-6/12">
-                  <a href="javascript:;" class="m-btn --line w-full">
+                  <a href="<%- urlFuns.page('promotions', 'promotionsDetail') %>" class="m-btn --line w-full jBoxCtrl">
                     <b>MORE</b>
                   </a>
                 </li>
@@ -61,3 +61,6 @@
     <% } -%>
   </ul>
 </div>
+<%- require('component/mBox.ejs')({
+  isMobile: isMobile
+}) %>

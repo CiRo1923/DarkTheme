@@ -1,7 +1,7 @@
 <%- require('component/mBanner.ejs')({
   isMobile: isMobile
 }) %>
-<div class="mt-20 px-12 overflow-hidden">
+<div class="mt-20 px-16 overflow-hidden">
   <ul class="space-y-24">
     <%
       const promotions = [{
@@ -27,7 +27,7 @@
         <div class="rounded-8 flex flex-col-reverse bg-x1241 overflow-hidden">
           <section class="space-y-16 p-16">
             <header>
-              <h2 class=" text-16 leading-1.2"><strong><%- title %></strong></h2>
+              <h2 class="text-16 leading-1.2"><strong><%- title %></strong></h2>
             </header>
             <div class="space-y-16 text-x88a1 text-14">
               <p><%- info %></p>
@@ -36,7 +36,7 @@
             <footer>
               <ul class="-mx-6 flex">
                 <li class="px-6 w-1/2">
-                  <a href="javascript:;" class="m-btn --line w-full">
+                  <a href="<%- urlFuns.page('promotions', 'promotionsDetail') %>" class="m-btn --line w-full jBoxCtrl">
                     <b>MORE</b>
                   </a>
                 </li>
@@ -61,3 +61,6 @@
     <% } -%>
   </ul>
 </div>
+<%- require('component/mBox.ejs')({
+  isMobile: isMobile
+}) %>

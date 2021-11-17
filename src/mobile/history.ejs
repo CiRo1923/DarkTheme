@@ -2,7 +2,7 @@
   title: urlFuns.name('deposit', 'history'),
   href: urlFuns.page('deposit', 'transaction')
 }) %>
-<div class="m-swich mt-24 px-12 jSwich">
+<div class="m-swich mt-24 px-16 jSwich">
   <%- require('component/mSwichHd.ejs')({
     active: 1,
     style: {
@@ -18,7 +18,7 @@
   }) %>
   <div class="m-swich-bd mt-16 overflow-hidden">
     <ul class="whitespace-no-wrap inline-space transition-h jSwichSlide">
-      <li class="transition-transform jSwichItem">
+      <li class="w-full inline-block align-top transition-transform jSwichItem">
         <ul class="space-y-16">
           <%
             deposit = [[{
@@ -157,7 +157,7 @@
           <% } -%>
         </ul>
       </li>
-      <li class="transition-transform jSwichItem">
+      <li class="w-full hidden align-top transition-transform jSwichItem">
         <ul class="space-y-16">
           <%
             withdrawal = [[{

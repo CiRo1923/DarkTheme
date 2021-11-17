@@ -18,7 +18,7 @@
     }] -%>
     <% for( let i = 0; i < items.length; i += 1 ) { -%>
       <% const { name } = items[i]; -%>
-      <li class="menu-item<%- i === 0 ? ' active' : '' %> px-12 inline-block align-middle relative jTnsItem">
+      <li class="menu-item<%- i === 0 ? ' active' : '' %> px-16 inline-block align-middle relative jTnsItem">
         <a href="javascript:;" class="py-12 text-x88a1 block relative">
           <b class="text-14"><%- name %></b>
         </a>
@@ -27,7 +27,7 @@
   </ul>
 </div>
 
-<div class="m-swich mt-24 px-12">
+<div class="m-swich mt-24 px-16">
   <%- require('component/mSwichHd.ejs')({
     active: 2,
     style: {

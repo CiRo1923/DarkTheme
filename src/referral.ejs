@@ -42,7 +42,7 @@
           <% for( let i = 0; i < tabs.length; i += 1 ) { -%>
             <% const { name } = tabs[i]; -%>
             <li class="tab-item<%- i === 0 ? ' active' : '' %> px-2">
-              <button type="button" class="tab-button px-20 py-10 transition-bg-color rounded-t-4 rounded-r-4 block min-w-100 jSwichBtn">
+              <button type="button" class="tab-button px-20 py-10 transition-bg-color rounded-t-4 block min-w-100 jSwichBtn">
                 <b><%- name %></b>
               </button>
             </li>
@@ -90,7 +90,7 @@
               </ul>
             </div>
           </li>
-          <li class="px-20 w-full inline-block align-top transition-transform jSwichItem">
+          <li class="px-20 w-full hidden align-top transition-transform jSwichItem">
             <table class="m-table table-fixed w-full">
               <thead>
                 <tr>
@@ -132,7 +132,7 @@
               </tbody>
             </table>
           </li>
-          <li class="px-20 w-full inline-block align-top transition-transform jSwichItem">
+          <li class="px-20 w-full hidden align-top transition-transform jSwichItem">
             Diagram content
           </li>
         </ul>
@@ -140,7 +140,7 @@
     </div>
   </div>
 </div>
-<div class="rules top-0 left-0 w-full h-full bg-x0-60 absolute z-1 jRules">
+<div class="rules top-0 left-0 w-full h-full bg-x0-60 fixed z-1 jRules">
   <div class="rules-bd py-24 bg-xf text-center jRulesBd">
     <div class="rules-data mb-32 px-8 py-12 border-1 border-solid border-xefd9 rounded-4 inline-flex flex-col-reverse relative">
       <div class="mt-8 text-x001e">

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+  <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="timestamp">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+    <meta property="og:title" content="Dark Theme">
+    <meta property="og:description" name="description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://f2e.sugarfun.com.tw/Transglobe/Consultant/">
+    <meta property="og:image" content="https://f2e.sugarfun.com.tw/Transglobe/Consultant/static/img/fb.png">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Dark Theme">
+    <title>Dark Theme</title>
+    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
+    <link rel="canonical" href="">
+    <link href="../assets/css/deposit/deposit_m.css?44b4c1c3" rel="stylesheet">
+  </head>
+
+  <body class="bg-x001e text-xf">
+    <div class="l-wrap pb-80 text-12 jWrap">
+      <main class="l-main">
+        <div class="l-cnt overflow-hidden">
+          <div class="m-page-header bg-x0030 px-48 h-56 flex items-center justify-center relative">
+            <h2 class="text-16"><b>Deposit</b></h2>
+            <a href="../mobile/transaction.html" class="m-page-back-url top-1/2 w-24 h-24 flex items-center justify-center text-x88a1 absolute translate-y-1/2">
+              <svg class="w-full h-full fill-current block">
+                <use xlink:href="#arrow_chevron_left"></use>
+              </svg>
+            </a>
+          </div>
+          <form method="POST" class="mt-24 px-16">
+            <ul class="space-y-32">
+              <li>
+                <ul class="space-y-16">
+                  <li>
+                    <div class="m-form overflow-hidden jForm">
+                      <div class="m-form-item">
+                        <label class="m-form-elem">
+                          <input type="radio" name="transfer" class="m-form-type" value="bank" checked="checked">
+                          <p class="text-x001e text-14">Bank Transfer</p>
+                        </label>
+                      </div>
+                      <span class="m-form-error jFormError"></span>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="mb-16 pb-10 border-b-2 border-solid border-x3368">
+                  <p class="text-x3c6e text-14"><b>From</b></p>
+                </div>
+                <div class="mb-16 p-16 bg-x1241 rounded-8">
+                  <p class="text-14 text-xf-70">After you have successfully completed your deposit, please contact our customer support to get your preferable bank information.</p>
+                </div>
+                <ul class="space-y-16">
+                  <li>
+                    <b class="mb-8 text-14 block">Bank <sup class="text-xf25c">*</sup></b>
+                    <div class="m-form overflow-hidden jForm">
+                      <div class="m-form-item">
+                        <div class="m-form-elem">
+                          <select class="m-form-type w-full" :validate="{'req': 'This field is required.'}">
+                            <option value="">Select</option>
+                            <option value="DemoBankTMP">DemoBankTMP</option>
+                          </select>
+                        </div>
+                      </div>
+                      <span class="m-form-error jFormError"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <b class="mb-8 text-14 block">Bank Account Name <sup class="text-xf25c">*</sup></b>
+                    <div class="m-form overflow-hidden jForm">
+                      <div class="m-form-item">
+                        <div class="m-form-elem">
+                          <input type="text" class="m-form-type" :validate="{'req': 'This field is required.'}">
+                        </div>
+                      </div>
+                      <span class="m-form-error jFormError"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <b class="mb-8 text-14 block">Bank Account Number <sup class="text-xf25c">*</sup></b>
+                    <div class="m-form overflow-hidden jForm">
+                      <div class="m-form-item">
+                        <div class="m-form-elem">
+                          <input type="tel" class="m-form-type" :validate="{'req': 'This field is required.', 'digital': 'Please enter a valid bank account number.'}">
+                        </div>
+                      </div>
+                      <span class="m-form-error jFormError"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <b class="mb-8 text-14 block">Amount <sup class="text-xf25c">*</sup></b>
+                    <div class="m-form overflow-hidden jForm">
+                      <div class="m-form-item">
+                        <div class="m-form-elem">
+                          <input type="tel" class="m-form-type" :validate="{'req': 'This field is required.', 'digital': 'Please enter a valid bank account number.'}">
+                        </div>
+                      </div>
+                      <span class="m-form-error jFormError"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <b class="mb-8 text-14 block">Reference Number - (Optional) <sup class="text-xf25c opacity-0 pointer-events-none">*</sup></b>
+                    <div class="m-form overflow-hidden jForm">
+                      <div class="m-form-item">
+                        <div class="m-form-elem">
+                          <input type="tel" class="m-form-type" :validate="{'digital': 'Please enter a valid bank account number.'}">
+                        </div>
+                      </div>
+                      <span class="m-form-error jFormError"></span>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="mb-16 pb-10 border-b-2 border-solid border-x3368">
+                  <p class="text-x3c6e text-14"><b>To</b></p>
+                </div>
+                <ul class="space-y-16">
+                  <li>
+                    <b class="mb-8 text-14 block">Company Bank <sup class="text-xf25c">*</sup></b>
+                    <div class="m-form overflow-hidden jForm">
+                      <div class="m-form-item">
+                        <div class="m-form-elem">
+                          <select class="m-form-type w-full" :validate="{'req': 'This field is required.'}">
+                            <option value="">Select</option>
+                            <option value="DemoBankTMP">DemoBankTMP</option>
+                          </select>
+                        </div>
+                      </div>
+                      <span class="m-form-error jFormError"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <b class="mb-8 text-14 block">Bank Account <sup class="text-xf25c">*</sup></b>
+                    <div class="m-form overflow-hidden jForm">
+                      <div class="m-form-item">
+                        <div class="m-form-elem">
+                          <input type="tel" class="m-form-type" :validate="{'req': 'This field is required.', 'digital': 'Please enter a valid bank account number.'}">
+                        </div>
+                      </div>
+                      <span class="m-form-error jFormError"></span>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="overflow-hidden">
+                  <ul class="-mx-12 flex items-center">
+                    <li class="px-12 w-1/2">
+                      <button type="reset" class="m-btn --blue w-full jReset">
+                        <b>Reset</b>
+                      </button>
+                    </li>
+                    <li class="px-12 w-1/2">
+                      <button type="submit" class="m-btn --green w-full jSubmit">
+                        <b>Submit</b>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </main>
+      <div class="l-toolbar h-52 bottom-0 left-0 w-full bg-x3368 flex flex-col justify-center fixed">
+        <div class="m-toolbar">
+          <ul class="flex items-center">
+            <li class="text-center flex-1">
+              <a href="../mobile/index.html" class="text-x88a1 inline-flex items-center flex-col-reverse">
+                <em class="mt-4 not-italic block">Home</em>
+                <svg class="w-20 h-20 fill-current block">
+                  <use xlink:href="#home"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="text-center flex-1">
+              <a href="../mobile/statement.html" class="text-x88a1 inline-flex items-center flex-col-reverse">
+                <em class="mt-4 not-italic block">Statement</em>
+                <svg class="w-20 h-20 fill-current block">
+                  <use xlink:href="#wallet"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="text-center flex-1">
+              <a href="../mobile/transaction.html" class="text-xfb2e inline-flex items-center flex-col-reverse">
+                <em class="mt-4 not-italic block">Transaction</em>
+                <svg class="w-20 h-20 fill-current block">
+                  <use xlink:href="#money"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="text-center flex-1">
+              <a href="../mobile/contact.html" class="text-x88a1 inline-flex items-center flex-col-reverse">
+                <em class="mt-4 not-italic block">Contact</em>
+                <svg class="w-20 h-20 fill-current block">
+                  <use xlink:href="#hearmic"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="text-center flex-1">
+              <a href="../mobile/account.html" class="text-x88a1 inline-flex items-center flex-col-reverse">
+                <em class="mt-4 not-italic block">Account</em>
+                <svg class="w-20 h-20 fill-current block">
+                  <use xlink:href="#person_o"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script defer="defer" src="../scripts/deposit/deposit_m.js?44b4c1c3"></script>
+  </body>
+
+</html>

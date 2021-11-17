@@ -17,6 +17,12 @@ prjs.$d.on('click', '.jCopy', (e) => {
   documentOff(rulesClass.bd, () => {
     j$(rulesClass.main).removeClass('--show');
   });
+}).on('click', '.jRulesClose', () => {
+  const rulesClass = {
+    main: '.jRules'
+  };
+
+  j$(rulesClass.main).removeClass('--show');
 });
 
 prjs.$w.on('load', () => {

@@ -38,16 +38,16 @@ module.exports = {
       index.HtmlWebpackPlugin,
       // sports.HtmlWebpackPlugin,
       // liveCasion.HtmlWebpackPlugin,
-      // promotions.HtmlWebpackPlugin,
+      promotions.HtmlWebpackPlugin
       // virtualSports.HtmlWebpackPlugin,
       // games.HtmlWebpackPlugin,
-      accountAccount.HtmlWebpackPlugin,
+      // accountAccount.HtmlWebpackPlugin,
       // accountBalance.HtmlWebpackPlugin,
       // accountBets.HtmlWebpackPlugin,
       // accountForm.HtmlWebpackPlugin,
       // accountPeofile.HtmlWebpackPlugin,
       // accountPromotion.HtmlWebpackPlugin,
-      accountReferral.HtmlWebpackPlugin
+      // accountReferral.HtmlWebpackPlugin,
       // deposit.HtmlWebpackPlugin,
       // statement.HtmlWebpackPlugin,
       // bets.HtmlWebpackPlugin,
@@ -62,16 +62,16 @@ module.exports = {
         promotions.HtmlWebpackPlugin,
         virtualSports.HtmlWebpackPlugin,
         games.HtmlWebpackPlugin,
-        accountAccount.HtmlWebpackPlugin,
-        accountBalance.HtmlWebpackPlugin,
-        accountBets.HtmlWebpackPlugin,
-        accountForm.HtmlWebpackPlugin,
-        accountPeofile.HtmlWebpackPlugin,
-        accountPromotion.HtmlWebpackPlugin,
-        accountReferral.HtmlWebpackPlugin,
         deposit.HtmlWebpackPlugin,
         statement.HtmlWebpackPlugin,
         contact.HtmlWebpackPlugin
+        // accountAccount.HtmlWebpackPlugin,
+        // accountBalance.HtmlWebpackPlugin,
+        // accountBets.HtmlWebpackPlugin,
+        // accountForm.HtmlWebpackPlugin,
+        // accountPeofile.HtmlWebpackPlugin,
+        // accountPromotion.HtmlWebpackPlugin,
+        // accountReferral.HtmlWebpackPlugin
       );
     }
 

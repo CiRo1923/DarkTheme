@@ -1,0 +1,12 @@
+.m-box {
+  &:not(.\-\-show) {
+    transition: width 0s var(--anim-time), height 0s var(--anim-time), opacity var(--anim-time) 0s;
+
+    @apply w-0 h-0 opacity-0;
+  }
+}
+
+.m-box-tools {
+  top: 8px;
+  right: 8px;
+}

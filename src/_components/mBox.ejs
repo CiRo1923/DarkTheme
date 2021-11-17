@@ -1,0 +1,15 @@
+<div class="m-box top-0 left-0 w-full h-full flex items-center justify-center bg-x0-80 fixed z-1 jBox">
+  <div class="m-box-bd <%- !isMobile ? 'w-600' : 'mx-16' %> rounded-8 relative overflow-hidden">
+    <div class="m-box-tools absolute z-1">
+      <button type="button" class="jBoxClose">
+        <%- require('component/svg.ejs')({
+          style: {
+            main: 'w-24 h-24'
+          },
+          svgName: 'cancel'
+        }) %>
+      </button>
+    </div>
+    <div class="m-box-data jBoxData"></div>
+  </div>
+</div>
