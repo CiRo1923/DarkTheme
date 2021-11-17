@@ -4,6 +4,6 @@
 @import '../_modules/mTable';
 
 /* page */
-@import '_referral';
-@import '_tab';
-@import '_rules';
+@import '_referral/referral';
+@import '_referral/tab';
+@import '_referral/rules';

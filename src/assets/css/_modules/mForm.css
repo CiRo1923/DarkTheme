@@ -15,7 +15,7 @@
     @apply h-32;
   }
 
-  &:not([type="checked"]):not([type="radio"]):not(select) {
+  &:not([type="checked"]):not([type="radio"]) {
     @apply p-6 border-2 border-solid border-transparent;
   }
 
@@ -53,7 +53,7 @@
 }
 
 .m-form-item {
-  @apply -m-8;
+  @apply -m-8 overflow-hidden;
 }
 
 .m-form-elem {

@@ -1,0 +1,48 @@
+<%- require('component/mPageHeader.ejs')({
+  title: urlFuns.name('login'),
+  href: urlFuns.page('home'),
+}) %>
+  <form method="POST" action="<%- urlFuns.page('account', 'profile') %>" class="mt-24 px-12">
+    <ul>
+      <%
+        const form = [{
+          title: 'Username',
+          formType: 'text',
+          validate : `{'req': 'This field is required.', 'name': {'min': 6, 'max': 20, 'msg': 'Must be $min - $max character include letter.'}}`
+        }, {
+          title: 'Password',
+          formType: 'password',
+          classCtrl: 'jNewPas',
+          validate : `{'req': 'This field is required.', 'password': {'min': 6, 'max': 20, 'msg': 'Password must contain $min - $max more characters with a mix of letters number.'}}`
+        }]
+      -%>
+      <% for( let i = 0; i < form.length; i += 1 ) { -%>
+        <% const { title, formType, classCtrl, validate } = form[i]; -%>
+        <li<%- i !== 0 ? ' class="mt-16"' : '' %>>
+          <b class="mb-8 text-14 block"><%- title %></b>
+          <div class="m-form jForm">
+            <div class="m-form-item">
+              <div class="m-form-elem">
+                <% if ( formType !== 'checkbox' && formType !== 'radio' && formType !== 'select' && formType !== 'textarea' ) { %>
+                  <input type="<%- formType %>" class="m-form-type <%- classCtrl %>"<%- validate ? ` :validate="${validate}"` : '' %>>
+                <% } -%>
+              </div>
+            </div>
+            <span class="m-form-error jFormError"></span>
+          </div>
+        </li>
+      <% } -%>
+      <li class="mt-24">
+        <div class="overflow-hidden">
+          <ul class="-mx-12 flex items-center justify-center">
+            <li class="px-12 w-1/2">
+              <button type="submit" class="m-btn --green w-full text-center jSubmit">
+                <b>Submit</b>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <p class="mt-16 text-14 text-x88a1 text-center">No account yet? <a href="<%- urlFuns.page('register') %>" class="text-xfb2e"><b>Sign Up</b></a></p>
+      </li>
+    </ul>
+  </form>

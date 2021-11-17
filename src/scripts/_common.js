@@ -174,18 +174,42 @@ export const swich = () => {
   const swichClass = {
     main: '.jSwich',
     btn: '.jSwichBtn',
-    slide: '.jSwichSlide'
+    slide: '.jSwichSlide',
+    item: '.jSwichItem'
   };
+  const $swich = j$(swichClass.main);
   const $btn = j$(swichClass.btn);
+
+  for (let i = 0; i < $swich[0].length; i += 1) {
+    const swichElemEq = $swich.eq(i);
+    const swichSlide = swichElemEq.find(swichClass.slide);
+    const swichItem = swichElemEq.find(swichClass.item);
+    const swichSet = swichElemEq.attr(':set') ? JSON.parse(swichElemEq.attr(':set').replace(/'/g, '"')) : {};
+
+    if (swichSet.height === 'auto') {
+      for (let j = 0; j < swichItem[0].length; j += 1) {
+        const swichItemEq = swichItem.eq(j);
+
+        if (j === 0) {
+          swichSlide.css('height', `${swichItemEq.height()}px`);
+        }
+      }
+    }
+  }
 
   $btn.on('click', (e) => {
     const $this = j$(e.$this);
-    const $swich = $this.parents(swichClass.main);
-    const $slide = $swich.find(swichClass.slide);
+    const $swichParents = $this.parents(swichClass.main);
+    const $slide = $swichParents.find(swichClass.slide);
+    const $item = $swichParents.find(`${swichClass.slide} > ${swichClass.item}`);
     const index = $this.parent().index();
+    const swichSet = $swichParents.attr(':set') ? JSON.parse($swichParents.attr(':set').replace(/'/g, '"')) : {};
 
     $this.parent().addClass('active').siblings().removeClass('active');
-    $slide.css('transform', `translateX(${(-100 * index)}%)`);
+    $item.css('transform', `translateX(${(-100 * index)}%)`);
+    if (swichSet.height === 'auto') {
+      $slide.css('height', `${$item.eq(index).height()}px`);
+    }
   });
 };
 

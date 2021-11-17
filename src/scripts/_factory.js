@@ -618,6 +618,7 @@ export const validate = (elem, callback) => {
   let errorMsg = null;
 
   elem.parent().removeClass('--error').removeClass('--success');
+  elem.parents('.jForm').find('.jFormError').empty();
 
   if (vali?.req && !value) {
     errorMsg = vali.req;
@@ -675,7 +676,7 @@ export const validate = (elem, callback) => {
 
   if (errorMsg) {
     elem.parent().addClass('--error');
-    elem.parents('.jForm').find('.jFormError').empty().text(errorMsg);
+    elem.parents('.jForm').find('.jFormError').text(errorMsg);
   }
 
   if (callback) {

@@ -43,6 +43,10 @@
   transition: max-height var(--anim-time);
 }
 
+.transition-h {
+  transition: height var(--anim-time);
+}
+
 .transition-border-color {
   transition: border-color var(--anim-time);
 }

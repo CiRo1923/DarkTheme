@@ -44,10 +44,10 @@ module.exports = {
       accountAccount.HtmlWebpackPlugin,
       // accountBalance.HtmlWebpackPlugin,
       // accountBets.HtmlWebpackPlugin,
-      accountForm.HtmlWebpackPlugin
+      // accountForm.HtmlWebpackPlugin,
       // accountPeofile.HtmlWebpackPlugin,
       // accountPromotion.HtmlWebpackPlugin,
-      // accountReferral.HtmlWebpackPlugin,
+      accountReferral.HtmlWebpackPlugin
       // deposit.HtmlWebpackPlugin,
       // statement.HtmlWebpackPlugin,
       // bets.HtmlWebpackPlugin,

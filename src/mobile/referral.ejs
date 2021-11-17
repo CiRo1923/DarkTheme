@@ -1,0 +1,162 @@
+<%- require('component/mPageHeader.ejs')({
+  title: urlFuns.name('account', 'referral'),
+  href: urlFuns.page('account', 'account'),
+}) %>
+<div class="referral mt-24 px-12">
+  <div class="referral-bd">
+    <div class="qrcode py-20 bg-x3368 rounded-8">
+      <%- require('component/img.ejs')({
+        style: {
+          main: 'mx-auto w-170 h-170 bg-xf rounded-8',
+          img: 'w-full h-full'
+        },
+        path: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/QRcode_image.svg/440px-QRcode_image.svg.png',
+        alt: 'qrCode'
+      }) %>
+      <div class="mt-20 overflow-hidden">
+        <ul class="space-y-16">
+          <li class="text-center">
+            <button type="button" class="m-btn --green w-2/3 jCopy" data-link="copy_url">
+              <b>COPY LINK</b>
+            </button>
+          </li>
+          <li class="text-center">
+            <a href="<%- require('referral/background.jpg') %>" class="m-btn --green w-2/3" download="qrCode.jpg">
+              <b>COPY QRCODE</b>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-16 text-center">
+        <button type="button" class="jRulesCtrl">
+          <em class="not-italic text-16 text-x88a1 underline">Referral Program Rules</em>
+        </button>
+      </div>
+    </div>
+    <div class="tab mt-24 jSwich" :set="{'height': 'auto'}">
+      <div class="tab-hd">
+        <ul class="mx-8 flex items-center">
+          <% const tabs = [{
+            name: 'Referral'
+          }, {
+            name: 'Hisroty'
+          }, {
+            name: 'Diagram'
+          }] -%>
+          <% for( let i = 0; i < tabs.length; i += 1 ) { -%>
+            <% const { name } = tabs[i]; -%>
+            <li class="tab-item<%- i === 0 ? ' active' : '' %> px-2">
+              <button type="button" class="tab-button px-10 py-8 transition-bg-color rounded-t-4 rounded-r-4 block min-w-100 jSwichBtn">
+                <b><%- name %></b>
+              </button>
+            </li>
+          <% } -%>
+        </ul>
+      </div>
+      <div class="tab-bd py-20 rounded-8 bg-x3368 overflow-hidden">
+        <ul class="whitespace-no-wrap inline-space transition-h jSwichSlide">
+          <li class="px-16 w-full inline-block align-top transition-transform jSwichItem">
+            <p class="text-center">
+              <b class="text-16">You’ve been rewared $0.00!</b>
+            </p>
+            <div class="mt-20 text-center">
+              <ul class="flex items-center">
+                <%
+                  const rewared = [{
+                    title: 'Total',
+                    msg: '$0.00',
+                    icon: 'money_circle',
+                  }, {
+                    title: 'Redeemable',
+                    msg: '$0.00',
+                    icon: 'money_arrow',
+                  }, {
+                    title: 'Redeemed',
+                    msg: '$0.00',
+                    icon: 'list',
+                  }]
+                -%>
+                <% for( let i = 0; i < rewared.length; i += 1 ) { -%>
+                  <% const { title, msg, icon } = rewared[i]; -%>
+                  <li class="mt-4 flex flex-col-reverse flex-1">
+                    <div class="space-y-8">
+                      <p class="text-14"><%- title %></p>
+                      <p class="text-14"><%- msg %></p>
+                    </div>
+                    <%- require('component/svg.ejs')({
+                      style: {
+                        main: 'mx-auto text-x88a1 w-32 h-32'
+                      },
+                      svgName: icon
+                    }) %>
+                  </li>
+                <% } -%>
+              </ul>
+            </div>
+          </li>
+          <li class="px-16 w-full inline-block align-top transition-transform jSwichItem">
+            <table class="m-table --hd-3/12 w-full">
+              <tbody>
+                <tr>
+                  <td label="Request Amount">
+                    <p class="text-12">Request Amount</p>
+                  </td>
+                  <td label="Approved Amount">
+                    <p class="text-12">Approved Amount</p>
+                  </td>
+                  <td label="Remark">
+                    <p class="text-12">Remark</p>
+                  </td>
+                  <td label="Request Date">
+                    <p class="text-12">Request Date</p>
+                  </td>
+                  <td label="Status">
+                    <p class="text-12">Status</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td label="Request Amount">
+                    <p class="text-12">Request Amount</p>
+                  </td>
+                  <td label="Approved Amount">
+                    <p class="text-12">Approved Amount</p>
+                  </td>
+                  <td label="Remark">
+                    <p class="text-12">Remark</p>
+                  </td>
+                  <td label="Request Date">
+                    <p class="text-12">Request Date</p>
+                  </td>
+                  <td label="Status">
+                    <p class="text-12">Status</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li class="px-20 w-full inline-block align-top transition-transform jSwichItem">
+            Diagram content
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="rules top-0 left-0 px-16 w-full h-full bg-x0-60 flex items-center absolute z-1 jRules">
+  <div class="rules-bd py-24 w-full rounded-8 bg-xf text-center jRulesBd">
+    <div class="rules-data mb-32 px-8 py-12 border-1 border-solid border-xefd9 rounded-4 inline-flex flex-col-reverse relative">
+      <div class="mt-8 text-x001e">
+        <p class="mb-4">
+          <b class="text-14">Testericp0001idr / IDR</b>
+        </p>
+        <p class="text-14">This Month TO : 0<br>Last Month TO : 0<br>This Month NTO : 0<br>Last Month NTO : 0</p>
+      </div>
+      <%- require('component/svg.ejs')({
+        style: {
+          main: 'mx-auto text-x88a1 w-32 h-32'
+        },
+        svgName: 'groups'
+      }) %>
+    </div>
+  </div>
+</div>
