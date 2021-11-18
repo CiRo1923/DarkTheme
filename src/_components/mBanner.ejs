@@ -1,4 +1,4 @@
-<div class="m-banner relative">
+<div class="m-banner<%- isMobile ? ' h-115' : '' %> relative">
   <ul class="m-banner-list whitespace-no-wrap overflow-hidden inline-space jTns" :set="{'controls': false,'autoplay': true, 'autoplayTimeout': 8000, 'autoplayHoverPause': true, 'prevElem': '.jBannerPrev', 'nextElem': '.jBannerNext'}">
     <%
       const banner = [{
@@ -15,7 +15,7 @@
         <a href="javascript:;" class="w-full block">
           <%- require('component/img.ejs')({
             style: {
-              main: 'w-full text-center',
+              main: `w-full${isMobile ? ' h-full' : ''} text-center`,
               img: 'w-full h-auto inline-block'
             },
             path: img,

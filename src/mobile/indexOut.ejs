@@ -1,0 +1,43 @@
+<%- require('component/mBanner.ejs')({
+  isMobile: isMobile
+}) %>
+<div class="mt-20 px-16 overflow-hidden">
+  <ul class="-m-6 flex items-center flex-wrap">
+    <%
+      const list = [{
+        name : 'SPORTS',
+        href: urlFuns.page('sports'),
+        img : require('home/sports_m.png')
+      }, {
+        name : `VIRTUAL<br>SPORTS`,
+        href: urlFuns.page('virtualSports'),
+        img : require('home/virtual_sports_m.png')
+      }, {
+        name : `LIVE<br>Casion`,
+        href: urlFuns.page('liveCasion'),
+        img : require('home/live_casion_m.png')
+      }, {
+        name : `OTHER<br>GAMES`,
+        href: urlFuns.page('games'),
+        img : require('home/games_m.png')
+      }]
+    -%>
+    <% for( let i = 0; i < list.length; i += 1 ) { -%>
+      <% const { name, href, img } = list[i]; -%>
+      <li class="p-6 w-1/2">
+        <a href="<%- href %>" class="border-1 border-solid border-x3368 bg-x1241 rounded-8 block overflow-hidden relative">
+          <h2 class="top-1/2 px-10 translate-y-1/2 absolute">
+            <strong class="text-14"><%- name %></strong>
+          </h2>
+          <%- require('component/img.ejs')({
+            style: {
+              main: 'ml-auto w-100 h-80'
+            },
+            path: img,
+            alt: name
+          }) %>
+        </a>
+      </li>
+    <% } -%>
+  </ul>
+</div>

@@ -24,7 +24,7 @@
     <title>Dark Theme</title>
     <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
     <link rel="canonical" href="">
-    <link href="../assets/css/virtualSports/index_m.css?3d5ae478" rel="stylesheet">
+    <link href="../assets/css/home/index_m.css?3d5ae478" rel="stylesheet">
   </head>
 
   <body class="bg-x001e text-xf">
@@ -35,39 +35,25 @@
           <div class="m-hd-logo py-6 flex-grow">
             <a href="../mobile/index.html" class="inline-block">
               <figure class="m-hd-logo-fig w-100 h-20">
-                <img src="../assets/img/common/lazyload.png?c1414784" data-src="../assets/img/common/logo.svg?79c00bf6" class="lazy" alt="Dark Theme | Dark Theme" width="100%" height="100%">
+                <img src="../assets/img/common/lazyload.png?c1414784" data-src="../assets/img/common/logo.svg?22f6bb5a" class="lazy" alt="Dark Theme | Dark Theme" width="100%" height="100%">
               </figure>
             </a>
           </div>
           <div class="m-hd-tools flex-shrink-0">
-            <!-- 已登入 -->
-            <div class="overflow-hidden">
-              <ul class="-mx-2 flex items-center">
-                <li class="px-2">
-                  <div class="m-amount py-2 pr-8 pl-2 flex items-center flex-row-reverse rounded-10 bg-x3368 jAmount">
-                    <p class="text-12 flex items-center">
-                      <em class="not-italic block">TMP</em>
-                      <span class="m-amount-number ml-4 block">1099.97</span>
-                    </p>
-                    <button type="button" class="m-amount-btn mr-4 w-16 h-16 text-x0030 rounded-8 flex items-center justify-center bg-xf overflow-hidden jAmountCtrl">
-                      <svg class="w-12 h-12 fill-current block">
-                        <use xlink:href="#eye_open"></use>
-                      </svg>
-                      <svg class="w-12 h-12 fill-current block">
-                        <use xlink:href="#eye_close"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </li>
-                <li class="px-2">
-                  <button type="button" class="block text-x88a1">
-                    <svg class="m-hd-svg w-12 h-12 fill-current block">
-                      <use xlink:href="#refresh"></use>
-                    </svg>
-                  </button>
-                </li>
-              </ul>
-            </div>
+
+            <!-- 尚未登入 -->
+            <ul class="-mx-4 flex items-center">
+              <li class="px-4">
+                <a href="../mobile/singIn.html" class="m-btn --blue">
+                  <b class="px-4 block text-14">Login</b>
+                </a>
+              </li>
+              <li class="px-4">
+                <a href="../mobile/register.html" class="m-btn --green">
+                  <b class="px-4 block text-14">Sign Up</b>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="m-notice bg-x1241">
@@ -109,33 +95,43 @@
           <div class="mt-20 px-16 overflow-hidden">
             <ul class="-m-6 flex items-center flex-wrap">
               <li class="p-6 w-1/2">
-                <a href="javascript:;" class="bg-x1241 rounded-8 flex flex-col-reverse overflow-hidden">
-                  <h2 class="p-8 text-14 text-center">SBOBET</h2>
-                  <div class="relative">
-                    <figure class="left-1/2 w-2full h-75 text-center translate-x-1/2 relative">
-                      <img src="../assets/img/common/lazyload.png?c1414784" data-src="https://www.crewsmostcorrupt.org/wp-content/uploads/2021/04/sbobet-6.jpg" class="w-auto h-full inline-block lazy" alt="SBOBET | Dark Theme" width="100%" height="100%">
-                    </figure>
-                  </div>
+                <a href="../mobile/sports.html" class="border-1 border-solid border-x3368 bg-x1241 rounded-8 block overflow-hidden relative">
+                  <h2 class="top-1/2 px-10 translate-y-1/2 absolute">
+                    <strong class="text-14">SPORTS</strong>
+                  </h2>
+                  <figure class="ml-auto w-100 h-80">
+                    <img src="../assets/img/common/lazyload.png?c1414784" data-src="../assets/img/home/sports_m.png?22f6bb5a" class="lazy" alt="SPORTS | Dark Theme" width="100%" height="100%">
+                  </figure>
                 </a>
               </li>
               <li class="p-6 w-1/2">
-                <a href="javascript:;" class="bg-x1241 rounded-8 flex flex-col-reverse overflow-hidden">
-                  <h2 class="p-8 text-14 text-center">SABA SPORTS</h2>
-                  <div class="relative">
-                    <figure class="left-1/2 w-2full h-75 text-center translate-x-1/2 relative">
-                      <img src="../assets/img/common/lazyload.png?c1414784" data-src="https://goal123.org/Aug/123-SPORTSBOOK-WELCOME-BONUS-EN.jpg" class="w-auto h-full inline-block lazy" alt="SABA SPORTS | Dark Theme" width="100%" height="100%">
-                    </figure>
-                  </div>
+                <a href="../mobile/virtualSports.html" class="border-1 border-solid border-x3368 bg-x1241 rounded-8 block overflow-hidden relative">
+                  <h2 class="top-1/2 px-10 translate-y-1/2 absolute">
+                    <strong class="text-14">VIRTUAL<br>SPORTS</strong>
+                  </h2>
+                  <figure class="ml-auto w-100 h-80">
+                    <img src="../assets/img/common/lazyload.png?c1414784" data-src="../assets/img/home/virtual_sports_m.png?22f6bb5a" class="lazy" alt="VIRTUAL<br>SPORTS | Dark Theme" width="100%" height="100%">
+                  </figure>
                 </a>
               </li>
               <li class="p-6 w-1/2">
-                <a href="javascript:;" class="bg-x1241 rounded-8 flex flex-col-reverse overflow-hidden">
-                  <h2 class="p-8 text-14 text-center">SBO SPORTS WAP</h2>
-                  <div class="relative">
-                    <figure class="left-1/2 w-2full h-75 text-center translate-x-1/2 relative">
-                      <img src="../assets/img/common/lazyload.png?c1414784" data-src="https://www.sportingpedia.com/wp-content/uploads/2021/03/bethard-app-intro.jpg" class="w-auto h-full inline-block lazy" alt="SBO SPORTS WAP | Dark Theme" width="100%" height="100%">
-                    </figure>
-                  </div>
+                <a href="../mobile/liveCasion.html" class="border-1 border-solid border-x3368 bg-x1241 rounded-8 block overflow-hidden relative">
+                  <h2 class="top-1/2 px-10 translate-y-1/2 absolute">
+                    <strong class="text-14">LIVE<br>Casion</strong>
+                  </h2>
+                  <figure class="ml-auto w-100 h-80">
+                    <img src="../assets/img/common/lazyload.png?c1414784" data-src="../assets/img/home/live_casion_m.png?22f6bb5a" class="lazy" alt="LIVE<br>Casion | Dark Theme" width="100%" height="100%">
+                  </figure>
+                </a>
+              </li>
+              <li class="p-6 w-1/2">
+                <a href="../mobile/games.html" class="border-1 border-solid border-x3368 bg-x1241 rounded-8 block overflow-hidden relative">
+                  <h2 class="top-1/2 px-10 translate-y-1/2 absolute">
+                    <strong class="text-14">OTHER<br>GAMES</strong>
+                  </h2>
+                  <figure class="ml-auto w-100 h-80">
+                    <img src="../assets/img/common/lazyload.png?c1414784" data-src="../assets/img/home/games_m.png?22f6bb5a" class="lazy" alt="OTHER<br>GAMES | Dark Theme" width="100%" height="100%">
+                  </figure>
                 </a>
               </li>
             </ul>
@@ -189,7 +185,7 @@
         </div>
       </div>
     </div>
-    <script defer="defer" src="../scripts/virtualSports/index_m.js?3d5ae478"></script>
+    <script defer="defer" src="../scripts/home/index_m.js?3d5ae478"></script>
   </body>
 
 </html>

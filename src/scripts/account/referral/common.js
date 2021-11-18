@@ -9,12 +9,13 @@ prjs.$d.on('click', '.jCopy', (e) => {
 }).on('click', '.jRulesCtrl', () => {
   const rulesClass = {
     main: '.jRules',
-    bd: '.jRulesBd'
+    bd: '.jRulesBd',
+    btn: '.jRulesCtrl'
   };
 
   j$(rulesClass.main).addClass('--show');
 
-  documentOff(rulesClass.bd, () => {
+  documentOff(`${rulesClass.btn}, ${rulesClass.bd}`, () => {
     j$(rulesClass.main).removeClass('--show');
   });
 }).on('click', '.jRulesClose', () => {

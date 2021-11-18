@@ -6,6 +6,7 @@
   const isMobile = /^mobile/.test(fileName);
   const isBlank = htmlWebpackPlugin.options.blank;
   const isBox = htmlWebpackPlugin.options.box;
+  const isLogout = htmlWebpackPlugin.options.logout;
   const navs = [{
     name: 'Home',
     icon: 'home',
@@ -204,8 +205,8 @@
     <meta property="og:title" content="<%- TITLE %>">
     <meta property="og:description" name="description" content="<%- htmlWebpackPlugin.options.description ? htmlWebpackPlugin.options.description : '' %>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<%- process.env.APP_ENV === 'bulid' ? '/' : 'https://f2e.sugarfun.com.tw/Transglobe/Consultant/' %>">
-    <meta property="og:image" content="<%- `${process.env.APP_ENV === 'bulid' ? '/' : 'https://f2e.sugarfun.com.tw/Transglobe/Consultant/'}static/img/fb.png` %>">
+    <meta property="og:url" content="<%- process.env.APP_ENV === 'bulid' ? '/' : '' %>">
+    <meta property="og:image" content="<%- `${process.env.APP_ENV === 'bulid' ? '/' : ''}static/img/fb.png` %>">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -220,14 +221,16 @@
         <header class="l-hd relative">
           <h1 class="sr-only"><%- TITLE %></h1>
           <div class="m-hd <%- !isMobile ? '' : 'p-12' %> flex items-center max-cnt">
-            <div class="m-hd-logo <%- !isMobile ? 'mr-32 flex-shrink-0' : 'flex-grow' %>">
-              <%- require('component/img.ejs')({
-                style: {
-                  main: `m-hd-logo-fig ${ !isMobile ? 'w-160 h-32' : 'w-100 h-20' }`
-                },
-                path: require('common/logo.svg'),
-                alt: TITLE
-              }) %>
+            <div class="m-hd-logo <%- !isMobile ? 'mr-32 flex-shrink-0' : 'py-6 flex-grow' %>">
+              <a href="<%- urlFuns.page('home') %>" class="inline-block">
+                <%- require('component/img.ejs')({
+                  style: {
+                    main: `m-hd-logo-fig ${ !isMobile ? 'w-160 h-32' : 'w-100 h-20' }`
+                  },
+                  path: require('common/logo.svg'),
+                  alt: TITLE
+                }) %>
+              </a>
             </div>
             <% if( !isMobile ) { -%>
               <nav class="m-nav flex-grow overflow-hidden jNav">
@@ -287,189 +290,136 @@
             <% } -%>
             <div class="m-hd-tools flex-shrink-0">
               <% if( !isMobile ) { -%>
-                <!-- 尚未登入 -->
-                <!-- <ul class="flex items-center space-x-16">
-                  <li>
-                    <%- require('component/mDropdown.ejs')({
-                      style: {
-                        main: 'jDropLang'
-                      },
-                      ctrlImg: {
-                        path: require('common/lang_english.svg'),
-                        alt: 'English'
-                      },
-                      options: [[{
-                        name: 'English',
-                        data: {
-                          flag: require('common/lang_english.svg')
-                        }
-                      }, {
-                        name: '简体中文',
-                        data: {
-                          flag: require('common/lang_china.svg')
-                        }
-                      }, {
-                        name: 'Indonesia',
-                        data: {
-                          flag: require('common/lang_indonesia.svg')
-                        }
-                      }, {
-                        name: '한국어',
-                        data: {
-                          flag: require('common/lang_korea.svg')
-                        }
-                      }, {
-                        name: 'Bahasa Melayu',
-                        data: {
-                          flag: require('common/lang_bahasaMelayu.svg')
-                        }
-                      }, {
-                        name: '日本語',
-                        data: {
-                          flag: require('common/lang_japan.svg')
-                        }
-                      }]]
-                    }) %>
-                  </li>
-                  <li>
-                    <a href="<%- urlFuns.page('login') %>">
-                      <b><%- urlFuns.name('login') %></b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<%- urlFuns.page('register') %>" class="m-btn bg-x3c6e">
-                      <b class="px-2 inline-block"><%- urlFuns.name('register') %></b>
-                    </a>
-                  </li>
-                </ul> -->
-                <!-- 已登入 -->
-                <ul class="flex items-center space-x-16">
-                  <li>
-                    <%- require('component/mDropdown.ejs')({
-                      style: {
-                        main: 'jDropLang'
-                      },
-                      ctrlImg: {
-                        path: require('common/lang_english.svg'),
-                        alt: 'English'
-                      },
-                      options: [[{
-                        name: 'English',
-                        data: {
-                          flag: require('common/lang_english.svg')
-                        }
-                      }, {
-                        name: '简体中文',
-                        data: {
-                          flag: require('common/lang_china.svg')
-                        }
-                      }, {
-                        name: 'Indonesia',
-                        data: {
-                          flag: require('common/lang_indonesia.svg')
-                        }
-                      }, {
-                        name: '한국어',
-                        data: {
-                          flag: require('common/lang_korea.svg')
-                        }
-                      }, {
-                        name: 'Bahasa Melayu',
-                        data: {
-                          flag: require('common/lang_bahasaMelayu.svg')
-                        }
-                      }, {
-                        name: '日本語',
-                        data: {
-                          flag: require('common/lang_japan.svg')
-                        }
-                      }]]
-                    }) %>
-                  </li>
-                  <li>
-                    <%- require('component/mDropdown.ejs')({
-                      ctrlText: 'evonne3301',
-                      options: [[{
-                        name: urlFuns.name('account', 'profile'),
-                        href: urlFuns.page('account', 'profile')
-                      }, {
-                        name: urlFuns.name('account', 'bets'),
-                        href: urlFuns.page('account', 'bets', 'running')
-                      }, {
-                        name: urlFuns.name('deposit', 'history'),
-                        href: urlFuns.page('deposit', 'history')
-                      }, {
-                        name: urlFuns.name('account', 'statement'),
-                        href: urlFuns.page('account', 'statement')
-                      }, {
-                        name: urlFuns.name('account', 'myPromotion'),
-                        href: urlFuns.page('account', 'myPromotion')
-                      }, {
-                        name: urlFuns.name('account', 'referral'),
-                        href: urlFuns.page('account', 'referral')
-                      }], [{
-                        name: 'Sign Out'
-                      }]]
-                    }) %>
-                  </li>
-                  <li class="flex items-center">
-                    <p class="mr-4"><b>TMP 1,099.78</b></p>
-                    <button type="button" class="text-x88a1">
-                      <%- require('component/svg.ejs')({
+                <% if ( isLogout ) { %>
+                  <!-- 尚未登入 -->
+                  <ul class="flex items-center space-x-16">
+                    <li>
+                      <%- require('component/mDropdown.ejs')({
                         style: {
-                          main: 'm-hd-svg w-12 h-12'
+                          main: 'jDropLang'
                         },
-                        svgName: 'refresh'
+                        ctrlImg: {
+                          path: require('common/lang_english.svg'),
+                          alt: 'English'
+                        },
+                        options: [[{
+                          name: 'English',
+                          data: {
+                            flag: require('common/lang_english.svg')
+                          }
+                        }, {
+                          name: '简体中文',
+                          data: {
+                            flag: require('common/lang_china.svg')
+                          }
+                        }, {
+                          name: 'Indonesia',
+                          data: {
+                            flag: require('common/lang_indonesia.svg')
+                          }
+                        }, {
+                          name: '한국어',
+                          data: {
+                            flag: require('common/lang_korea.svg')
+                          }
+                        }, {
+                          name: 'Bahasa Melayu',
+                          data: {
+                            flag: require('common/lang_bahasaMelayu.svg')
+                          }
+                        }, {
+                          name: '日本語',
+                          data: {
+                            flag: require('common/lang_japan.svg')
+                          }
+                        }]]
                       }) %>
-                    </button>
-                  </li>
-                  <li>
-                    <a href="<%- urlFuns.page('deposit', 'deposit') %>" class="m-btn --green">
-                      <b class="px-2 inline-block"><%- urlFuns.name('deposit', 'deposit') %></b>
-                    </a>
-                  </li>
-                </ul>
-              <% } else { -%>
-                <!-- 尚未登入 -->
-                <!-- <ul class="-mx-4 flex items-center">
-                  <li class="px-4">
-                    <a href="<%- urlFuns.page('login') %>" class="m-btn --blue">
-                      <b class="px-4 block text-14"><%- urlFuns.name('login') %></b>
-                    </a>
-                  </li>
-                  <li class="px-4">
-                    <a href="<%- urlFuns.page('register') %>" class="m-btn --green">
-                      <b class="px-4 block text-14"><%- urlFuns.name('register') %></b>
-                    </a>
-                  </li>
-                </ul> -->
-                <!-- 已登入 -->
-                <div class="overflow-hidden">
-                  <ul class="-mx-2 flex items-center">
-                    <li class="px-2">
-                      <div class="m-amount py-2 pr-8 pl-2 flex items-center flex-row-reverse rounded-10 bg-x3368 jAmount">
-                        <p class="text-12 flex items-center">
-                          <em class="not-italic block">TMP</em>
-                          <span class="m-amount-number ml-4 block">1099.97</span>
-                        </p>
-                        <button type="button" class="m-amount-btn mr-4 w-16 h-16 text-x0030 rounded-8 flex items-center justify-center bg-xf overflow-hidden jAmountCtrl">
-                          <%- require('component/svg.ejs')({
-                            style: {
-                              main: `w-12 h-12`
-                            },
-                            svgName: 'eye_open'
-                          }) %>
-                          <%- require('component/svg.ejs')({
-                            style: {
-                              main: `w-12 h-12`
-                            },
-                            svgName: 'eye_close'
-                          }) %>
-                        </button>
-                      </div>
                     </li>
-                    <li class="px-2">
-                      <button type="button" class="block text-x88a1">
+                    <li>
+                      <a href="<%- urlFuns.page('login') %>">
+                        <b><%- urlFuns.name('login') %></b>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="<%- urlFuns.page('register') %>" class="m-btn bg-x3c6e">
+                        <b class="px-2 inline-block"><%- urlFuns.name('register') %></b>
+                      </a>
+                    </li>
+                  </ul>
+                <% } else { -%>
+                  <!-- 已登入 -->
+                  <ul class="flex items-center space-x-16">
+                    <li>
+                      <%- require('component/mDropdown.ejs')({
+                        style: {
+                          main: 'jDropLang'
+                        },
+                        ctrlImg: {
+                          path: require('common/lang_english.svg'),
+                          alt: 'English'
+                        },
+                        options: [[{
+                          name: 'English',
+                          data: {
+                            flag: require('common/lang_english.svg')
+                          }
+                        }, {
+                          name: '简体中文',
+                          data: {
+                            flag: require('common/lang_china.svg')
+                          }
+                        }, {
+                          name: 'Indonesia',
+                          data: {
+                            flag: require('common/lang_indonesia.svg')
+                          }
+                        }, {
+                          name: '한국어',
+                          data: {
+                            flag: require('common/lang_korea.svg')
+                          }
+                        }, {
+                          name: 'Bahasa Melayu',
+                          data: {
+                            flag: require('common/lang_bahasaMelayu.svg')
+                          }
+                        }, {
+                          name: '日本語',
+                          data: {
+                            flag: require('common/lang_japan.svg')
+                          }
+                        }]]
+                      }) %>
+                    </li>
+                    <li>
+                      <%- require('component/mDropdown.ejs')({
+                        ctrlText: 'evonne3301',
+                        options: [[{
+                          name: urlFuns.name('account', 'profile'),
+                          href: urlFuns.page('account', 'profile')
+                        }, {
+                          name: urlFuns.name('account', 'bets'),
+                          href: urlFuns.page('account', 'bets', 'running')
+                        }, {
+                          name: urlFuns.name('deposit', 'history'),
+                          href: urlFuns.page('deposit', 'history')
+                        }, {
+                          name: urlFuns.name('account', 'statement'),
+                          href: urlFuns.page('account', 'statement')
+                        }, {
+                          name: urlFuns.name('account', 'myPromotion'),
+                          href: urlFuns.page('account', 'myPromotion')
+                        }, {
+                          name: urlFuns.name('account', 'referral'),
+                          href: urlFuns.page('account', 'referral')
+                        }], [{
+                          name: 'Sign Out'
+                        }]]
+                      }) %>
+                    </li>
+                    <li class="flex items-center">
+                      <p class="mr-4"><b>TMP 1,099.78</b></p>
+                      <button type="button" class="text-x88a1">
                         <%- require('component/svg.ejs')({
                           style: {
                             main: 'm-hd-svg w-12 h-12'
@@ -478,8 +428,67 @@
                         }) %>
                       </button>
                     </li>
+                    <li>
+                      <a href="<%- urlFuns.page('deposit', 'deposit') %>" class="m-btn --green">
+                        <b class="px-2 inline-block"><%- urlFuns.name('deposit', 'deposit') %></b>
+                      </a>
+                    </li>
                   </ul>
-                </div>
+                <% } -%>
+              <% } else { -%>
+                <% if ( isLogout ) { %>
+                  <!-- 尚未登入 -->
+                  <ul class="-mx-4 flex items-center">
+                    <li class="px-4">
+                      <a href="<%- urlFuns.page('login') %>" class="m-btn --blue">
+                        <b class="px-4 block text-14"><%- urlFuns.name('login') %></b>
+                      </a>
+                    </li>
+                    <li class="px-4">
+                      <a href="<%- urlFuns.page('register') %>" class="m-btn --green">
+                        <b class="px-4 block text-14"><%- urlFuns.name('register') %></b>
+                      </a>
+                    </li>
+                  </ul>
+                <% } else { -%>
+                  <!-- 已登入 -->
+                  <div class="overflow-hidden">
+                    <ul class="-mx-2 flex items-center">
+                      <li class="px-2">
+                        <div class="m-amount py-2 pr-8 pl-2 flex items-center flex-row-reverse rounded-10 bg-x3368 jAmount">
+                          <p class="text-12 flex items-center">
+                            <em class="not-italic block">TMP</em>
+                            <span class="m-amount-number ml-4 block">1099.97</span>
+                          </p>
+                          <button type="button" class="m-amount-btn mr-4 w-16 h-16 text-x0030 rounded-8 flex items-center justify-center bg-xf overflow-hidden jAmountCtrl">
+                            <%- require('component/svg.ejs')({
+                              style: {
+                                main: `w-12 h-12`
+                              },
+                              svgName: 'eye_open'
+                            }) %>
+                            <%- require('component/svg.ejs')({
+                              style: {
+                                main: `w-12 h-12`
+                              },
+                              svgName: 'eye_close'
+                            }) %>
+                          </button>
+                        </div>
+                      </li>
+                      <li class="px-2">
+                        <button type="button" class="block text-x88a1">
+                          <%- require('component/svg.ejs')({
+                            style: {
+                              main: 'm-hd-svg w-12 h-12'
+                            },
+                            svgName: 'refresh'
+                          }) %>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                <% } -%>
               <% } -%>
             </div>  
           </div>

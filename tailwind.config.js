@@ -158,6 +158,9 @@ module.exports = {
       height: {
         ...size
       },
+      maxWidth: {
+        ...size
+      },
       maxHeight: {
         ...size
       },

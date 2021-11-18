@@ -1,0 +1,285 @@
+<%- require('component/mBanner.ejs')({
+  isMobile: isMobile
+}) %>
+<div class="list mt-48 space-y-48 max-cnt">
+  <!-- Sports Betting -->
+  <div class="betting">
+    <header class="betting-hd flex items-center mb-20">
+      <h2 class="text-24 text-white flex-grow">
+        <strong>Sports Betting</strong>
+      </h2>
+      <div class="flex-shrink-0">
+        <a href="<%- urlFuns.page('sports') %>" class="flex items-center text-xfb2e">
+          <b class="text-16">See All</b>
+          <%- require('component/svg.ejs')({
+            style: {
+              main: 'ml-8 w-24 h-24'
+            },
+            svgName: 'arrow'
+          }) %>
+        </a>
+      </div>
+    </header>
+    <div class="betting-bd">
+      <ul class="-mx-8 -my-12 flex items-center flex-wrap">
+        <%
+          const betting = [{
+            name: 'SBO Sports',
+            img: require('home/SBO_Sports.png')
+          }, {
+            name: 'SABA Sports',
+            img: require('home/SABA_Sports.png')
+          }, {
+            name: 'SBO Sports WAP',
+            img: require('home/SBO_Sports_WAP.png')
+          }];
+        -%>
+        <% for( let i = 0; i < betting.length; i += 1 ) { -%>
+          <% const { name, img } = betting[i]; -%>
+          <li class="px-8 py-12 w-4/12">
+            <div class="p-24 h-208 flex flex-col justify-center rounded-8 bg-x1241 relative">
+              <div class="space-y-16 w-5/11">
+                <h3 class="text-28"><b><%- name %></b></h3>
+                <a href="javascript:;" class="m-btn --green" target="_blank" rel="noopener">
+                  <b class="px-10 block">PLAY NOW</b>
+                </a>
+              </div>
+              <%- require('component/img.ejs')({
+                style: {
+                  main: 'betting-fig right-0 bottom-0 absolute'
+                },
+                path: img,
+                alt: name
+              }) %>
+            </div>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Promotions -->
+  <div class="promotions">
+    <header class="promotions-hd flex items-center mb-20">
+      <h2 class="text-24 text-white flex-grow">
+        <strong>Promotions</strong>
+      </h2>
+      <div class="flex-shrink-0">
+        <a href="<%- urlFuns.page('promotions') %>" class="flex items-center text-xfb2e">
+          <b class="text-16">See All</b>
+          <%- require('component/svg.ejs')({
+            style: {
+              main: 'ml-8 w-24 h-24'
+            },
+            svgName: 'arrow'
+          }) %>
+        </a>
+      </div>
+    </header>
+    <div class="promotions-bd overflow-hidden">
+      <ul class="-mx-8 -my-12 flex items-center flex-wrap">
+        <%
+          const promotions = [{
+            img: 'https://myalcom.com.my/images/1597117406639rvcopy_1597117396.jpg'
+          }, {
+            img: 'https://myalcom.com.my/images/1602213282881rvcopy_1602213283.jpg'
+          }, {
+            img: 'http://legardenzcafe.com/wp-content/uploads/2019/01/02.png'
+          }];
+        -%>
+        <% for( let i = 0; i < promotions.length; i += 1 ) { -%>
+          <% const { img } = promotions[i]; -%>
+          <li class="px-8 py-12 w-4/12">
+            <div class="rounded-8 bg-x1241 overflow-hidden relative">
+              <a href="javascript:;" class="promotions-block w-full h-140 block" target="_blank" rel="noopener">
+                <%- require('component/img.ejs')({
+                  style: {
+                    main: 'promotions-fig top-1/2 left-1/2 translate-1/2 relative'
+                  },
+                  path: img,
+                  alt: `PromotionsName-${i}`
+                }) %>
+                <div class="promotions-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
+                  <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
+                    <b class="px-10 block">PLAY NOW</b>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Popular Games -->
+  <div class="m-product">
+    <header class="m-product-hd flex items-center mb-20">
+      <h2 class="text-24 text-white flex-grow">
+        <strong>Popular Games</strong>
+      </h2>
+      <div class="flex-shrink-0">
+        <a href="<%- urlFuns.page('games') %>" class="flex items-center text-xfb2e">
+          <b class="text-16">See All</b>
+          <%- require('component/svg.ejs')({
+            style: {
+              main: 'ml-8 w-24 h-24'
+            },
+            svgName: 'arrow'
+          }) %>
+        </a>
+      </div>
+    </header>
+    <div class="m-product-bd overflow-hidden">
+      <ul class="-mx-8 -my-12 flex items-center flex-wrap">
+        <%
+          const popular = [{
+            img: 'https://www.yggdrasilgaming.com/w/files/2016/10/Thumbnail-Nirvana.jpg',
+            status: '--hot'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2016/01/Thumbnail-Incinerator.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/08/Thumbnail-VikingsGoWild.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2018/08/Thumbnail-HanzosDojo.jpg',
+            status: '--new'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Atlantis.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2019/09/Yggdrasil-Thumbnail-GoldenChipRoulette.png'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/04/Thumbnail-JokerMillions.jpg'
+          }];
+        -%>
+        <% for( let i = 0; i < popular.length; i += 1 ) { -%>
+          <% const { img, status } = popular[i]; -%>
+          <li class="m-product-item px-8 py-12 w-185">
+            <div class="m-product-block<%- status ? ` ${status}` : '' %> h-full relative">
+              <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
+                <%- require('component/img.ejs')({
+                  style: {
+                    main: 'w-2full left-1/2 h-105 translate-x-1/2 text-center relative',
+                    img: 'w-auto h-full inline-block'
+                  },
+                  path: img,
+                  alt: `gameName-${i}`
+                }) %>
+                <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
+                  <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
+                    <b class="px-10 block">PLAY NOW</b>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+  </div>
+
+  <!-- New Games -->
+  <div class="m-product">
+    <header class="m-product-hd flex items-center mb-20">
+      <h2 class="text-24 text-white flex-grow">
+        <strong>New Games</strong>
+      </h2>
+      <div class="flex-shrink-0">
+        <a href="<%- urlFuns.page('games') %>" class="flex items-center text-xfb2e">
+          <b class="text-16">See All</b>
+          <%- require('component/svg.ejs')({
+            style: {
+              main: 'ml-8 w-24 h-24'
+            },
+            svgName: 'arrow'
+          }) %>
+        </a>
+      </div>
+    </header>
+    <div class="m-product-bd overflow-hidden">
+      <ul class="-mx-8 -my-12 flex items-center flex-wrap">
+        <%
+          const newGames = [{
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/09/Thumbnail-HolmesAndTheStolenStones.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Elemental.jpg',
+            status: '--new'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2018/03/Thumbnail-LuchaManiacs.jpg',
+            status: '--hot'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-GIZA.jpg'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/10/Yggdrasil-Gaming-Slot-Game-Thumbnail-Hades.png'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2020/07/Yggdrasil-Thumbnail-MedusaFortune.jpg',
+            status: '--hot'
+          }, {
+            img: 'https://www.yggdrasilgaming.com/w/files/2015/10/Thumbnail-CazinoZeppelin.jpg'
+          }];
+        -%>
+        <% for( let i = 0; i < newGames.length; i += 1 ) { -%>
+          <% const { img, status } = newGames[i]; -%>
+          <li class="m-product-item px-8 py-12 w-185">
+            <div class="m-product-block<%- status ? ` ${status}` : '' %> h-full relative">
+              <a href="javascript:;" class="block border-1 border-solid border-x1241 rounded-8 bg-x1241 overflow-hidden" target="_blank" rel="noopener">
+                <%- require('component/img.ejs')({
+                  style: {
+                    main: 'w-2full left-1/2 h-105 translate-x-1/2 text-center relative',
+                    img: 'w-auto h-full inline-block'
+                  },
+                  path: img,
+                  alt: `gameName-${i}`
+                }) %>
+                <div class="m-product-ctrl top-0 left-0 w-full h-full bg-x001e-80 flex flex-col items-center justify-center transition-opacity absolute z-1">
+                  <span class="px-8 py-8 inline-block rounded-16 bg-x3c6e">
+                    <b class="px-10 block">PLAY NOW</b>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Game Providers -->
+  <div class="providers">
+    <header class="providers-hd flex items-center mb-20">
+      <h2 class="text-24 text-white flex-grow">
+        <strong>Game Providers</strong>
+      </h2>
+      <div class="flex-shrink-0">
+        <a href="<%- urlFuns.page('games') %>" class="flex items-center text-xfb2e">
+          <b class="text-16">See All</b>
+          <%- require('component/svg.ejs')({
+            style: {
+              main: 'ml-8 w-24 h-24'
+            },
+            svgName: 'arrow'
+          }) %>
+        </a>
+      </div>
+    </header>
+    <div class="providers-bd overflow-hidden">
+      <ul class="-mx-8 -my-12 flex items-center flex-wrap">
+         <% for( let i = 0; i < 6; i += 1 ) { -%>
+          <li class="providers-item px-8 py-12 w-2/12">
+            <div class="providers-block">
+              <a href="javascript:;" class="py-32 h-100 block rounded-8 bg-x1241 overflow-hidden text-center" target="_blank" rel="noopener">
+                <%- require('component/img.ejs')({
+                  style: {
+                    main: 'h-full inline-block',
+                    img: 'w-auto h-full'
+                  },
+                  path: 'static/img/fake/logo_yggdrasil.svg',
+                  alt: `logoName-${i}`
+                }) %>
+              </a>
+            </div>
+          </li>
+        <% } -%>
+      </ul>
+    </div>
+  </div>
+</div>
