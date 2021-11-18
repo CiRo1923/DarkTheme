@@ -27,12 +27,11 @@
     </ul>
     <div class="mr-16 w-48 h-48 rounded-1/2 overflow-hidden flex-shrink-0">
       <%- require('component/img.ejs')({
-        lazy: false,
         style: {
-          main: 'left-1/2 w-2full h-full translate-x-1/2 relative',
+          main: 'w-48 h-48 relative',
           img: 'w-auto h-full'
         },
-        path: 'https://storage.googleapis.com/www-cw-com-tw/article/201810/article-5bd182cf13ebb.jpg',
+        path: require('account/default_photo.svg'),
         alt: 'WJ18956344'
       }) %>
     </div>

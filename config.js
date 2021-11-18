@@ -41,14 +41,14 @@ module.exports = {
       // promotions.HtmlWebpackPlugin,
       // virtualSports.HtmlWebpackPlugin,
       // games.HtmlWebpackPlugin,
-      // accountAccount.HtmlWebpackPlugin,
+      accountAccount.HtmlWebpackPlugin
       // accountBalance.HtmlWebpackPlugin,
       // accountBets.HtmlWebpackPlugin,
       // accountForm.HtmlWebpackPlugin,
       // accountPeofile.HtmlWebpackPlugin,
       // accountPromotion.HtmlWebpackPlugin,
       // accountReferral.HtmlWebpackPlugin,
-      deposit.HtmlWebpackPlugin
+      // deposit.HtmlWebpackPlugin,
       // statement.HtmlWebpackPlugin,
       // bets.HtmlWebpackPlugin,
       // contact.HtmlWebpackPluginaccount
@@ -56,22 +56,22 @@ module.exports = {
 
     if (process.env.NODE_ENV === 'production') {
       publish = def.concat(
-        // index.HtmlWebpackPlugin,
-        // sports.HtmlWebpackPlugin,
-        // liveCasion.HtmlWebpackPlugin,
-        // promotions.HtmlWebpackPlugin,
-        // virtualSports.HtmlWebpackPlugin,
-        // games.HtmlWebpackPlugin,
-        // deposit.HtmlWebpackPlugin,
-        // statement.HtmlWebpackPlugin,
-        // contact.HtmlWebpackPlugin,
-        accountAccount.HtmlWebpackPlugin,
-        accountBalance.HtmlWebpackPlugin,
-        accountBets.HtmlWebpackPlugin,
-        accountForm.HtmlWebpackPlugin,
-        accountPeofile.HtmlWebpackPlugin,
-        accountPromotion.HtmlWebpackPlugin,
-        accountReferral.HtmlWebpackPlugin
+        index.HtmlWebpackPlugin,
+        sports.HtmlWebpackPlugin,
+        liveCasion.HtmlWebpackPlugin,
+        promotions.HtmlWebpackPlugin,
+        virtualSports.HtmlWebpackPlugin,
+        games.HtmlWebpackPlugin,
+        deposit.HtmlWebpackPlugin,
+        statement.HtmlWebpackPlugin,
+        contact.HtmlWebpackPlugin
+        // accountAccount.HtmlWebpackPlugin,
+        // accountBalance.HtmlWebpackPlugin,
+        // accountBets.HtmlWebpackPlugin,
+        // accountForm.HtmlWebpackPlugin,
+        // accountPeofile.HtmlWebpackPlugin,
+        // accountPromotion.HtmlWebpackPlugin,
+        // accountReferral.HtmlWebpackPlugin
       );
     }
 
