@@ -2,7 +2,7 @@ import 'core-js/stable';
 import axios from 'axios';
 import LazyLoad from 'vanilla-lazyload';
 import {
-  prjs, j$, svgRequire, device, validate, validateReset
+  prjs, j$, svgRequire, device, validate, validateReset, documentOff
 } from '_factory.js';
 
 let lazyLoadFun = () => {
@@ -43,6 +43,36 @@ export const dropdown = () => {
   //     j$(dropClass.main).removeClass('active');
   //   });
   // });
+};
+
+/* Select */
+export const select = () => {
+  const SelectClass = {
+    main: '.jSelect',
+    ctrl: '.jSelectCtrl',
+    bd: '.jSelectBd'
+  };
+  const $SelectCtrl = j$(SelectClass.ctrl);
+
+  for (let i = 0; i < $SelectCtrl[0].length; i += 1) {
+    const $Select = $SelectCtrl.eq(i).parents(SelectClass.main);
+    const $SelectBd = $Select.find(SelectClass.bd);
+    const height = `${$Select.find(`${SelectClass.bd} > *`).height() + parseFloat($Select.find(`${SelectClass.bd} > *`).css('margin-top'), 10)}px`;
+
+    $SelectBd.css('max-height', height);
+  }
+
+  $SelectCtrl.on('click', (e) => {
+    const $this = j$(e.$this);
+    const $Select = $this.parents(SelectClass.main);
+
+    // j$(SelectClass.main).removeClass('active');
+    $Select.toggleClass('active');
+
+    documentOff(`${SelectClass.main} > *`, () => {
+      j$(SelectClass.main).removeClass('active');
+    });
+  });
 };
 
 /* tinySlider */

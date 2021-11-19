@@ -50,7 +50,7 @@
         <% } -%>
       </ul>
     </div>
-    <form method="POST" class="ml-16 flex-shrink-0 overflow-hidden">
+    <form method="POST" class="ml-16 flex-shrink-0">
       <ul class="-mx-10 flex">
         <li class="px-10 w-160">
           <div class="m-form">
@@ -71,12 +71,50 @@
         </li>
         <li class="px-10">
           <div class="m-form">
-            <div class="m-form-item">
-              <div class="m-form-elem --bg">
-                <select class="m-form-type">
-                  <option value="">Select</option>
-                  <option value="1">Providers</option>
-                </select>
+            <div class="m-form-select --bg relative jSelect">
+              <button type="button" class="m-form-select-hd block jSelectCtrl">
+                <span>Providers</span>
+              </button>
+              <div class="m-form-select-bd right-0 min-w-200 overflow-hidden transition-max-h absolute jSelectBd">
+                <ul class="m-form-select-cnt mt-10 bg-x3368 rounded-6 relative">
+                  <%
+                    const options = [{
+                      text: 'Flow Gaming',
+                      icon: require('games/icons_flowgaming.png')
+                    }, {
+                      text: 'FunkyGames',
+                      icon: require('games/icons_funky.png')
+                    }, {
+                      text: 'Yggdrasil',
+                      icon: require('games/icons_yggd.png')
+                    }, {
+                      text: 'CQNine',
+                      icon: require('games/icons_cq9.png')
+                    }, {
+                      text: 'WorldMatch',
+                      icon: require('games/icons_worldmatch.png')
+                    }, {
+                      text: 'JokerGaming',
+                      icon: require('games/icons_jokergaming.png')
+                    }]
+                  -%>
+                  <% for( let i = 0; i < options.length; i += 1 ) { -%>
+                    <% const { text, icon } = options[i]; -%>
+                    <li class="m-form-select-item<%- i === 0 ? ' active' : '' %>">
+                      <a href="<%- urlFuns.page('games') %>" class="flex flex-row-reverse items-center">
+                        <em class="block not-italic flex-grow"><%- text %></em>
+                        <%- require('component/img.ejs')({
+                          style: {
+                            main: 'mr-16 w-24 h-24 flex-shrink-0',
+                            img: 'w-full h-full'
+                          },
+                          path: icon,
+                          alt: text
+                        }) %>
+                      </a>
+                    </li>
+                  <% } -%>
+                </ul>
               </div>
             </div>
           </div>

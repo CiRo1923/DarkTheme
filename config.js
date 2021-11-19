@@ -14,6 +14,7 @@ const accountReferral = require('./htmlPage/account_referral.js');
 const deposit = require('./htmlPage/deposit.js');
 const statement = require('./htmlPage/statement.js');
 const contact = require('./htmlPage/contact.js');
+const text = require('./htmlPage/text.js');
 
 module.exports = {
   ieVersion: 10, // 10 或 0
@@ -40,8 +41,8 @@ module.exports = {
       // liveCasion.HtmlWebpackPlugin,
       // promotions.HtmlWebpackPlugin,
       // virtualSports.HtmlWebpackPlugin,
-      // games.HtmlWebpackPlugin,
-      accountAccount.HtmlWebpackPlugin
+      games.HtmlWebpackPlugin
+      // accountAccount.HtmlWebpackPlugin,
       // accountBalance.HtmlWebpackPlugin,
       // accountBets.HtmlWebpackPlugin,
       // accountForm.HtmlWebpackPlugin,
@@ -51,7 +52,8 @@ module.exports = {
       // deposit.HtmlWebpackPlugin,
       // statement.HtmlWebpackPlugin,
       // bets.HtmlWebpackPlugin,
-      // contact.HtmlWebpackPluginaccount
+      // contact.HtmlWebpackPluginaccount,
+      // text.HtmlWebpackPlugin
     );
 
     if (process.env.NODE_ENV === 'production') {
@@ -64,7 +66,8 @@ module.exports = {
         games.HtmlWebpackPlugin,
         deposit.HtmlWebpackPlugin,
         statement.HtmlWebpackPlugin,
-        contact.HtmlWebpackPlugin
+        contact.HtmlWebpackPlugin,
+        text.HtmlWebpackPlugin
         // accountAccount.HtmlWebpackPlugin,
         // accountBalance.HtmlWebpackPlugin,
         // accountBets.HtmlWebpackPlugin,

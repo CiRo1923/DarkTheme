@@ -132,6 +132,84 @@ select.m-form-type {
   }
 }
 
+.m-form-select {
+  &:not(.active) {
+    .m-form-select-bd {
+      max-height: 0 !important;
+    }
+  }
+
+  &.\-\-bg {
+    .m-form-select-hd {
+      @apply bg-x1241 text-xf;
+
+      &::after {
+        border-top-color: #8486a1;
+      }
+    }
+  }
+
+  &:not(.\-\-bg) {
+    .m-form-select-hd {
+      @apply bg-xf text-x88a1;
+
+      &::after {
+        border-top-color: #000;
+      }
+    }
+  }
+}
+
+.m-form-select-hd {
+  @apply py-8 px-6 text-14 w-full text-left flex items-center rounded-3 cursor-pointer;
+
+  &::after {
+    content: "";
+    border-width: 6px 4px 0 4px;
+    border-color: transparent;
+
+    @apply mr-4 ml-12 w-0 h-0 border-solid block flex-shrink-0;
+  }
+
+  > * {
+    @apply flex-grow;
+  }
+}
+
+.m-form-select-item {
+  &.active {
+    > * {
+      @apply bg-x88a1;
+    }
+  }
+
+  > * {
+    @apply px-16 py-8;
+  }
+}
+
 .m-form-error {
   @apply pt-5 text-12 block text-xf25c;
+}
+
+.m-form-select-bd {
+  transform: translateX(5px);
+
+  @apply text-14 z-2;
+}
+
+.m-form-select-cnt {
+  box-shadow: 0 3px 12px 0 rgba(#000, 0.5);
+
+  @apply py-8;
+
+  &::before {
+    content: "";
+    right: 13px;
+    border-width: 0 7px 8px 7px;
+    border-color: transparent transparent #393c68 transparent;
+    transform: translateY(-100%);
+
+    @apply top-0 w-0 h-0 border-solid absolute;
+  }
 }
