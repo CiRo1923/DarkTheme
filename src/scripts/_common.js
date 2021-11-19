@@ -1,3 +1,4 @@
+import 'core-js/stable';
 import axios from 'axios';
 import LazyLoad from 'vanilla-lazyload';
 import {

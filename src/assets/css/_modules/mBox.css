@@ -4,6 +4,10 @@
 
     @apply w-0 h-0 opacity-0;
   }
+
+  &.\-\-show {
+    transition: width 0s, height 0s, opacity var(--anim-time);
+  }
 }
 
 .m-box-tools {
