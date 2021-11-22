@@ -1,0 +1,17 @@
+.langCtrl {
+  &.active {
+    svg {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &:not(.active) {
+    svg {
+      transform: rotate(90deg);
+    }
+
+    & + .langBd {
+      max-height: 0 !important;
+    }
+  }
+}

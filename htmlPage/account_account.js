@@ -6,5 +6,12 @@ module.exports = {
     blank: true,
     description: '',
     chunks: ['account/account_m']
+  }, {
+    filename: 'mobile/accountOut.html',
+    template: '_shared/layout.ejs',
+    action: 'account',
+    blank: true,
+    description: '',
+    chunks: ['account/account_m']
   }]
 };

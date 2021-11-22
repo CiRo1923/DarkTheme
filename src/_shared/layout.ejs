@@ -61,6 +61,10 @@
       href: `${isMobile ? '../mobile/' : ''}account.html`,
       value: 'account',
     }, {
+      name: 'Account',
+      href: `${isMobile ? '../mobile/' : ''}accountOut.html`,
+      value: 'accountOut',
+    }, {
       name: 'Profile',
       href: `${isMobile ? '../mobile/' : ''}profile.html`,
       value: 'profile',
@@ -698,7 +702,7 @@
                 }, {
                   name: urlFuns.name('account', 'account'),
                   icon: 'person_o',
-                  href: urlFuns.page('account', 'account'),
+                  href: isLogout ? urlFuns.page('account', 'accountOut') : urlFuns.page('account', 'account'),
                   show: true,
                   value: 'account'
                 }]

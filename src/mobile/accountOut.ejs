@@ -7,22 +7,9 @@
   <div class="p-20 flex flex-row-reverse items-center bg-x1241 rounded-8">
     <ul class="space-y-8 flex-grow">
       <li>
-        <p>
-          <b class="text-14">WJ18956344</b>
-        </p>
-      </li>
-      <li>
-        <div class="flex items-center">
-          <p class="mr-8">TMP 1,099.75</p>
-          <button type="button" class="block">
-            <%- require('component/svg.ejs')({
-              style: {
-                main: 'w-12 h-12',
-              },
-              svgName: 'refresh'
-            }) %>
-          </button>
-        </div>
+        <a href="<%- urlFuns.page('login') %>">
+          <b class="text-14">Sign In</b>
+        </a>
       </li>
     </ul>
     <div class="mr-16 w-48 h-48 rounded-1/2 overflow-hidden flex-shrink-0">
@@ -144,10 +131,5 @@
         <% } -%>
       </ul>
     </div>
-  </div>
-  <div class="mt-24">
-    <button type="button" class="p-16 w-full bg-x1241 rounded-8 block text-center">
-      <b class="text-14">Sign Out</b>
-    </button>
   </div>
 </div>
